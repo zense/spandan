@@ -13,5 +13,5 @@
 /tmp
 /.idea
 /db/*.sqlite3
-/config/secrets.yml
+#/config/secrets.yml
 #config/database.yml
