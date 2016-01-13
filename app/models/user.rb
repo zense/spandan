@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-	devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+	devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
 	validates :student_type, inclusion: { in: ['mtech', 'imtech','alumni'] }
 	validates :roll_no, uniqueness: true, presence: true

@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+
+  # Below code is to permit some custom fields added in devise registration
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
     protected

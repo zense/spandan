@@ -47,3 +47,6 @@ end
 
 # using devise for registration and login
 gem 'devise'
+
+# Fiiiigaro
+gem "figaro"
