@@ -45,3 +45,8 @@ group :development do
   gem 'spring'
 end
 
+# using devise for registration and login
+gem 'devise'
+
+# Fiiiigaro
+gem "figaro"
