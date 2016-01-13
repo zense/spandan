@@ -4,6 +4,16 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :roll_no %><br />
+    <%= f.text_field :roll_no, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
@@ -21,9 +31,20 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :year_of_joining %><br />
+    <%= f.select :year_of_joining, [['2015','2015'],['2014','2014'],['2013','2013'],['2012','2012'],['2011','2011'],['2010','2010'],['2009','2009'],['2008','2008'],['2007','2007'],['2006','2006'],['2005','2005'],['2004','2004'],['2003','2003'],['2002','2002'],['2001','2001'],['2000','2000'],['1999','1999']] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :student_type %><br />
+    <%= f.select :student_type, [['MTech','mtech'],['iMtech','imtech'],['Alumni','alumni']] %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+
 <% end %>
 
 <%= render "devise/shared/links" %>

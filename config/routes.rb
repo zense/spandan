@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'registration/index'
+
   devise_for :users
   get 'welcome/index'
 
