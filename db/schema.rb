@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113111847) do
+ActiveRecord::Schema.define(version: 20160114153353) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255,                 null: false
@@ -37,10 +37,25 @@ ActiveRecord::Schema.define(version: 20160113111847) do
     t.string   "year_of_joining",        limit: 255, default: ""
     t.string   "student_type",           limit: 255, default: ""
     t.boolean  "spoc",                               default: false
+    t.integer  "spoc_event_id",          limit: 4,   default: 0
+    t.integer  "volunteer_event_id",     limit: 4,   default: 0
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "volunteer_requests", force: :cascade do |t|
+    t.integer  "user_id",     limit: 4
+    t.integer  "priority1",   limit: 4
+    t.integer  "priority2",   limit: 4
+    t.integer  "priority3",   limit: 4
+    t.boolean  "approved",              default: false
+    t.integer  "event_id",    limit: 4, default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.datetime "approved_on"
+    t.integer  "approved_by", limit: 4
+  end
 
 end
