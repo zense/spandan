@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114153353) do
+ActiveRecord::Schema.define(version: 20160114180401) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255,                 null: false
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20160114153353) do
     t.datetime "updated_at",                            null: false
     t.datetime "approved_on"
     t.integer  "approved_by", limit: 4
+    t.integer  "priority4",   limit: 4
+    t.integer  "tshirt_size", limit: 2
   end
 
 end
