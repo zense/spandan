@@ -11,31 +11,53 @@ class RegistrationController < ApplicationController
 		end
 	end
 
+	# Where user can register to volunteer
 	def volunteer_registration
+		@event_array = []
+		# add events to the array from the database
+		Event.all.each do |event|
+		  @event_array.push([event.name,event.id])
+		end
 
 		# Array of constants
-		@event_array = [['1',1],['2',2],['3',3],['4',4]]
 		@tshirt_sizes = [['S',1],['M',2],['L',3],['XL',4],['XXL',5]]
-
 		@VolunteerRequest = VolunteerRequest.new
-
 	end
 
+	# Volunteer registration form processing
 	def volunteer_registration_process
+		# Validation: if selected event is in the DB
+		allEventsIDs = []
+		Event.all.each do |event|
+			allEventsIDs.push(event.id)
+		end
 
-		@VolunteerRequest = VolunteerRequest.new(volunteer_params)
-		@VolunteerRequest.user_id = current_user.id
+		# Check if selected event id in array
+		if allEventsIDs.include?(params[:priority1].to_i) and allEventsIDs.include?(params[:priority2].to_i) and allEventsIDs.include?(params[:priority3].to_i) and allEventsIDs.include?(params[:priority4].to_i) 
 
-		# Array of constants
-		@event_array = [['1',1],['2',2],['3',3],['4',4]]
-		@tshirt_sizes = [['S',1],['M',2],['L',3],['XL',4],['XXL',5]]
+			@VolunteerRequest = VolunteerRequest.new(volunteer_params)
+			@VolunteerRequest.user_id = current_user.id
 
-		if @VolunteerRequest.save
-		  # May be show a volunteer registration done page with further instructions?
-		  render 'volunteer_success'
-		  #redirect_to controller: 'registration', action: 'index'
+			@event_array = []
+			# add events to the array from the database
+			Event.all.each do |event|
+			  @event_array.push([event.name,event.id])
+			end
+
+			# Array of constants
+			@tshirt_sizes = [['S',1],['M',2],['L',3],['XL',4],['XXL',5]]
+
+			if @VolunteerRequest.save
+			  # May be show a volunteer registration done page with further instructions?
+			  render 'volunteer_success'
+			  #redirect_to controller: 'registration', action: 'index'
+			else
+			  render 'volunteer_registration'
+			end
+
 		else
-		  render 'volunteer_registration'
+			# If provided priority id is not in DB
+			redirect_to controller: 'registration', action: 'volunteer_registration'
 		end
 
 	end
