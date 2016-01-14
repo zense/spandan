@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   get 'registration/index'
 
   devise_for :users
