@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  get 'registration/index'
 
   devise_for :users
   get 'welcome/index'
+
+  # registration home page
+  get 'registration/index'
+
+  # route to volunteer registration form
+  get 'registration/volunteer_registration', to: 'registration#volunteer_registration'
+  post 'registration/volunteer_registration', to: 'registration#volunteer_registration_process'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
