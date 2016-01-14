@@ -1,0 +1,59 @@
+<html>
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%=raw f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :rules %><br>
+    <%=raw f.text_area :rules %>
+  </div>
+  <div class="field">
+    <%= f.label :minimum_team_size %><br>
+    <%= f.number_field :minimum_team_size %>
+  </div>
+  <div class="field">
+    <%= f.label :maximum_team_size %><br>
+    <%= f.number_field :maximum_team_size %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_details %><br>
+    <%=raw f.text_area :contact_details %>
+  </div>
+  <div class="field">
+    <%= f.label :last_date %><br>
+    <%= f.date_select :last_date %>
+  </div>
+  <div class="field">
+    <%= f.label :event_type %><br>
+    <%= f.number_field :event_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<script>
+$(function() {
+$('#event_description').froalaEditor()
+$('#event_rules').froalaEditor()
+$('#event_contact_details').froalaEditor()
+
+});
+</script>
+</html>

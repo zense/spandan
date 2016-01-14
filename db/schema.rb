@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160114180401) do
+=======
+ActiveRecord::Schema.define(version: 20160114181553) do
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.text     "description",       limit: 65535
+    t.text     "rules",             limit: 65535
+    t.integer  "minimum_team_size", limit: 4
+    t.integer  "maximum_team_size", limit: 4
+    t.text     "contact_details",   limit: 65535
+    t.date     "last_date"
+    t.integer  "event_type",        limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+>>>>>>> zense/master
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255,                 null: false
