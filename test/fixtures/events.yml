@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Name: MyString
+  Description: MyText
+  Rules: MyText
+  Minimum_team_size: 1
+  Maximum_team_size: 1
+  SPOC_of_the_event: MyString
+  Contact_Details: MyText
+
+two:
+  Name: MyString
+  Description: MyText
+  Rules: MyText
+  Minimum_team_size: 1
+  Maximum_team_size: 1
+  SPOC_of_the_event: MyString
+  Contact_Details: MyText

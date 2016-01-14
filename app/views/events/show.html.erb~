@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.Name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.Description %>
+</p>
+
+<p>
+  <strong>Rules:</strong>
+  <%= @event.Rules %>
+</p>
+
+<p>
+  <strong>Minimum team size:</strong>
+  <%= @event.Minimum_team_size %>
+</p>
+
+<p>
+  <strong>Maximum team size:</strong>
+  <%= @event.Maximum_team_size %>
+</p>
+
+<p>
+  <strong>Spoc of the event:</strong>
+  <%= @event.SPOC_of_the_event %>
+</p>
+
+<p>
+  <strong>Contact details:</strong>
+  <%= @event.Contact_Details %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
