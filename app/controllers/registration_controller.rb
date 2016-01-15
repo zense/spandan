@@ -20,7 +20,8 @@ class RegistrationController < ApplicationController
 		end
 
 		# Array of constants
-		@tshirt_sizes = [['S',1],['M',2],['L',3],['XL',4],['XXL',5]]
+		@tshirt_sizes = [['S',TSHIRTSIZES[:S]],['M',TSHIRTSIZES[:M]],['L',TSHIRTSIZES[:L]],['XL',TSHIRTSIZES[:XL]],['XXL',TSHIRTSIZES[:XXL]]]
+
 		@VolunteerRequest = VolunteerRequest.new
 	end
 
@@ -45,7 +46,7 @@ class RegistrationController < ApplicationController
 			end
 
 			# Array of constants
-			@tshirt_sizes = [['S',1],['M',2],['L',3],['XL',4],['XXL',5]]
+			@tshirt_sizes = [['S',TSHIRTSIZES[:S]],['M',TSHIRTSIZES[:M]],['L',TSHIRTSIZES[:L]],['XL',TSHIRTSIZES[:XL]],['XXL',TSHIRTSIZES[:XXL]]]
 
 			if @VolunteerRequest.save
 			  # May be show a volunteer registration done page with further instructions?
