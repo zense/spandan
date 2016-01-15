@@ -1,0 +1,38 @@
+<h1>Register as volunteer</h1>
+
+<% if @VolunteerRequest.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@VolunteerRequest.errors.count, "error") %> prohibited
+        this from being saved:
+      </h2>
+      <ul>
+        <% @VolunteerRequest.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<%= form_tag "/registration/volunteer_registration" do %>
+
+  <!-- Priority picking -->
+  <%= label_tag(:priority1) %>
+  <%= select_tag(:priority1, options_for_select(@event_array)) %><br />
+
+  <%= label_tag(:priority2) %>
+  <%= select_tag(:priority2, options_for_select(@event_array)) %><br />
+
+  <%= label_tag(:priority3) %>
+  <%= select_tag(:priority3, options_for_select(@event_array)) %><br />
+
+  <%= label_tag(:priority4) %>
+  <%= select_tag(:priority4, options_for_select(@event_array)) %><br />
+
+  <!-- T-Shirt size picking -->
+  <%= label_tag(:tshirt_size) %>
+  <%= select_tag(:tshirt_size, options_for_select(@tshirt_sizes)) %><br />
+
+  <%= submit_tag "Save" %>
+<% end %>

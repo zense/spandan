@@ -1,6 +1,11 @@
 <h1>After Registration</h1>
 <p>add things here to do after login</p>
 
+<!-- register as a volunteer link: show only if not volunteered before-->
+<% if @showVolunteerLink %>
+<%= link_to 'Register as a volunteer', :controller => :registration, :action => :volunteer_registration  %>   
+<% end %>
+
 <!-- various links that can be included for login/logout/register/editprofile etc -->
 <% if user_signed_in? %>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        

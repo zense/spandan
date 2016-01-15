@@ -1,0 +1,32 @@
+<h1>Admin panel</h1>
+
+Registration stats
+<ul>
+	<li>Total events: <%= @numEvents %></li>
+	<li>Total registrations: <%= @numRegs %>
+		<ul>
+			<li>Total Alumni Registrations: <%= @numAlumni %></li>
+			<li>Total MTech Registrations: <%= @numMTech %></li>
+			<li>Total iMtech Registrations: <%= @numIMtech %></li>
+		</ul>
+	</li>
+</ul>
+
+<ul>
+	<li>Volunteers data and approval: <%= link_to 'View', :controller => :admin, :action => :volunteers  %></li>
+	<li>Mass volunteers approval: <%= link_to 'View', :controller => :admin, :action => :massvolunteers  %> </li>
+	<li>Event management: <%= link_to 'Manage events', :controller => :events, :action => :index  %> </li>
+</ul>
+
+<!-- various links that can be included for login/logout/register/editprofile etc -->
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+<% else %>
+  <%= link_to('Login', new_user_session_path)  %>  
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to('Edit registration', edit_user_registration_path) %>
+<% else %>
+  <%= link_to('Register', new_user_registration_path)  %>
+<% end %>
