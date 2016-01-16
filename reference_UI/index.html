@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Spandan 2016 | Feel the beat</title>
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Theme CSS -->
+<link href="css/style.css" rel="stylesheet" media="screen">
+<!-- Responsive CSS -->
+<link href="css/theme-responsive.css" rel="stylesheet" media="screen">
+<!-- Skins Theme -->
+<link href="#" rel="stylesheet" media="screen" class="skin">
+
+<!-- Favicons -->
+<link rel="shortcut icon" href="img/icons/favicon.ico">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-touch-icon-114x114.png">
+
+<!-- Head Libs -->
+<script src="js/modernizr.js"></script>
+
+<!--[if IE]>
+            <link rel="stylesheet" href="css/ie/ie.css">
+        <![endif]-->
+
+<!--[if lte IE 8]>
+            <script src="js/responsive/html5shiv.js"></script>
+            <script src="js/responsive/respond.js"></script>
+        <![endif]-->
+
+<!-- Skins Changer-->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+</head>
+
+<body>
+<!-- Theme-options -->
+
+<!-- End Theme-options -->
+
+<!-- layout-->
+<div id="layout">
+  <!-- Header-->
+  <header>
+    <!-- End headerbox-->
+    <div class="headerbox">
+      <div class="container">
+        <div class="row">
+          <!-- Logo-->
+          <div class="col-md-3 logo"> <a href="#" title="Return Home"> <img src="img/logo.png" alt="Logo" class="logo_img"> </a> </div>
+          <!-- End Logo-->
+
+          <!-- Adds Header-->
+          <div class="col-md-9 adds">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signin">Sign In
+            </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signup">Sign Up
+            </button>
+            <br>
+            <br>
+            <a href="#" target="_blank"> <img src="img/adds/banner.jpg" alt="" class="img-responsive"> </a> </div>
+          <!-- End Adds Header-->
+        </div>
+      </div>
+    </div>
+    <!-- End headerbox-->
+    <!-- Button trigger modal -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Sign In</button><br>
+  <div class="pull-left"><a href="#">Forgot your password?</a></div>
+  <div class="pull-right"><a href="#">Didn't receive confirmation instructions?</a></div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+        <label for="#">Name</label>
+        <input type="" class="form-control" id="" placeholder="Name">
+        <label for="#">Roll No</label>
+        <input type="" class="form-control" id="" placeholder="Roll No.">
+        <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+         <label for="#">Password (8 characters minimum) </label>
+         <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+         <label for="#">Confirm Password</label>
+         <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password">
+        <label for="#">Year of Joining</label>
+        <select multiple class="form-control">
+  <option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+<option value="2011">2011</option>
+<option value="2010">2010</option>
+<option value="2009">2009</option>
+<option value="2008">2008</option>
+<option value="2007">2007</option>
+<option value="2006">2006</option>
+<option value="2005">2005</option>
+<option value="2004">2004</option>
+<option value="2003">2003</option>
+<option value="2002">2002</option>
+<option value="2001">2001</option>
+<option value="2000">2000</option>
+<option value="1999">1999</option>
+</select>
+  <label for="#">Student type</label>
+        <select multiple class="form-control">
+  <option value="mtech">MTech</option>
+<option value="imtech">IMTech</option>
+<option value="msphd">MS/PHD</option>
+</select>
+  <br>
+  <button type="submit" class="btn btn-default">Sign Up</button>
+  <br>
+   <div class="pull-left"><a href="#">Sign In</a></div>
+  <div class="pull-right"><a href="#">Didn't receive confirmation instructions?</a></div>
+
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- mainmenu-->
+    <nav class="mainmenu">
+      <div class="container">
+        <!-- Menu-->
+        <ul class="sf-menu" id="menu">
+          <li class="selected"> <a href="index.html">Home</a> </li>
+          <li> <a href="sports.html">Sports</a>
+            <div class="sf-mega">
+              <div class="col-md-3">
+
+                <ul>
+                  <li><a href="football.html">Football</a></li>
+                  <li><a href="cricket.html">Cricket</a></li>
+                  <li><a href="basketball.html">Basketball</a></li>
+                  <li><a href="volleyball.html">Volleyball</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+
+                <ul>
+                  <li><a href="badminton.html">Badminton</a></li>
+                  <li><a href="throw-ball.html">Throw Ball</a></li>
+                  <li><a href="gully-cricket.html">Gully Cricket</a></li>
+                  <li><a href="marathon.html">Mini Marathon</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+
+                <ul>
+                  <li><a href="cycling.html">Cycling</a></li>
+                  <li><a href="tug-of-war.html">Tug of War</a></li>
+                  <li><a href="table-tennis.html">Table Tennis</a></li>
+                  <li><a href="treasure.html">Treasure Hunt</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+
+                <ul>
+                  <li><a href="carrom.html">Carrom</a></li>
+                  <li><a href="chess.html">Chess</a></li>
+                  <li><a href="lan.html">LAN</a></li>
+
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li> <a href="contact.html">Contact</a> </li>
+        </ul>
+        <!-- End Menu-->
+      </div>
+    </nav>
+    <!-- End mainmenu-->
+  </header>
+  <!-- End Header-->
+
+  <!-- Slide -->
+  <section class="camera_wrap camera_white_skin" id="slide">
+    <!-- Item Slide - Caption -->
+    <div  data-src="img/slide/slides/1.jpg">
+      <div class="style-caption fadeFromTop">
+        <div class="overlay-bg"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7">
+              <h1 class="animated fadeInRight"> Basketball </h1>
+              <p class="animated fadeInRight delay1">Someone created the box score, and he should be shot.</p>
+              <div class="more animated fadeInRight delay2"> <a href="#" class="btn btn-primary" name="subscribe" >More Info</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Item Slide - Caption  -->
+
+    <!-- Item Slide - Caption -->
+    <div  data-src="img/slide/slides/2.jpg">
+      <div class="style-caption fadeFromTop">
+        <div class="overlay-bg"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7">
+              <h1 class="animated fadeInRight"> Mini Marathon </h1>
+              <p class="animated fadeInRight delay1">In the long run, even a marathon looks like a sprint. This is how I can love with such Roger Bannisteresque intensity.</p>
+              <div class="more animated fadeInRight delay2"> <a href="#" class="btn btn-primary" name="subscribe" >More Info</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Item Slide - Caption  -->
+
+    <!-- Item Slide - Caption -->
+    <div  data-src="img/slide/slides/3.jpg">
+      <div class="style-caption fadeFromTop">
+        <div class="overlay-bg"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7">
+              <h1 class="animated fadeInRight"> Cricket </h1>
+              <p class="animated fadeInRight delay1">Cricket to us was more than play,
+It was a worship in the summer sun.</p>
+              <div class="more animated fadeInRight delay2"> <a href="#" class="btn btn-primary" name="subscribe" >More Info</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Item Slide - Caption  -->
+  </section>
+  <!-- End Slide -->
+
+  <!-- Section Area - Content Central -->
+  <section class="content-info">
+    <div class="semiboxshadow text-center"> <img src="img/img-theme/shp.png" class="img-responsive" alt=""> </div>
+
+    <!-- Dark Home -->
+    <div class="bg-dark dark-home">
+      <div class="row">
+        <!-- Left Content - Tabs and Carousel -->
+        <div class="col-md-12">
+          <!-- Nav Tabs -->
+          <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a href="#club-news" data-toggle="tab">SPORTS</a></li>
+            <li><a href="#players-staff" data-toggle="tab">OFFICIALS</a></li>
+          </ul>
+          <!-- End Nav Tabs -->
+
+          <!-- Content Tabs -->
+          <div class="tab-content">
+            <!-- Tab One - Feature News -->
+
+            <!-- Tab One - Feature News -->
+            <div class="tab-pane active" id="club-news">
+              <h3>Sports</h3>
+              <!-- Clubs Carousel-->
+              <ul id="clubs-carousel" class="clubs-teams">
+                <!-- Item carousel club -->
+                <li class="row">
+                  <!-- Item clubs -->
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/1.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="football.html">Football</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/2.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="cricket.html">Cricket</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/3.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="basketball.html">Basketball</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/4.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="volleyball.html">Volleyball</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/5.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="badminton.html">Badminton</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/6.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="throw-ball.html">Throw Ball</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/7.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="gully-cricket.html">Gully Cricket</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/8.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="marathon.html">Mini Marathon</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <!-- End Item carousel club -->
+
+                <!-- Item carousel club -->
+                <li class="row">
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/9.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="cycling.html">Cycling</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/10.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="tug-of-war.html">Tug of War</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/11.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="table-tennis.html">Table Tennis</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/12.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="carrom.html">Carrom</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/13.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="chess.html">Chess</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/14.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="lan.html">LAN</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sx-12 col-sm-3 col-md-3">
+                    <div class="item-clubs">
+                      <div class="img-clubs"> <img src="img/clubs-team/15.png" alt="" class="img-responsive"> </div>
+                      <div class="info-clubs">
+                        <h3><a href="treasure.html">Treasure Hunt</a></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Item clubs -->
+                </li>
+
+                <!-- End Item carousel club -->
+              </ul>
+              <!-- End Clubs Carousel-->
+            </div>
+            <!-- Tab Two - Players Staff -->
+            <div class="tab-pane" id="players-staff">
+              <h3>SAC</h3>
+              <!-- Item Players-->
+              <ul id="players-carousel" class="players ">
+                <!-- Item Player -->
+               <li class="item-player"> <img src="img/players/8.jpg" alt="" class="img-responsive">
+                  <div class="info-player">
+                    <h4><a href="#">Mr. Harish Ponnappa K L</a></h4>
+                    <h5><span>Sports Incharge</span></h5>
+                    <div class="overlay-player">
+                      <p></p>
+                      <p>Contact No.: 89516 32733</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="item-player"> <img src="img/players/1.jpg" alt="" class="img-responsive">
+                  <div class="info-player">
+                    <h4><a href="#">P S Srinivasan</a></h4>
+                    <h5><span>SAC</span></h5>
+                    <div class="overlay-player">
+                      <p>IMTech 3rd Year</p>
+                      <p>Contact No.: 98453 89080</p>
+                    </div>
+                  </div>
+                </li>
+                <!-- End Player post -->
+
+                <!-- Item Player -->
+                <li class="item-player"> <img src="img/players/2.jpg" alt="" class="img-responsive">
+                  <div class="info-player">
+                    <h4><a href="#">Priyanka Arora</a></h4>
+                    <h5><span>SAC</span></h5>
+                    <div class="overlay-player">
+                      <p>MSc. Digital Society 1st Year</p>
+                      <p>Contact No.: 81279 52222</p>
+                    </div>
+                  </div>
+                </li>
+                <!-- End Player post -->
+
+                <!-- Item Player -->
+                <li class="item-player"> <img src="img/players/3.jpg" alt="" class="img-responsive">
+                  <div class="info-player">
+                    <h4><a href="#">Arjun Sundaresan</a></h4>
+                    <h5><span>SAC</span></h5>
+                    <div class="overlay-player">
+                      <p>MTech 1st Year</p>
+                      <p>Contact No.: </p>
+                    </div>
+                  </div>
+                </li>
+                <!-- End Player post -->
+
+                <!-- Item Player -->
+                <li class="item-player"> <img src="img/players/4.jpg" alt="" class="img-responsive">
+                  <div class="info-player">
+                    <h4><a href="#">Anamika Sharma</a></h4>
+                    <h5><span>SAC</span></h5>
+                    <div class="overlay-player">
+                      <p>MTech 1st Year</p>
+                      <p>Contact No.: 99004 81764</p>
+                    </div>
+                  </div>
+                </li>
+                <!-- End Player post -->
+
+                <!-- Item Player -->
+                <li class="item-player"> <img src="img/players/5.jpg" alt="" class="img-responsive">
+                  <div class="info-player">
+                    <h4><a href="#">Veda Reddy</a></h4>
+                    <h5><span>SAC</span></h5>
+                    <div class="overlay-player">
+                      <p>IMTech 3st Year</p>
+                      <p>Contact No.: 99014 67037</p>
+                    </div>
+                  </div>
+                </li>
+                <!-- End Player post -->
+
+                <!-- Item Player -->
+                <li class="item-player"> <img src="img/players/6.jpg" alt="" class="img-responsive">
+                  <div class="info-player">
+                    <h4><a href="#">Tanya Shrivastava</a></h4>
+                    <h5><span>SAC</span></h5>
+                    <div class="overlay-player">
+                      <p>IMTech 2st Year</p>
+                      <p>Contact No.:</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="item-player"> <img src="img/players/7.jpg" alt="" class="img-responsive">
+                  <div class="info-player">
+                    <h4><a href="#">Avinash Chandrakar</a></h4>
+                    <h5><span>SAC</span></h5>
+                    <div class="overlay-player">
+                      <p>MTech 1st Year</p>
+                      <p>Contact No.:</p>
+                    </div>
+                  </div>
+                </li>
+                 <li class="item-player"> <img src="img/players/9.jpg" alt="" class="img-responsive">
+                  <div class="info-player">
+                    <h4><a href="#">Abhigna Kusumba</a></h4>
+                    <h5><span>SAC</span></h5>
+                    <div class="overlay-player">
+                      <p>IMTech 1st Year</p>
+                      <p>Contact No.:</p>
+                    </div>
+                  </div>
+                </li>
+                <!-- End Player post -->
+              </ul>
+              <!-- End Item Players-->
+            </div>
+            <!-- Tab Two - Players Staff -->
+
+            <!-- Tab Theree - Club Teams -->
+
+            <!-- Tab Theree - Club Teams -->
+          </div>
+          <!-- Content Tabs -->
+        </div>
+        <!-- Left Content - Tabs and Carousel -->
+
+        <!-- Right Content - Content Counter -->
+
+        <!-- End Right Content - Content Counter -->
+      </div>
+    </div>
+    <!-- Dark Home -->
+
+    <!-- Content Central -->
+
+    <!-- End Content Central -->
+
+    <!-- Newsletter -->
+    <div class="section-wide">
+      <div class="container">
+        <div class="row newsletter">
+          <div class="col-md-12">
+            <div class="text-center">
+              <h2>Enter your e-mail and <span class="text-resalt">subscribe</span> to our newsletter.</h2>
+              <p>You will be notified once the registrations are open.</p>
+            </div>
+            <form id="newsletterForm" action="http://html.iwthemes.com/sportscup/php/mailchip/newsletter-subscribe.php">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="input-group"> <span class="input-group-addon"> <i class="fa fa-envelope"></i> </span>
+                    <input class="form-control" placeholder="Your Name" name="name"  type="text" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-group"> <span class="input-group-addon"> <i class="fa fa-envelope"></i> </span>
+                    <input class="form-control" placeholder="Your  Email" name="email"  type="email" required>
+                    <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit" name="subscribe" >SIGN UP</button>
+                    </span> </div>
+                </div>
+              </div>
+            </form>
+            <div id="result-newsletter"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Newsletter -->
+  </section>
+  <!-- End Section Area -  Content Central -->
+
+  <!-- footer-->
+  <footer id="footer">
+    <div class="container">
+
+      <!-- Wiguets Footer-->
+
+      <!-- End Wiguets Footer-->
+
+      <!-- Social Icons-->
+      <div class="row">
+        <ul class="social">
+          <li>
+            <div> <a href="https://www.facebook.com/spandan2016/" class="facebook"> <i class="fa fa-facebook"></i> </a> </div>
+          </li>
+          <!-- <li>
+            <div> <a href="#" class="twitter-icon"> <i class="fa fa-twitter"></i> </a> </div>
+          </li>
+          <li>
+            <div> <a href="#" class="vimeo"> <i class="fa fa-vimeo-square"></i> </a> </div>
+          </li>
+          <li>
+            <div> <a href="#" class="google-plus"> <i class="fa fa-google-plus"></i> </a> </div>
+          </li>
+          <li>
+            <div> <a href="#" class="youtube"> <i class="fa fa-youtube"></i> </a> </div>
+          </li>-->
+        </ul>
+      </div>
+      <!-- End Social Icons-->
+
+    </div>
+  </footer>
+  <!-- End footer-->
+
+  <!-- footer Down-->
+  <div class="footer-down">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <p>&copy; 2016 Spandan . All Rights Reserved.  1999 - 2016</p>
+        </div>
+        <div class="col-md-7">
+          <!-- Nav Footer-->
+          <ul class="nav-footer">
+            <li><a href="index.html">HOME</a> </li>
+
+                                <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+          <!-- End Nav Footer-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer Down-->
+
+</div>
+<!-- End layout-->
+
+<!-- ======================= JQuery libs =========================== -->
+<!-- jQuery local-->
+<script src="js/jquery.js"></script>
+<!--Nav-->
+<script type="text/javascript" src="js/nav/tinynav.js"></script>
+<script type="text/javascript" src="js/nav/hoverIntent.js"></script>
+<script type="text/javascript" src="js/nav/superfish.js"></script>
+<script src="js/nav/jquery.sticky.js" type="text/javascript"></script>
+<!--Totop-->
+<script type="text/javascript" src="js/totop/jquery.ui.totop.js" ></script>
+<!--Accorodion-->
+<script type="text/javascript" src="js/accordion/accordion.js" ></script>
+<!--Slide-->
+<script type="text/javascript" src="js/slide/camera.js" ></script>
+<script type='text/javascript' src='js/slide/jquery.easing.1.3.min.js'></script>
+<!-- Maps -->
+<script src="js/maps/gmap3.js"></script>
+<!--Ligbox-->
+<script type="text/javascript" src="js/fancybox/jquery.fancybox.js"></script>
+<!-- carousel.js-->
+<script src="js/carousel/carousel.js"></script>
+<!-- Filter -->
+<script src="js/filters/jquery.isotope.js" type="text/javascript"></script>
+<!-- Twitter Feed-->
+<script src="js/twitter/jquery.tweet.js"></script>
+<!-- flickr Feed-->
+<script src="js/flickr/jflickrfeed.min.js"></script>
+<!-- Counter -->
+<script src="js/counter/jquery.countdown.js"></script>
+<!--Theme Options-->
+<script type="text/javascript" src="js/theme-options/theme-options.js"></script>
+<script type="text/javascript" src="js/theme-options/jquery.cookies.js"></script>
+<!-- Bootstrap.js-->
+<script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
+<!--MAIN FUNCTIONS-->
+<script type="text/javascript" src="js/main.js"></script>
+<!-- ======================= End JQuery libs =========================== -->
+
+</body>
+
+<!-- Mirrored from html.iwthemes.com/sportscup/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Jan 2016 18:36:24 GMT -->
+</html>
