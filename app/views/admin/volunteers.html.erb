@@ -13,33 +13,34 @@
     <th>Prioriy4</th>
     <th>TShirt</th>
     <th>Approved</th>
-    <th>Volunteer</th>
+    <th>Approved By</th>
     <th>VEID</th>
     <th>Actions</th>
   </tr>
  
-  <% @data.each do |d| %>
+  <% @requests.each do |d| %>
+	  <% user = d.user %>
     <tr>
-      <td><%= d[0] %></td>
-      <td><%= d[1] %></td>
-      <td><%= d[2] %></td>
-      <td><%= d[3] %></td>
-      <td><%= d[4] %></td>
-      <td><%= d[5] %></td>
-      <td><%= d[6] %></td>
-      <td><%= d[7] %></td>
-      <td><%= d[8] %></td>
-      <td><%= d[9] %></td>
-      <td><%= d[10] %></td>
-      <td><%= d[11] %></td>
-      <td><%= d[12] %></td>
-      <% if not d[11] %>
+      <td><%= d.id %></td>
+      <td><%= d.user_id %></td>
+      <td><%= user.name %></td>
+      <td><%= user.roll_no %></td>
+      <td><%= user.email %></td>
+      <td><%= printPriority(d.priority1) %></td>
+      <td><%= printPriority(d.priority2) %></td>
+      <td><%= printPriority(d.priority3) %></td>
+      <td><%= printPriority(d.priority4) %></td>
+      <td><%= tshirt(d.tshirt_size) %></td>
+      <td><%= if d.approved then 'Yes' else 'No' end%></td>
+      <td><%= if d.approved then User.find(d.approved_by).email end %></td>
+      <td><%= if d.approved then Event.find(d.event_id).name end %></td>
+      <% if not d.approved %>
       <td>
       	<%= form_tag "/admin/volunteer_approve" do %>
 
 		  <%= label_tag(:event_id) %>
 		  <%= text_field_tag(:event_id) %>
-		  <%= hidden_field_tag(:vrid, d[0]) %>
+		  <%= hidden_field_tag(:vrid, d.id) %>
 
 		  <%= submit_tag "Approve" %>
 		<% end %>
@@ -48,7 +49,7 @@
 	      <td>
 	      	<%= form_tag "/admin/volunteer_disapprove" do %>
 
-			  <%= hidden_field_tag(:vrid, d[0]) %>
+			  <%= hidden_field_tag(:vrid, d.id) %>
 
 			  <%= submit_tag "Disapprove",  data: { confirm: 'Are you sure?' }  %>
 			<% end %>

@@ -32,14 +32,7 @@ class AdminController < ApplicationController
 	# Look at all the volunteers
 	def volunteers
 		checkIfAdmin()
-		@data = []
-		VolunteerRequest.all.each do |v|
-			begin
-				u = User.find(v.user_id)
-				@data.push([v.id, u.id, u.name, u.roll_no, u.email, v.priority1, v.priority2, v.priority3, v.priority4, v.tshirt_size, v.approved, u.volunteer, u.volunteer_event_id])
-			rescue
-			end
-		end
+		@requests = VolunteerRequest.all
 	end
 
 	# Mass volunteer approval
