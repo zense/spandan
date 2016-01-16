@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
-
+<!--<p id="notice"><%= notice %></p>
+-->
 <p>
   <strong>Name:</strong>
   <%= @event.name %>
@@ -38,6 +38,39 @@
 <p>
   <strong>Event type:</strong>
   <%= @event.event_type %>
+</p>
+<p>
+  <strong>SPOC(s) of the event:</strong>
+  <% User.where(spoc_event_id: @event.id).find_each do |user| %>
+  <br>
+  <p>
+      <strong>Name: </strong>
+      <%= user.name %>
+  </p>
+  <p>
+    <strong>Email: </strong>
+    <%= user.email %>
+  <p>
+  <br>
+  <% end %>
+</p>
+<p>
+  <%= @err1 %>
+</p>
+<p>
+  <%= @err2 %>
+</p>
+<p>
+  <%= @err3 %>
+</p>
+<p>
+  <%= @err4 %>
+</p>
+<p>
+  <%= @err5 %>
+</p>
+<p>
+  <%= @err6 %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
