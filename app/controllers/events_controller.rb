@@ -10,18 +10,15 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @user=User.all
   end
 
   # GET /events/new
   def new
-    @user=User.all
     @event = Event.new
   end
 
   # GET /events/1/edit
   def edit
-    @user=User.all
   end
 
   # POST /events
