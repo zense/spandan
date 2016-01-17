@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115052629) do
+ActiveRecord::Schema.define(version: 20160116194154) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",              limit: 255
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 20160115052629) do
     t.integer  "event_type",        limit: 4
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "icon_file_name",    limit: 255
+    t.string   "icon_content_type", limit: 255
+    t.integer  "icon_file_size",    limit: 4
+    t.datetime "icon_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
