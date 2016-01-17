@@ -12,3 +12,7 @@
 #	XXL			5
 
 TSHIRTSIZES = {:S => 1, :M => 2, :L => 3, :XL => 4, :XXL => 5}
+# EVENT TYPE
+TEAM=1
+CUSTOM=2
+INDIVIDUAL=0
