@@ -1,7 +1,11 @@
-<h2>Sign up</h2>
+<div class = "devise_wrapper">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-style-8"}) do |f| %>
+<h3>Sign up</h3>
   <%= devise_error_messages! %>
+
 
   <div class="field">
     <%= f.label :name %><br />
@@ -53,3 +57,6 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
+

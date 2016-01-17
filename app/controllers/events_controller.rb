@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     checkIfAdmin()
-    Event.new
+    @event = Event.new
   end
 
   # GET /events/1/edit

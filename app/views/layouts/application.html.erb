@@ -1,19 +1,184 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Spandan2016</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Spandan 2016 | Feel the beat</title>
+	
+	<!-- core CSS -->
+    <link href="<%= WEBLINK %>css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%= WEBLINK %>css/font-awesome.min.css" rel="stylesheet">
+    <link href="<%= WEBLINK %>css/animate.min.css" rel="stylesheet">
+    <link href="<%= WEBLINK %>css/prettyPhoto.css" rel="stylesheet">
+    <link href="<%= WEBLINK %>css/main.css" rel="stylesheet">
+    <link href="<%= WEBLINK %>css/responsive.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="/images/ico/favicon.ico">
+    <link rel="stylesheet" href="<%= WEBLINK %>css/owl.carousel.css">
+    <link rel="stylesheet" href="<%= WEBLINK %>css/owl.theme.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
+</head><!--/head-->
 
+<body style="background-image: url('<%= WEBLINK %>images/bg_img.jpg')">
+
+<header id="header">
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<%= WEBLINK %>"><img src="<%= WEBLINK %>images/logo.png" alt="logo" id = "logo"></a>
+                </div>
+
+
+                <div class="regv">
+                    <%= link_to 'Register as a volunteer', {:controller=>'/registration', :action=>'volunteer_registration'}, :class=>"reg_as_vol" %>
+                </div>
+
+				<div class="navbar-right dates">
+                    4th, 5th &amp; 6th March '16
+                </div>
+                
+
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        
+                        <li><%= link_to 'Home', {:controller=>'/welcome', :action=>'index'} %></li>
+                              <% eventsList = []
+                              Event.all.each do |event| 
+                                  if event.event_type == INDIVIDUAL or event.event_type == TEAM
+                                    eventsList.push(event)
+                                  end                             
+                                end
+                                %>
+                                    <li class="dropdown">
+                                      <%= link_to 'Sports', {:controller=>'/game', :action=>'index'}, :class=>"dropdown-toggle" %>
+                                        <ul class="dropdown-menu multi-column columns-3">
+                                            <div class="col-sm-4">
+                                              <ul class="dropdown-menu">
+                                                <% eventsList.in_groups(3)[0].each do |l|
+                                                  if not l ==nil %>
+                                                <li><a href="<%= WEBLINK+"game/"+l.name.downcase.tr(" ", "_") %>"><%= l.name %></a></li>
+                                                <% end end %>
+                                              </ul>
+                                            </div>
+                                            <div class="col-sm-4">
+                                              <ul class="dropdown-menu">
+                                                <% eventsList.in_groups(3)[1].each do |l|
+                                                  if not l ==nil %>
+                                                <li><a href="<%= WEBLINK+"game/"+l.name.downcase.tr(" ", "_") %>"><%= l.name %></a></li>
+                                                <% end end %>
+                                              </ul>
+                                            </div>
+                                            <div class="col-sm-4">
+                                              <ul class="dropdown-menu">
+                                                <% eventsList.in_groups(3)[2].each do |l|
+                                                  if not l ==nil %>
+                                                <li><a href="<%= WEBLINK+"game/"+l.name.downcase.tr(" ", "_") %>"><%= l.name %></a></li>
+                                                <% end end %>
+                                              </ul>
+                                            </div>
+                                        </ul>
+                                    </li>
+
+
+
+                        <li><%= link_to 'Contact', {:controller=>'/welcome', :action=>'contact'} %></li>  
+
+                        <% if user_signed_in? %>
+                          <li>
+                          <%= link_to('Edit registration', edit_user_registration_path) %>
+                          </li>
+                        <% else %>
+                          <li>
+                          <%= link_to('Sign Up', new_user_registration_path)  %>
+                          </li>
+                        <% end %>   
+
+                        <% if user_signed_in? %>
+                          <li>
+                          <%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %>        
+                          </li>
+                        <% else %>
+                          <li>
+                          <%= link_to('Sign In', new_user_session_path)  %>  
+                          </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+		
+    </header><!--/header-->
 <!--devise start-->
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% if notice.to_s.length > 0 %>
+<div class="notice_devise"><%= notice %></div>
+<% end %>
+
+<% if alert.to_s.length > 0 %>
+<div class="alert_devise"><%= alert %></div>
+<% end %>
 <!--devise end-->
 
 <%= yield %>
 
+<footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2016 Spandan . All Rights Reserved. 1999 - 2016
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><%= link_to 'Home', {:controller=>'/welcome', :action=>'index'} %></li>
+                        <li><a href="#"><%= link_to 'Contact', {:controller=>'/welcome', :action=>'contact'} %></a></li>
+                        <% if user_signed_in? %>
+                          <li>
+                          <%= link_to('Edit registration', edit_user_registration_path) %>
+                          </li>
+                        <% else %>
+                          <li>
+                          <%= link_to('Sign Up', new_user_registration_path)  %>
+                          </li>
+                        <% end %>   
+
+                        <% if user_signed_in? %>
+                          <li>
+                          <%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %>        
+                          </li>
+                        <% else %>
+                          <li>
+                          <%= link_to('Sign In', new_user_session_path)  %>  
+                          </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="<%= WEBLINK %>js/jquery.js"></script>
+    <script src="<%= WEBLINK %>js/bootstrap.min.js"></script>
+    <script src="<%= WEBLINK %>js/jquery.prettyPhoto.js"></script>
+    <script src="<%= WEBLINK %>js/jquery.isotope.min.js"></script>
+    <script src="<%= WEBLINK %>js/main.js"></script>
+    <script src="<%= WEBLINK %>js/wow.min.js"></script>
+    <script src="<%= WEBLINK %>js/owl.carousel.js"></script>
+
 </body>
 </html>
+
+

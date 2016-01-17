@@ -1,5 +1,11 @@
-<h1>Register as volunteer</h1>
+<% if @showVolunteerLink %>
 
+
+<div class = "devise_wrapper">
+
+<%= form_tag "/registration/volunteer_registration", :class => 'form-style-8' do %>
+
+<h3>Register as a volunteer</h3>
 <% if @VolunteerRequest.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -14,8 +20,7 @@
     </div>
   <% end %>
 
-
-<%= form_tag "/registration/volunteer_registration" do %>
+  <h2>Select your priorities</h2>
 
   <!-- Priority picking -->
   <%= label_tag(:priority1) %>
@@ -30,9 +35,31 @@
   <%= label_tag(:priority4) %>
   <%= select_tag(:priority4, options_for_select(@event_array)) %><br />
 
-  <!-- T-Shirt size picking -->
-  <%= label_tag(:tshirt_size) %>
-  <%= select_tag(:tshirt_size, options_for_select(@tshirt_sizes)) %><br />
+  <%= hidden_field_tag :tshirt_size, '1' %>
 
-  <%= submit_tag "Save" %>
+  <%= submit_tag "Sign me up" %>
+<% end %>
+
+</div>
+
+<% else %>
+
+<div class="wrapper">
+    <div class="main_done">
+      <div>
+        <svg class="check_done" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><path d="M98.992,49.997c0,27.061-21.935,48.995-48.996,48.995C22.936,98.992,1,77.058,1,49.997S22.936,1,49.996,1  C77.058,1,98.992,22.937,98.992,49.997z M83.544,36.151L71.967,25.894L44.398,57.011L30.652,42.813L19.542,53.571l25.358,26.19  L83.544,36.151z"></path></svg>
+      </div>
+      
+      <div class="intro">
+        <h2>Successfully registered</h2>
+        <p>
+          Thank you for volunteering!<br />
+          You will recieve an email as soon as your request has been approved<br />
+
+          <p>
+      </div>
+
+    </div>
+  </div>
+
 <% end %>
