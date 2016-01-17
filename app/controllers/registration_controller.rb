@@ -13,16 +13,21 @@ class RegistrationController < ApplicationController
 
 	# Where user can register to volunteer
 	def volunteer_registration
-		@event_array = []
-		# add events to the array from the database
-		Event.all.each do |event|
-		  @event_array.push([event.name,event.id])
+		if VolunteerRequest.exists?(:user_id => current_user.id)
+		  @showVolunteerLink = false
+		else
+		 	@showVolunteerLink = true
+			@event_array = []
+			# add events to the array from the database
+			Event.all.each do |event|
+			  @event_array.push([event.name,event.id])
+			end
+
+			# Array of constants
+			@tshirt_sizes = [['S',TSHIRTSIZES[:S]],['M',TSHIRTSIZES[:M]],['L',TSHIRTSIZES[:L]],['XL',TSHIRTSIZES[:XL]],['XXL',TSHIRTSIZES[:XXL]]]
+
+			@VolunteerRequest = VolunteerRequest.new
 		end
-
-		# Array of constants
-		@tshirt_sizes = [['S',TSHIRTSIZES[:S]],['M',TSHIRTSIZES[:M]],['L',TSHIRTSIZES[:L]],['XL',TSHIRTSIZES[:XL]],['XXL',TSHIRTSIZES[:XXL]]]
-
-		@VolunteerRequest = VolunteerRequest.new
 	end
 
 	# Volunteer registration form processing

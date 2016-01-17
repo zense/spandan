@@ -5,9 +5,16 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'welcome/index'
+  get 'welcome/contact'
+
+  get 'users/', to: 'welcome#index'
 
   # registration home page
-  get 'registration/index'
+  #get 'registration/index'
+
+  # games viewing
+  get 'game/', to: 'game#index'
+  get 'game/:name', to: 'game#show'
 
   # route to volunteer registration form
   get 'registration/volunteer_registration', to: 'registration#volunteer_registration'
