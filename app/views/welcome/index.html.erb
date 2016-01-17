@@ -1,3 +1,472 @@
-<h1>Welcome</h1>
-<p>Spandan home</p>
-<%= link_to 'Register / Login', controller: 'registration' %>
+<section id="main-slider" class="no-margin">
+        <div class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#main-slider" data-slide-to="1"></li>
+                <li data-target="#main-slider" data-slide-to="2"></li>
+                <li data-target="#main-slider" data-slide-to="3"></li>
+                <li data-target="#main-slider" data-slide-to="4"></li>
+                <li data-target="#main-slider" data-slide-to="5"></li>
+                <li data-target="#main-slider" data-slide-to="6"></li>
+            </ol>
+            <div class="carousel-inner">
+
+               <!-- <div class="item active" style="background-image: url(<%= WEBLINK %>images/slider/bg.jpg)">-->
+               <div class="item active">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="sp_car">
+                                    <!--<h1 class="car_spandan">SPANDAN 2016</h1><h2 class="tag_spandan">Feel the beat</h2>-->
+
+                                    <div class="sp-text">
+                                        <div class="text">SPANDAN 2016</div>
+                                    </div>
+
+                                    
+                                    <svg viewBox="0 0 1200 300">
+                                        <!-- Clippath  with text -->
+                                        <clippath id="cp-text">
+                                            <text text-anchor="middle" x="50%" y="50%" dy=".35em" class="text--line">
+                                                FEEL THE BEAT
+                                            </text>
+                                        </clippath>
+
+
+                                        <!-- Group with clippath for text-->
+                                        <g clip-path="url(#cp-text)" class="colortext">
+                                            <!-- Animated shapes inside text -->
+                                            <rect width="100%" height="100%" class="anim-shape"></rect>
+                                            <rect width="80%" height="100%" class="anim-shape"></rect>
+                                            <rect width="60%" height="100%" class="anim-shape"></rect>
+                                            <rect width="40%" height="100%" class="anim-shape"></rect>
+                                            <rect width="20%" height="100%" class="anim-shape"></rect>
+                                        </g>
+
+                                        <!-- Transparent copy of text to keep patterned text selectable -->
+                                        <use xlink:href="#s-text" class="text--transparent"></use>
+
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img width="80%" src="<%= WEBLINK %>images/slider/logo.png" class="img-responsive">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div><!--/.item-->
+
+                <div class="item" style="background-image: url(<%= WEBLINK %>images/slider/bg1.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1">Basketball</h1>
+                                </div>
+                            </div>
+
+                            <!--<div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="images/slider/img1.png" class="img-responsive">
+                                </div>
+                            </div>-->
+
+                        </div>
+                    </div>
+                </div><!--/.item-->
+
+                <div class="item" style="background-image: url(<%= WEBLINK %>images/slider/bg2.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1">Mini Marathon</h1>
+                                </div>
+                            </div>
+
+                            <!--<div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="images/slider/img2.png" class="img-responsive">
+                                </div>
+                            </div>-->
+
+                        </div>
+                    </div>
+                </div><!--/.item-->
+
+                <div class="item" style="background-image: url(<%= WEBLINK %>images/slider/bg4.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1">Gully Cricket</h1>
+                                </div>
+                            </div>
+                            <!--<div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="images/slider/img3.png" class="img-responsive">
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div><!--/.item-->
+
+                <div class="item" style="background-image: url(<%= WEBLINK %>images/slider/bg5.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1">Volleyball</h1>
+                                </div>
+                            </div>
+                            <!--<div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="images/slider/img3.png" class="img-responsive">
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div><!--/.item-->
+
+                <div class="item" style="background-image: url(<%= WEBLINK %>images/slider/bg6.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1">Football</h1>
+                                </div>
+                            </div>
+                            <!--<div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="images/slider/img3.png" class="img-responsive">
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div><!--/.item-->
+
+                <div class="item" style="background-image: url(<%= WEBLINK %>images/slider/bg7.jpg)">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-sm-6">
+                                <div class="carousel-content">
+                                    <h1 class="animation animated-item-1">And Many More</h1>
+                                </div>
+                            </div>
+                            <!--<div class="col-sm-6 hidden-xs animation animated-item-4">
+                                <div class="slider-img">
+                                    <img src="images/slider/img3.png" class="img-responsive">
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div><!--/.item-->
+
+            </div><!--/.carousel-inner-->
+        </div><!--/.carousel-->
+        <!--<a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+            <i class="fa fa-chevron-left"></i>
+        </a>
+        <a class="next hidden-xs" href="#main-slider" data-slide="next">
+            <i class="fa fa-chevron-right"></i>-->
+        </a>
+    </section><!--/#main-slider-->
+
+    <section id="services" class="service-item">
+       <div class="container">
+            <div class="center wow fadeInDown">
+                <h2>Sports</h2>
+                <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p> -->
+            </div>
+
+            <div class="row">
+
+                <% Event.all.each do |event| %>
+                <% if event.event_type == INDIVIDUAL or event.event_type == TEAM%>             
+                <div class="col-sm-6 col-md-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <%= image_tag event.icon , :class => "responsive"%>
+                        </div>
+                        <div class="media-body">
+                                <% if event.description.to_s.length > 0 %>
+                                <h3 class="media-heading"><%= event.name %></h3>
+                                <% else %>
+                                <h3 class="media-heading-alone"><%= event.name %></h3>
+                                <% end %>
+                            <p><%= event.description %></p>
+                        </div>
+                    </div>
+                </div>
+                 <% end end %>
+
+                                               
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#services-->
+
+
+    <section id="recent-works">
+        <div class="container">
+            <div class="center wow fadeInDown">
+                <h2>Officials</h2>
+                <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p> -->
+            </div>
+
+            <div class="row" id="officials-car">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="<%= WEBLINK %>images/officials/8.jpg" alt="">
+                        <h3 class = "name"><b>Mr. Harish Ponnappa K L</b><br />Sports Incharge</h3>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <b>Mr. Harish Ponnappa K L</b><br />
+                                Sports Incharge<br />
+                                Contact No.: <b>89516 32733</b><br />
+                                <b>harish.ponnappa@iiitb.ac.in</b>
+                            </div> 
+                        </div>
+                    </div>
+                </div>   
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="<%= WEBLINK %>images/officials/1.jpg" alt="">
+                        <h3 class = "name"><b>P S Srinivasan</b><br />SAC</h3>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <b>P S Srinivasan</b><br />
+                                SAC<br />
+                                IMTech 3rd Year<br />
+                                Contact No.: <b>98453 89080</b><br />
+                                <b>ps.srinivasan@iiitb.org</b>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="<%= WEBLINK %>images/officials/2.jpg" alt="">
+                        <h3 class = "name"><b>Priyanka Arora</b><br />SAC</h3>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <b>Priyanka Arora</b><br />
+                                SAC<br />
+                                MSc. Digital Society 1st Year<br />
+                                Contact No.: <b>81279 52222</b><br />
+                                <b>priyanka.arora@iiitb.org</b>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="<%= WEBLINK %>images/officials/3.jpg" alt="">
+                        <h3 class = "name"><b>Arjun Sundaresan</b><br />SAC</h3>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <b>Arjun Sundaresan</b><br />
+                                SAC<br />
+                                MTech 1st Year<br />
+                                Contact No.: <b>98201 24055</b><br />
+                                <b>arjun.sundaresan@iiitb.org</b>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="<%= WEBLINK %>images/officials/4.jpg" alt="">
+                        <h3 class = "name"><b>Anamika Sharma</b><br />SAC</h3>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <b>Anamika Sharma</b><br />
+                                SAC<br />
+                                MTech 1st Year<br />
+                                Contact No.: <b>99004 81764</b><br />
+                                <b>anamika.sharma@iiitb.org</b>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="<%= WEBLINK %>images/officials/5.jpg" alt="">
+                        <h3 class = "name"><b>Veda Reddy</b><br />SAC</h3>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <b>Veda Reddy</b><br />
+                                SAC<br />
+                                IMTech 3rd Year<br />
+                                Contact No.: <b>99014 67037</b><br />
+                                <b>SrivedaReddy.Chevuru@iiitb.org</b>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="<%= WEBLINK %>images/officials/6.jpg" alt="">
+                        <h3 class = "name"><b>Tanya Shrivastava</b><br />SAC</h3>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <b>Tanya Shrivastava</b><br />
+                                SAC<br />
+                                IMTech 2nd Year<br />
+                                Contact No.: <b>70221 46770</b><br />
+                                <b>tanya.shrivastava@iiitb.org</b>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="<%= WEBLINK %>images/officials/7.jpg" alt="">
+                        <h3 class = "name"><b>Avinash Chandrakar</b><br />SAC</h3>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <b>Avinash Chandrakar</b><br />
+                                SAC<br />
+                                MTech 1st Year<br />
+                                Contact No.: <b>98278 06574</b><br />
+                                <b>AvinashKumar.Chandrakar@iiitb.org</b>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap">
+                        <img class="img-responsive" src="<%= WEBLINK %>images/officials/9.jpg" alt="">
+                        <h3 class = "name"><b>Abhijnu Yadlapalli</b><br />SAC</h3>
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <b>Abhijnu Yadlapalli</b><br />
+                                SAC<br />
+                                IMTech 2nd Year<br />
+                                Contact No.: <b>80080 00401</b><br />
+                                <b>yadlapalli.abhijnu@iiitb.org</b>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+            </div><!--/.row-->
+
+            
+            
+        </div><!--/.container-->
+    </section><!--/#recent-works-->
+
+
+
+    <script>
+        $(document).ready(function() {
+         
+          $("#officials-car").owlCarousel({
+ 
+		      autoPlay: 5000,
+              autoplayHoverPause:true,
+		      items : 4,
+		      itemsDesktop : [1199,3],
+		      itemsDesktopSmall : [979,3],
+              loop: true
+              
+		 
+		  });
+         
+        });
+    </script>
+
+    <style type="text/css">
+/********
+Notice and alert
+********/
+
+
+.alert_devise{
+  text-align: center;
+  color: #D8000C;
+  background-color: #FFBABA;
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  border: solid 1px #D8000C;
+  margin: 0 auto;
+    -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+
+ .notice_devise{
+  text-align: center;
+  color: #4F8A10;
+  background-color: #DFF2BF;
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  border: solid 1px #4F8A10;
+  margin: 0 auto;
+      -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+ }
+
+.text--transparent {
+  fill: transparent; }
+
+.anim-shape {
+  -webkit-transform-origin: 0x 150px;
+  transform-origin: 0x 150px;
+  -webkit-transform: scale(0, 1) translate(0, 0);
+  transform: scale(0, 1) translate(0, 0);
+  -webkit-animation: moving-panel 3s infinite alternate;
+  animation: moving-panel 3s infinite alternate; }
+  .colortext .anim-shape:nth-child(1) {
+    fill: #0e1826; }
+  .colortext .anim-shape:nth-child(2) {
+    fill: #166973; }
+  .colortext .anim-shape:nth-child(3) {
+    fill: #65bfa6; }
+  .colortext .anim-shape:nth-child(4) {
+    fill: #f2cd5c; }
+  .colortext .anim-shape:nth-child(5) {
+    fill: #f26444; }
+
+.shadow {
+  -webkit-transform: translate(10px, 10px);
+  transform: translate(10px, 10px); }
+
+.anim-shape--shadow {
+  fill: #000;
+  fill-opacity: 0.2; }
+
+@-webkit-keyframes moving-panel {
+  100% {
+    -webkit-transform: scale(1, 1) translate(20px, 0);
+    transform: scale(1, 1) translate(20px, 0); } }
+@keyframes moving-panel {
+  100% {
+    -webkit-transform: scale(1, 1) translate(20px, 0);
+    transform: scale(1, 1) translate(20px, 0); } }
+
+svg {
+  margin: 0 auto 50px;
+  display: block;
+  text-transform: uppercase; 
+  font-size:10em;}
+.sp-text{
+    font-family: 'Oswald';
+    font-size: 90px;
+    color: #151515;
+}
+
+  
+    </style>
