@@ -48,6 +48,37 @@
     <%= f.label(:event_type) %>
     <%= f.select(:event_type, [['INDIVIDUAL',INDIVIDUAL],['TEAM',TEAM],['CUSTOM',CUSTOM]]) %> <br />
   </div>
+  <% @names = Array.new(6, "") %>
+  <% @c=0 %>
+  <%= User.where(spoc_event_id: @event.id).find_each do |user| %>
+  <% @names[@c]=user.email %>
+  <% @c=@c+1 %>
+  <% end %>
+  <div class="field">
+    <%= label_tag :email_spoc1 %><br>
+    <%= text_field_tag :email_spoc1, @names[0] %>
+  </div>
+  <div class="field">
+      <%= label_tag :email_spoc2 %><br>
+      <%= text_field_tag :email_spoc2, @names[1] %>
+    </div>
+  <div class="field">
+        <%= label_tag :email_spoc3 %><br>
+        <%= text_field_tag :email_spoc3, @names[2] %>
+  </div>
+  <div class="field">
+          <%= label_tag :email_spoc4 %><br>
+          <%= text_field_tag :email_spoc4, @names[3] %>
+  </div>
+  <div class="field">
+    <%= label_tag :email_spoc5 %><br>
+    <%= text_field_tag :email_spoc5, @names[4] %>
+  </div>
+  <div class="field">
+    <%= label_tag :email_spoc6 %><br>
+    <%= text_field_tag :email_spoc6, @names[5] %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
