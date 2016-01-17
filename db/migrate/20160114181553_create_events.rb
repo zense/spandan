@@ -9,7 +9,6 @@ class CreateEvents < ActiveRecord::Migration
       t.text :contact_details
       t.date :last_date
       t.integer :event_type
-
       t.timestamps null: false
     end
   end
