@@ -20,6 +20,10 @@
     <%= f.label :description %><br>
     <%=raw f.text_area :description %>
   </div>
+  <div class="field"><br>
+    <%= f.label :choose_event_icon %>
+    <%= f.file_field :icon, as: :file%>
+  </div>
   <div class="field">
     <%= f.label :rules %><br>
     <%=raw f.text_area :rules %>
@@ -41,8 +45,8 @@
     <%= f.date_select :last_date %>
   </div>
   <div class="field">
-    <%= f.label :event_type %><br>
-    <%= f.number_field :event_type %>
+    <%= f.label(:event_type) %>
+    <%= f.select(:event_type, [['INDIVIDUAL',INDIVIDUAL],['TEAM',TEAM],['CUSTOM',CUSTOM]]) %> <br />
   </div>
   <% @names = Array.new(6, "") %>
   <% @c=0 %>

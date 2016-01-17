@@ -79,8 +79,6 @@ class EventsController < ApplicationController
   def create
     checkIfAdmin()
     @event = Event.new(event_params)
-
-
     #render plain: @exist
     #render plain: @user
     if @event.save
@@ -88,17 +86,6 @@ class EventsController < ApplicationController
       render "show"
     else
       render 'new'
-
-      #respond_to do |format|
-=begin
-       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-       format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
-=end
     end
   end
 
@@ -141,9 +128,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+
+    # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:name, :description, :rules, :minimum_team_size, :maximum_team_size, :contact_details, :last_date, :event_type)
+    params.require(:event).permit(:name, :description, :icon, :rules, :minimum_team_size, :maximum_team_size, :contact_details, :last_date, :event_type)
   end
 end
 
