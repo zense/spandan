@@ -20,6 +20,10 @@
     <%= f.label :description %><br>
     <%=raw f.text_area :description %>
   </div>
+  <div class="field"><br>
+    <%= f.label :choose_event_icon %>
+    <%= f.file_field :icon, as: :file%>
+  </div>
   <div class="field">
     <%= f.label :rules %><br>
     <%=raw f.text_area :rules %>

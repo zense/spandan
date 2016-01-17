@@ -32,7 +32,6 @@ class EventsController < ApplicationController
   def create
     checkIfAdmin()
     @event = Event.new(event_params)
-
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -78,7 +77,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :description, :rules, :minimum_team_size, :maximum_team_size, :contact_details, :last_date, :event_type)
+      params.require(:event).permit(:name, :description, :icon, :rules, :minimum_team_size, :maximum_team_size, :contact_details, :last_date, :event_type)
     end
 end
 
