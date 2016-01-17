@@ -1,5 +1,5 @@
 class AddEventAttachment < ActiveRecord::Migration
   def change
-  	add_attachment(:events, :avatar)
+  	add_attachment(:events, :icon)
   end
 end

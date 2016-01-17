@@ -14,20 +14,20 @@
 ActiveRecord::Schema.define(version: 20160116194154) do
 
   create_table "events", force: :cascade do |t|
-    t.string   "name",                limit: 255
-    t.text     "description",         limit: 65535
-    t.text     "rules",               limit: 65535
-    t.integer  "minimum_team_size",   limit: 4
-    t.integer  "maximum_team_size",   limit: 4
-    t.text     "contact_details",     limit: 65535
+    t.string   "name",              limit: 255
+    t.text     "description",       limit: 65535
+    t.text     "rules",             limit: 65535
+    t.integer  "minimum_team_size", limit: 4
+    t.integer  "maximum_team_size", limit: 4
+    t.text     "contact_details",   limit: 65535
     t.date     "last_date"
-    t.integer  "event_type",          limit: 4
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.string   "avatar_file_name",    limit: 255
-    t.string   "avatar_content_type", limit: 255
-    t.integer  "avatar_file_size",    limit: 4
-    t.datetime "avatar_updated_at"
+    t.integer  "event_type",        limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "icon_file_name",    limit: 255
+    t.string   "icon_content_type", limit: 255
+    t.integer  "icon_file_size",    limit: 4
+    t.datetime "icon_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
