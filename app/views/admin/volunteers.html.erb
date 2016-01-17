@@ -36,7 +36,7 @@
       <td><%= if d.approved then Event.find(d.event_id).name end %></td>
       <% if not d.approved %>
       <td>
-      	<%= form_tag "/admin/volunteer_approve" do %>
+      	<%= form_tag WEBLINK+"admin/volunteer_approve" do %>
 
 		  <%= label_tag(:event_id) %>
 		  <%= text_field_tag(:event_id) %>
@@ -47,7 +47,7 @@
       </td>
       <% else %>
 	      <td>
-	      	<%= form_tag "/admin/volunteer_disapprove" do %>
+	      	<%= form_tag WEBLINK+"admin/volunteer_disapprove" do %>
 
 			  <%= hidden_field_tag(:vrid, d.id) %>
 

@@ -3,6 +3,9 @@ class RegistrationController < ApplicationController
 
 	# default home page
 	def index
+		
+		redirect_to controller: 'welcome', action: 'index'
+
 		# To display or not to display the volunteer signup link
 		if VolunteerRequest.exists?(:user_id => current_user.id)
 		  @showVolunteerLink = false

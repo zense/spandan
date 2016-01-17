@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def spoc_handle(email,count)
+    checkIfAdmin()
     if User.exists?(:email=>email)
       @user=User.find_by email:email
       if @user.spoc==true
@@ -45,6 +46,7 @@ class EventsController < ApplicationController
     end
   end
   def spoc
+    checkIfAdmin()
     @err = Array.new(6, "")
     spoc_handle(params["email_spoc1"],0)
     spoc_handle(params["email_spoc2"],1)

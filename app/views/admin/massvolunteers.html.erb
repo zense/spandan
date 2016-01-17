@@ -3,7 +3,7 @@
 Enter data:
 Ex: 12,3+12,32+24,23 so on => 12 is volunteer request ID, 3 is event ID. '+' is the seperation between two commands
 
-<%= form_tag "/admin/massvolunteersprocess" do %>
+<%= form_tag WEBLINK+"admin/massvolunteersprocess" do %>
 
 	<%= text_area_tag(:data) %>
 
