@@ -2685,6 +2685,7 @@ DEVISE
   font-size: 30px;
   padding: 30px 30px 30px 30px;
   text-align: right;
+  line-height: 40px;
 }
 
 .regv{
@@ -2785,4 +2786,12 @@ DEVISE
 .media-heading-alone{
   margin-top: 30px !important;
   color: #151515;
+}
+
+#clock{
+  background-color: #93bb24;
+}
+
+.clock{
+  margin: 0 auto;
 }
