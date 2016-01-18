@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="<%= WEBLINK %>css/flipclock.css">
+<script src="<%= WEBLINK %>js/flipclock.js"></script> 
 <section id="main-slider" class="no-margin">
         <div class="carousel slide">
             <ol class="carousel-indicators">
@@ -47,6 +49,10 @@
                                         <use xlink:href="#s-text" class="text--transparent"></use>
 
                                     </svg>
+
+                                    <div class="sp-text-dates">
+                                        <div class="text">4th, 5th &amp; 6th March '16</div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -366,8 +372,39 @@
             
         </div><!--/.container-->
     </section><!--/#recent-works-->
+   
+    <section id="clock">
+        <div class="container">
+            <div class="center wow fadeInDown">
+                <h2 style="color:white;">Countdown to SPANDAN 2016</h2>
+            </div>
+            <div class="center wow fadeInDown">
+                <div class="clock"></div>
+            </div>
+    </div>
+    </section>
+        
+        <script type="text/javascript">
+            var clock;
 
+            $(document).ready(function() {
 
+                // Grab the current date
+                var currentDate = new Date();
+
+                // Set some date in the future. In this case, it's always Jan 1
+                var futureDate  = new Date("March 4, 2016 00:00:00");
+
+                // Calculate the difference in seconds between the future and current date
+                var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+
+                // Instantiate a coutdown FlipClock
+                clock = $('.clock').FlipClock(diff, {
+                    clockFace: 'DailyCounter',
+                    countdown: true
+                });
+            });
+        </script>
 
     <script>
         $(document).ready(function() {
@@ -459,14 +496,29 @@ Notice and alert
 
 svg {
   margin: 0 auto 50px;
+  margin-top: -30px;
   display: block;
   text-transform: uppercase; 
   font-size:10em;}
 .sp-text{
     font-family: 'Oswald';
     font-size: 90px;
+    line-height: 100px;
     color: #151515;
+    margin-top: -40px;
 }
 
+.sp-text-dates{
+    font-family: 'Oswald';
+    font-size: 40px;
+    line-height: 40px;
+    color: #151515;
+    margin-top: -80px;
+}
+@media screen and (max-width: 630px) {
+    #clock {
+        display: none !important;
+    }
+}
   
     </style>

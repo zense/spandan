@@ -179,7 +179,6 @@ body > section {
 }
 
 #header{
-  border-top: solid #93bb24 5px;
   border-bottom: solid #93bb24 3px;
 }
 
@@ -190,9 +189,9 @@ body > section {
 
 .top-bar {
   padding: 10px 0;
-  background: #191919;
-  border-bottom: 1px solid #222;
-  line-height: 28px;
+  background: #000;
+  height: 40px;
+  color: #fff;
 }
 
 .top-number{
@@ -271,7 +270,7 @@ input.search-form:hover {
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
-  background: #151515;
+  background: #000;
   padding: 15px 0;
   padding-bottom: 0;
 }
@@ -685,7 +684,7 @@ input.search-form:hover {
 }
 
 #services {
-  background-color: #151515;
+  background-color: #000;
   background-size: cover;
 }
 
@@ -2496,7 +2495,7 @@ shortcodes page css
 ********* Footer ******
 ************************/
 #bottom {
-  background: #f5f5f5;
+  background: #000;
   border-bottom: 5px solid #93bb24;
   font-size: 14px;
 }
@@ -2536,7 +2535,7 @@ shortcodes page css
   padding-top: 30px;
   padding-bottom: 30px;
   color: #fff;
-  background: #2e2e2e;
+  background: #000;
 }
 
 #footer a {
@@ -2682,9 +2681,10 @@ DEVISE
 .dates{
   color: white;
   font-family: 'Oswald', sans-serif;
-  font-size: 30px;
+  font-size: 40px;
   padding: 30px 30px 30px 30px;
   text-align: right;
+  line-height: 40px;
 }
 
 .regv{
@@ -2779,10 +2779,18 @@ DEVISE
 }
 
 .media-heading{
-  color: #151515;
+  color: #000;
 }
 
 .media-heading-alone{
   margin-top: 30px !important;
-  color: #151515;
+  color: #000;
+}
+
+#clock{
+  background-color: #93bb24;
+}
+
+.clock{
+  margin: 0 auto;
 }
