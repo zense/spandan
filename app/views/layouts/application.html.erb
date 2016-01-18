@@ -28,9 +28,11 @@
   	<%= csrf_meta_tags %>
 </head><!--/head-->
 
-<body style="background-image: url('<%= WEBLINK %>images/bg_img.jpg')">
+<!--<body style="background-image: url('<%= WEBLINK %>images/bg_img.jpg')">-->
+<body>
 
 <header id="header">
+
         <nav class="navbar navbar-inverse" role="banner">
             <div class="container">
                 <div class="navbar-header">
@@ -47,10 +49,20 @@
                 <div class="regv">
                     <%= link_to 'Register as a volunteer', {:controller=>'/registration', :action=>'volunteer_registration'}, :class=>"reg_as_vol" %>
                 </div>
+                <% if user_signed_in? %>
+				        <div class="navbar-right dates">&nbsp;
+                    
+                                Welcome <%= current_user.name %>
+                     
+                </div><% else %>
 
-				<div class="navbar-right dates">
-                    4th, 5th &amp; 6th March '16
-                </div>
+                  <style type="text/css">
+                      .navbar-nav{
+                        margin-top: 100px;
+                      }
+                  </style>
+
+                <% end %>
                 
 
                 <div class="collapse navbar-collapse navbar-right">
@@ -139,7 +151,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2016 Spandan . All Rights Reserved. 1999 - 2016
+                    
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
