@@ -32,9 +32,35 @@
 <body>
 
 <header id="header">
+<div class="container" style="background-color:white">
+           <div class="row">
+                   
+                   <div class="col-sm-10 col-xs-8" style="font-weight: bold; font-size: 120%;">
+                  <% if user_signed_in? %>
+                                Welcome <%= current_user.name %>
+                   <% end %>   
+                    </div>
+                    <div class="col-sm-2 col-xs-8">
+                       <div style="font-weight: bold; font-size: 120%;">
+                            <span>
+                                <% if user_signed_in? %>
+                              <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %>
+                               <% else %>
+                              <span> <%= link_to('Log In', new_user_session_path)  %> </span>
+                              <span style="margin-left:30px">                                
+                              <%= link_to('Sign Up', new_user_registration_path)  %>
+                                <% end %>   
 
+                            </span>
+                            
+                       </div>
+                    </div>
+                </div>
+              </div>
         <nav class="navbar navbar-inverse" role="banner">
+          
             <div class="container">
+               
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -42,19 +68,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<%= WEBLINK %>"><img src="<%= WEBLINK %>images/logo.png" alt="logo" id = "logo"></a>
+                    <a class="navbar-brand" href="<%= WEBLINK %>"><img src="<%= WEBLINK %>images/logo.png" alt="logo" id = "logo" style="height:135px"></a>
                 </div>
 
-
-                <div class="regv">
+		<div class="regv" style="margin-left:18%;margin-top:2%">
                     <%= link_to 'Register as a volunteer', {:controller=>'/registration', :action=>'volunteer_registration'}, :class=>"reg_as_vol" %>
                 </div>
-                <% if user_signed_in? %>
-				        <div class="navbar-right dates">&nbsp;
-                    
-                                Welcome <%= current_user.name %>
-                     
-                </div><% else %>
+               
+               
 
                   <style type="text/css">
                       .navbar-nav{
@@ -62,10 +83,7 @@
                       }
                   </style>
 
-                <% end %>
-                
-
-                <div class="collapse navbar-collapse navbar-right">
+                <div class="collapse navbar-collapse navbar-right" style="font-weight: bold; font-size: 120%;">
                     <ul class="nav navbar-nav">
                         
                         <li><%= link_to 'Home', {:controller=>'/welcome', :action=>'index'} %></li>
@@ -112,23 +130,11 @@
 
                         <% if user_signed_in? %>
                           <li>
-                          <%= link_to('Edit registration', edit_user_registration_path) %>
+                          <%= link_to('Edit profile', edit_user_registration_path) %>
                           </li>
                         <% else %>
-                          <li>
-                          <%= link_to('Sign Up', new_user_registration_path)  %>
-                          </li>
+                         
                         <% end %>   
-
-                        <% if user_signed_in? %>
-                          <li>
-                          <%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %>        
-                          </li>
-                        <% else %>
-                          <li>
-                          <%= link_to('Sign In', new_user_session_path)  %>  
-                          </li>
-                        <% end %>
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -150,14 +156,25 @@
 <footer id="footer" class="midnight-blue">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    
+                <div class="col-sm-5">
+                     <ul class="pull-left">
+                    © 2016 Spandan. All Rights Reserved. 1999 - 2016 | <a href="http://www.iiitb.ac.in/" target="_blank">IIIT B</a><br>Developed by 
+                    <a href="http://www.zense.co.in/" target="_blank">Zense, IIIT-B</a>
+                  </ul>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-2">
+                <div class="social">
+                            <ul class="social-share">
+                                <li><a href="http://www.fb.com/spandan2016" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            </ul>
+                    </div>
+                  </div>
+                <div class="col-sm-5">
+                    
                     <ul class="pull-right">
                         <li><%= link_to 'Home', {:controller=>'/welcome', :action=>'index'} %></li>
                         <li><a href="#"><%= link_to 'Contact', {:controller=>'/welcome', :action=>'contact'} %></a></li>
-                        <% if user_signed_in? %>
+                      <!--  <% if user_signed_in? %>
                           <li>
                           <%= link_to('Edit registration', edit_user_registration_path) %>
                           </li>
@@ -166,7 +183,6 @@
                           <%= link_to('Sign Up', new_user_registration_path)  %>
                           </li>
                         <% end %>   
-
                         <% if user_signed_in? %>
                           <li>
                           <%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %>        
@@ -175,13 +191,13 @@
                           <li>
                           <%= link_to('Sign In', new_user_session_path)  %>  
                           </li>
-                        <% end %>
+                        <% end %>-->
                     </ul>
                 </div>
             </div>
         </div>
     </footer><!--/#footer-->
-
+		 
 
     <script src="<%= WEBLINK %>js/bootstrap.min.js"></script>
     <script src="<%= WEBLINK %>js/jquery.prettyPhoto.js"></script>
@@ -192,5 +208,3 @@
 
 </body>
 </html>
-
-
