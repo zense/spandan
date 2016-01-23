@@ -71,7 +71,7 @@
                     <a class="navbar-brand" href="<%= WEBLINK %>"><img src="<%= WEBLINK %>images/logo.png" alt="logo" id = "logo" style="height:135px"></a>
                 </div>
 
-		<div class="regv" style="margin-left:18%;margin-top:2%">
+		        <div class="regv" style="margin-top:2%">
                     <%= link_to 'Register as a volunteer', {:controller=>'/registration', :action=>'volunteer_registration'}, :class=>"reg_as_vol" %>
                 </div>
                
@@ -81,9 +81,28 @@
                       .navbar-nav{
                         margin-top: 100px;
                       }
+                      .regv{
+                          margin-left: 18%;
+                         }
                   </style>
 
-                <div class="collapse navbar-collapse navbar-right" style="font-weight: bold; font-size: 120%;">
+                  <style type="text/css">
+                  @media (max-width: 991px) {
+                      .regv{
+                          margin-left: 0;
+                         }
+                  }
+                      @media (max-width: 760px) {
+                         .navbar-right{
+                          width: 100%;
+                         } 
+                         .reg_as_vol{
+                          margin-bottom: 20px !important;
+                         }
+                      }
+                  </style>
+
+                <div class="collapse navbar-collapse navbar-right" style="font-weight: bold; font-size: 120%">
                     <ul class="nav navbar-nav">
                         
                         <li><%= link_to 'Home', {:controller=>'/welcome', :action=>'index'} %></li>
@@ -96,7 +115,7 @@
                                 %>
                                     <li class="dropdown">
                                       <%= link_to 'Sports', {:controller=>'/game', :action=>'index'}, :class=>"dropdown-toggle" %>
-                                        <ul class="dropdown-menu multi-column columns-3">
+                                        <!--<ul class="dropdown-menu multi-column columns-3">
                                             <div class="col-sm-4">
                                               <ul class="dropdown-menu">
                                                 <% eventsList.in_groups(3)[0].each do |l|
@@ -121,7 +140,7 @@
                                                 <% end end %>
                                               </ul>
                                             </div>
-                                        </ul>
+                                        </ul>-->
                                     </li>
 
 
