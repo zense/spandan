@@ -82,33 +82,7 @@
              end
           %>
           <li class="dropdown">
-            <%= link_to 'Sports', {:controller=>'/game', :action=>'index'}, :class=>"dropdown-toggle" %>
-            <ul class="dropdown-menu multi-column columns-3">
-              <div class="col-sm-4">
-                <ul class="dropdown-menu">
-                  <% eventsList.in_groups(3)[0].each do |l|
-                    if not l ==nil %>
-                          <li><a href="<%= WEBLINK+"game/"+l.name.downcase.tr(" ", "_") %>"><%= l.name %></a></li>
-                      <% end end %>
-                </ul>
-              </div>
-              <div class="col-sm-4">
-                <ul class="dropdown-menu">
-                  <% eventsList.in_groups(3)[1].each do |l|
-                    if not l ==nil %>
-                          <li><a href="<%= WEBLINK+"game/"+l.name.downcase.tr(" ", "_") %>"><%= l.name %></a></li>
-                      <% end end %>
-                </ul>
-              </div>
-              <div class="col-sm-4">
-                <ul class="dropdown-menu">
-                  <% eventsList.in_groups(3)[2].each do |l|
-                    if not l ==nil %>
-                          <li><a href="<%= WEBLINK+"game/"+l.name.downcase.tr(" ", "_") %>"><%= l.name %></a></li>
-                      <% end end %>
-                </ul>
-              </div>
-            </ul>
+            <%= link_to 'Volunteer', {:controller=>'/registration', :action=>'volunteer_registration'}, :class=>"dropdown-toggle" %>
           </li>
 
 
