@@ -1,16 +1,16 @@
 /* Get the bourbon mixin from http://bourbon.io */
 /* Reset */
 .flip-clock-wrapper * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .flip-clock-wrapper a {
@@ -37,7 +37,7 @@
 
 /* Main */
 .flip-clock-wrapper {
-  font: normal 11px "Helvetica Neue", Helvetica, sans-serif;
+  font: normal 10px "Helvetica Neue", Helvetica, sans-serif;
   -webkit-user-select: none; }
 
 .flip-clock-meridium {
@@ -51,23 +51,23 @@
   text-align: center;
   position: relative;
   margin: 0 auto;
-  width: 630px;
+  width: 620px;
 }
 
 .flip-clock-wrapper:before,
 .flip-clock-wrapper:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+  content: " "; /* 1 */
+  display: table; /* 2 */
 }
 .flip-clock-wrapper:after {
-    clear: both;
+  clear: both;
 }
 
 /* Skeleton */
 .flip-clock-wrapper ul {
   position: relative;
   float: left;
-  margin: 5px;
+  margin: 4px;
   width: 60px;
   height: 90px;
   font-size: 80px;
@@ -108,8 +108,9 @@
   width: 100%;
   height: 50%;
   font-size: 80px;
-  overflow: hidden; 
-  outline: 1px solid transparent; }
+  overflow: hidden;
+  outline: 1px solid transparent;
+}
 
 .flip-clock-wrapper ul li a div .shadow {
   position: absolute;
@@ -151,7 +152,7 @@
   position: absolute;
   left: 0;
   z-index: 1;
-  width: 100%;
+  width: 90%;
   height: 200%;
   color: #ccc;
   text-shadow: 0 1px 2px #000;
