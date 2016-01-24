@@ -53,21 +53,15 @@
 
 
 
-      <% if user_signed_in? %>
-          <div class="navbar-right welcomeText">&nbsp;
 
-            Welcome <%= current_user.name %>
-
-          </div><% else %>
-
-          <style type="text/css">
+            <style type="text/css">
               .navbar-nav{
-                  margin-top: 13%;
-                  font-size:20px;
+                margin-top: 13%;
+                font-size:20px;
               }
-          </style>
+            </style>
 
-      <% end %>
+
 
 
       <div class="collapse navbar-collapse navbar-right">
@@ -88,21 +82,18 @@
 
 
           <li><%= link_to 'Contact', {:controller=>'/welcome', :action=>'contact'} %></li>
-          <li><% if user_signed_in? %>
-                <%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
-
-            <% else %>
+          <li><% if !user_signed_in? %>
                 <li> <%= link_to('Log In', new_user_session_path)  %> </li>
 
                 <li><%= link_to('Sign Up', new_user_registration_path)  %>
-            <% end %>   </li>
-
-            <% if user_signed_in? %>
-                <li>
-                  <%= link_to('Edit profile', edit_user_registration_path) %>
-                </li>
-            <% else %>
-
+              </li>
+          <% else%>
+              <li>
+                <%= link_to(current_user.name , edit_user_registration_path) %>
+              </li>
+              <li>
+                <%= link_to('Sign Out', destroy_user_session_path, :method=> :delete) %>
+              </li>
             <% end %>
             </ul>
       </div>
