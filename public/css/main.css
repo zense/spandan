@@ -1933,14 +1933,14 @@ ul.social_icons li  a i{
 .gmap-area .gmap iframe {
 
   height: 400px;
-  width: 700px;
+  width: 100%;
 }
 
-.gmap{
+gma.gmap{
   border: 10px solid #f6f5f0;
 
   height: 400px;
-  width: 720px;
+  width: 100%;
   box-shadow: 0px 0px 3px 3px #e7e4dc;
   overflow: hidden;
   position: relative;
