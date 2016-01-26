@@ -1,0 +1,25 @@
+<section id="services" class="service-item">
+       <div class="container">
+            <div class="center wow fadeInDown">
+                <br />
+                <h2>Register</h2>
+
+            </div>
+            <h2><%= @event.name %></h2>
+              <div class="field">
+                <%= label_tag (:team_name) %><br>
+                <%= text_field_tag(:team_name) %>
+              </div>
+
+              <div class="field">
+                <%= label_tag (:number_of_players) %><br>
+                <%= select_tag":number_of_players", options_for_select((@event.minimum_team_size.to_i..@event.maximum_team_size.to_i).to_a.map{|i| ["#{i}", i]}) %>
+              </div>
+
+              <div class="field">
+                <%= label_tag (:player_name) %><br>
+                <%= text_field_tag(:player_1) %>
+              </div>
+    </div>
+
+</section>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :events
-  
+
   get 'registration/index'
 
   devise_for :users
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # games viewing
   get 'game/', to: 'game#index'
   get 'game/:name', to: 'game#show'
+  get 'game/:name/register', to: 'game#register'
 
   # route to volunteer registration form
   get 'registration/volunteer_registration', to: 'registration#volunteer_registration'
