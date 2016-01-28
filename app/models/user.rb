@@ -16,5 +16,5 @@ class User < ActiveRecord::Base
                  :numericality => true,
                  :length => { :minimum => 10, :maximum => 10 }
 
-  has_one :volunteer_request # One user can make only one volunteer request
+  	has_one :volunteer_request # One user can make only one volunteer request
 end

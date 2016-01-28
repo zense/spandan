@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem "paperclip", "~> 4.3"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
 gem "wysiwyg-rails"
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -52,7 +53,7 @@ end
 # using devise for registration and login
 gem 'devise'
 
-gem 'sidekiq'
+# gem 'sidekiq'
 
 gem "devise-async"
 

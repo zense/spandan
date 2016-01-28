@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   get 'game/', to: 'game#index'
   get 'game/:name', to: 'game#show'
 
+  # profile viewing based on id
+  get 'profiles/', to: 'profiles#index'
+  get 'profiles/:id', to: 'profiles#show'
+
   # route to volunteer registration form
   get 'registration/volunteer_registration', to: 'registration#volunteer_registration'
   post 'registration/volunteer_registration', to: 'registration#volunteer_registration_process'
