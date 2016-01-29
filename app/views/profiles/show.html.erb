@@ -1,0 +1,37 @@
+<% if current_user.id != @user.id %>
+	<% render(:template => 'profiles/error') %>
+<% end %>
+
+<section id="services" class="service-item">
+       <div class="container">
+            <div class="center wow fadeInDown">
+                <br />
+                <h2>Your Profile</h2>
+            </div>                                       
+    	</div>
+	</div>
+</section>
+<div class="container-fluid">
+	<div class="col-lg-7" style="background: black">
+		<font face="arial" size = 6px color="black">
+		<center><span class="label label-success">Personal Details</span></center>
+		<b><span class="label label-default">Registered username: </span></b><div class="well"><%= @user.name %></div><br>
+		<b><span class="label label-default">Registered Roll number: </span></b><div class="well"><%= @user.roll_no %></div><br>
+		<b><span class="label label-default">Registered Email-ID: </span></b><div class="well"><%= @user.email %></div><br>
+		<b><span class="label label-default">Registered Phone Number: </span></b><div class="well"><%= @user.phone_number %></div><br>
+		</font>
+	</div>
+
+	<div class="col-lg-5" style="background: black">
+		<font face="arial" size = 6px color="black">
+		<center><bpan class="label label-success">Games volunteered for </span></center>
+		<ul class="list-group">
+			<li class="list-group-item list-group-item-success"><%= @event1.name %><br></li>
+			<li class="list-group-item list-group-item-info"><%= @event2.name %><br></li>
+			<li class="list-group-item list-group-item-warning"><%= @event3.name %><br></li>
+			<li class="list-group-item list-group-item-danger"><%= @event4.name %><br></li>
+		</ul>
+		</font>
+	</div>
+
+</div>
