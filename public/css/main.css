@@ -2671,10 +2671,12 @@ DEVISE
   display: inline-block;
   cursor: pointer;
   color: #FFFFFF;
-  font-size: 14px;
   padding: 8px 18px;
   text-decoration: none;
   text-transform: uppercase;
+  max-width: 100%;
+  font-size: 80%;
+
 }
 .form-style-8 input[type="button"]:hover,
 .form-style-8 input[type="submit"]:hover {
