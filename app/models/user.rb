@@ -64,9 +64,13 @@ class User < ActiveRecord::Base
 		if !self.has_registered_for(event_id)
 			# the person hasn't already registered
 			Team.transaction do
-				t = Team.new(:name=>team_name, :event_id=>event_id, :parent_id=>self.id, :isvalid=>true)
+				t = Team.new(:name=>team_name, :event_id=>event_id, :parent_id=>self.id, :isvalid=>false)
 				t.save!
 				t.users << self
+				if t.users.count >= t.event.minimum_team_size # Handles the case where minimum team size is 1
+					t.isvalid=true
+					t.save!
+				end
 			end
 		else
 			msg = 'You have already registered for this event'

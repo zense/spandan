@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116194154) do
+ActiveRecord::Schema.define(version: 20160129212707) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",              limit: 255
@@ -28,6 +28,32 @@ ActiveRecord::Schema.define(version: 20160116194154) do
     t.string   "icon_content_type", limit: 255
     t.integer  "icon_file_size",    limit: 4
     t.datetime "icon_updated_at"
+  end
+
+  create_table "registrations", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "team_id",    limit: 4
+    t.integer  "event_id",   limit: 4,                null: false
+    t.boolean  "isvalid",              default: true
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.integer  "parent_id",  limit: 4,   null: false
+    t.integer  "event_id",   limit: 4
+    t.string   "name",       limit: 255
+    t.boolean  "isvalid"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "teams_users", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "team_id",    limit: 4
+    t.integer  "event_id",   limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,6 +87,7 @@ ActiveRecord::Schema.define(version: 20160116194154) do
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["id"], name: "id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "volunteer_requests", force: :cascade do |t|
