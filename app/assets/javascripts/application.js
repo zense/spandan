@@ -38,3 +38,4 @@
 //= require plugins/save.min.js
 //= require plugins/table.min.js
 //= require plugins/url.min.js
+//= require wice_grid
