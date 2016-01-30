@@ -16,6 +16,11 @@
   g.column name: 'Email', attribute: 'email',assoc: :user do |task|
     task.user.email
   end
+
+  g.column name: 'Mobile', attribute: 'phone_number', assoc: :user do |task|
+    task.user.phone_number
+  end
+
   g.column name: 'priority1', attribute: 'priority1' do |task|
     printPriority(task.priority1)
   end
