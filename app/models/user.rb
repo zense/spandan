@@ -21,25 +21,36 @@ class User < ActiveRecord::Base
   has_many :registrations
 
   def has_registered_for(event_id)
+    #Modified to check for Single Event Registrations as well
 		if self.teams.where(:event_id=>event_id, :isvalid=>true).count>0
 			return true
-		else
-			return false
-		end
+		elsif Registration.where(:user_id=> self.id,:event_id=>event_id, :isvalid=>true).count>0
+			return true
+    end
+    return false
 	end
 
   def cancel_participation(event_id)
 		# In case of a team event, user can cancel his/her participation if they have been added by mistake
 		# First delete his teams_users entry
+    #TODO Mark the registration of team also invalid. Get clarity on registration table.
 		msg = ''
 		team = self.teams.find_by_event_id(event_id)
+    #registration = Registration.find_by_event_id(event_id)
 		if team.nil?
 			msg = "User has not participated in this event"
 			return msg
 		else
 			Team.transaction do
 				team.isvalid = false # Marking the team as invalid
+
+       # if !registration.nil? #Checking if the team has registered
+       #   registration.isvalid = false # Marking the registration as invalid
+       #   registration.save!
+       #   self.registrations.delete(registration.id) #delete from
+       # end
 				team.save!
+
 				self.teams.delete(team.id) # delete from teams_users table
 			end
 		end
@@ -79,4 +90,95 @@ class User < ActiveRecord::Base
 			return false
 		end
 	end
+
+  def register(event_id)
+    #Users can register for single events using this function
+    msg = ''
+    event = Event.find(event_id)
+
+    #Checking if the Event conditions are met
+    if event.nil?
+      msg = 'Event not found'
+      puts msg
+      errors.add(:base, msg)
+      return false
+    elsif event.event_type==TEAM
+      msg = 'The given event is a team event.Please use a separate function.'
+      puts msg
+      errors.add(:base, 'The given event is a team event.Please use a separate function.')
+      return false
+    elsif event.last_date < Date.today
+      msg = "Event Registration Over.Sorry"
+      puts(msg)
+      errors.add(:base, msg)
+      return false
+    end
+
+    #Checking if the User conditions are met
+    if !self.has_registered_for(event_id)
+      # User hasn't already registered
+      #TODO Check if isvalid is true for single events implicitly
+      r = Registration.new(:user_id=>self.id, :event_id=>event_id,:isvalid=>true)
+      r.save!
+    else
+      msg = 'You have already registered for this event'
+      puts msg
+      errors.add(:base, msg)
+      return false
+    end
+  end
+
+  def register_team(event_id,team_id)
+    #Users can register for team events using this function.
+    # Assuming they have already created Teams
+    msg = ''
+    event = Event.find(event_id)
+    team = Team.find(team_id)
+    #Checking if the Event conditions are met
+    if event.nil?
+      msg = 'Event not found'
+      puts msg
+      errors.add(:base, msg)
+      return false
+    elsif event.event_type!=TEAM
+      msg = 'The given event is NOT a team event.Please use a separate function.'
+      puts msg
+      errors.add(:base, 'The given event is NOT a team event.Please use a separate function.')
+      return false
+    elsif event.last_date < Date.today
+      msg = "Event Registration Over.Sorry"
+      puts(msg)
+      errors.add(:base, msg)
+      return false
+    end
+    #Checking if team is valid
+    if team.nil?
+      msg = "Dude da fuq? No team bro"
+      puts msg
+      errors.add(:base,msg)
+      return false
+    elsif team.isvalid==false
+      msg = "Bro. No Loyalty in your team. Someone cancelled it."
+      puts msg
+      errors.add(:base,msg)
+      return false
+    elsif (team.size < event.minimum_team_size or team.size > event.maximum_team_size)
+      msg = "Team Size is Invalid"
+      puts msg
+      errors.add(:base,msg)
+      return false
+    end
+    #Checking if the User conditions are met
+    if !self.has_registered_for(event_id)
+      # User hasn't already registered
+      r = Registration.new(:user_id=>self.id, :event_id=>event_id,:team_id=>team_id, :isvalid=>true)
+      r.save!
+    else
+      msg = 'You have already registered for this event'
+      puts msg
+      errors.add(:base, msg)
+      return false
+    end
+  end
+
 end
