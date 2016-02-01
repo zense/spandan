@@ -131,8 +131,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
     params.require(:event).permit(:name, :description, :icon, :rules, :minimum_team_size, :maximum_team_size, :contact_details, :last_date, :event_type)
   end
