@@ -32,18 +32,15 @@ class Team < ActiveRecord::Base
       if user.has_registered_for(self.event_id)
         errors.add(:base, 'User with ' + uid.to_s + ' has already registered for this event!')
         return false;
-
+      #TODO Take care of duplicate users
       else
         self.users << user # Add the user to the team
       end
     end
-    puts self.size.to_s
-    if self.size > event.minimum_team_size and self.size < event.maximum_team_size
-      t=Team.find(self.id)
-      t.isvalid=true
-      t.save!
-      msg="Size is " + self.size.to_s
-      puts msg
+
+    if self.size >= event.minimum_team_size and self.size <= event.maximum_team_size
+      self.isvalid=true
+      self.save!
     end
   end
 

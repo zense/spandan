@@ -22,7 +22,8 @@ class User < ActiveRecord::Base
 
   def has_registered_for(event_id)
     #Modified to check for Single Event Registrations as well
-		if self.teams.where(:event_id=>event_id, :isvalid=>true).count>0
+    team=self.teams.find_by_event_id(event_id)
+		if !team.nil? and Registration.where(:team_id => team.id,:event_id=>event_id, :isvalid=>true).count>0
 			return true
 		elsif Registration.where(:user_id=> self.id,:event_id=>event_id, :isvalid=>true).count>0
 			return true
@@ -33,10 +34,10 @@ class User < ActiveRecord::Base
   def cancel_participation(event_id)
 		# In case of a team event, user can cancel his/her participation if they have been added by mistake
 		# First delete his teams_users entry
-    #TODO Mark the registration of team also invalid. Get clarity on registration table.
+
 		msg = ''
 		team = self.teams.find_by_event_id(event_id)
-    #registration = Registration.find_by_event_id(event_id)
+    registration = Registration.find_by_team_id(team.id)
 		if team.nil?
 			msg = "User has not participated in this event"
 			return msg
@@ -44,14 +45,14 @@ class User < ActiveRecord::Base
 			Team.transaction do
 				team.isvalid = false # Marking the team as invalid
 
-       # if !registration.nil? #Checking if the team has registered
-       #   registration.isvalid = false # Marking the registration as invalid
-       #   registration.save!
-       #   self.registrations.delete(registration.id) #delete from
-       # end
+        if !registration.nil? #Checking if the team has registered
+          registration.isvalid = false # Marking the registration as invalid
+          registration.save!
+        end
 				team.save!
 
 				self.teams.delete(team.id) # delete from teams_users table
+        #teams.delete(team.id)
 			end
 		end
 	end
