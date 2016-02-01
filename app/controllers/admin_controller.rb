@@ -83,7 +83,7 @@ class AdminController < ApplicationController
 
 				# Send an email to the volunteer
 				@eventName = Event.find(@event_id).name
-				Volunteermailer.became_volunteer_email(@user.email, @eventName).deliver_later
+				Volunteermailer.became_volunteer_email(@user.email, @eventName).deliver
 			end
 		end
 
@@ -116,7 +116,7 @@ class AdminController < ApplicationController
 
 			# Send the volunteer an email
 			@eventName = Event.find(@event_id).name
-			Volunteermailer.became_volunteer_email(@user.email, @eventName).deliver_later
+			Volunteermailer.became_volunteer_email(@user.email, @eventName).deliver
 		end
 		redirect_to controller: 'admin', action: 'volunteers'
 	end
