@@ -1933,14 +1933,14 @@ ul.social_icons li  a i{
 .gmap-area .gmap iframe {
 
   height: 400px;
-  width: 700px;
+  width: 100%;
 }
 
-.gmap{
+gma.gmap{
   border: 10px solid #f6f5f0;
 
   height: 400px;
-  width: 700px;
+  width: 100%;
   box-shadow: 0px 0px 3px 3px #e7e4dc;
   overflow: hidden;
   position: relative;
@@ -2671,10 +2671,12 @@ DEVISE
   display: inline-block;
   cursor: pointer;
   color: #FFFFFF;
-  font-size: 14px;
   padding: 8px 18px;
   text-decoration: none;
   text-transform: uppercase;
+  max-width: 100%;
+  font-size: 80%;
+
 }
 .form-style-8 input[type="button"]:hover,
 .form-style-8 input[type="submit"]:hover {
@@ -2803,6 +2805,13 @@ DEVISE
 
 .clock{
   margin: 0 auto;
+}
+
+#media-onhover:hover {
+  color: #93bb24;
+}
+#smallbox {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 630px) {

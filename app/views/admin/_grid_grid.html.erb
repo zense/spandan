@@ -1,0 +1,70 @@
+<%= grid(@tasks_grid,show_filters: :when_filtered) do |g|
+  g.column name: 'VRID' ,attribute: 'id' do |task|
+    task.id
+  end
+
+  g.column name: 'UID' ,attribute: 'user_id'  do |task|
+    task.user_id
+  end
+
+  g.column name: 'Name', attribute: 'name' ,assoc: :user do |task|
+    task.user.name
+  end
+  g.column name: 'Rollnum', attribute: 'roll_no',assoc: :user do |task|
+    task.user.roll_no
+  end
+  g.column name: 'Email', attribute: 'email',assoc: :user do |task|
+    task.user.email
+  end
+
+  g.column name: 'Mobile', attribute: 'phone_number', assoc: :user do |task|
+    task.user.phone_number
+  end
+
+  g.column name: 'priority1', attribute: 'priority1' do |task|
+    printPriority(task.priority1)
+  end
+  g.column name: 'Priority2', attribute: 'priority2' do |task|
+    printPriority(task.priority2)
+  end
+  g.column name: 'Priority3', attribute: 'priority3' do |task|
+    printPriority(task.priority3)
+  end
+  g.column name: 'Priority4', attribute: 'priority4' do |task|
+    printPriority(task.priority4)
+  end
+  g.column name: 'TShirt' , attribute: 'tshirt_size' do |task|
+    tshirt(task.tshirt_size)
+  end
+  g.column name: 'Approved' , attribute: 'approved' do |task|
+      if task.approved then 'Yes' else 'No' end
+  end
+  g.column name: 'Approved By' , attribute: 'approved_by' do |task|
+  if task.approved then User.find(task.approved_by).email end
+  end
+  g.column name: 'VEID' do |task|
+    if task.approved then Event.find(task.event_id).name end
+  end
+  g.column name: 'Actions' ,in_csv: false do |task|
+     if not task.approved
+         form_tag WEBLINK+"admin/volunteer_approve"  do %>
+
+         <%=label_tag(:event_id)  %>
+         <%=text_field_tag(:event_id) %>
+         <%=hidden_field_tag(:vrid, task.id) %>
+         <%=submit_tag "Approve"%>
+         <% end %>
+    <%
+     else
+         form_tag WEBLINK+"admin/volunteer_disapprove" do%>
+         <%= hidden_field_tag(:vrid, task.id) %>
+         <%=submit_tag "Disapprove",  data: { confirm: 'Are you sure?' }%>
+     <%end
+   end
+ end
+
+=begin  g.column do |task|
+    link_to('Edit', edit_task_path(task))
+  end
+=end
+end -%>

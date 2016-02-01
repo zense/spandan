@@ -4,6 +4,10 @@ class AdminController < ApplicationController
 	# Default homepage
 	def index
 		checkIfAdmin()
+		respond_to do |format|
+			format.csv
+			format.html
+		end
 
 		# Stats data collection
 		@numEvents = 0
@@ -32,7 +36,12 @@ class AdminController < ApplicationController
 	# Look at all the volunteers
 	def volunteers
 		checkIfAdmin()
-		@requests = VolunteerRequest.all
+
+		@tasks_grid = initialize_grid(VolunteerRequest,per_page: 20, enable_export_to_csv: true,  csv_file_name:'volunteer-requests', include: :user)
+#	@tasks_grid = initialize_grid(VolunteerRequest,per_page: 40)
+		 export_grid_if_requested
+		#@requests = VolunteerRequest.all
+
 	end
 
 	# Mass volunteer approval
@@ -52,7 +61,7 @@ class AdminController < ApplicationController
 		@rawData = params[:data].split('+')
 		@rawData.each do |d|
 			@data = d.split(',')
-			
+
 			@vrid = @data[0].to_i
 			@event_id = @data[1].to_i
 
@@ -84,7 +93,8 @@ class AdminController < ApplicationController
 	# Volunteer approval
 	def volunteer_approve
 		checkIfAdmin()
-		@vrid = params[:vrid].to_i
+	#	render plain: params.inspect
+		@vrid = params["vrid"].to_i
 		@event_id = params[:event_id].to_i
 
 		@vr = VolunteerRequest.find(@vrid)
@@ -108,7 +118,6 @@ class AdminController < ApplicationController
 			@eventName = Event.find(@event_id).name
 			Volunteermailer.became_volunteer_email(@user.email, @eventName).deliver_later
 		end
-
 		redirect_to controller: 'admin', action: 'volunteers'
 	end
 

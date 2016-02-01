@@ -17,4 +17,66 @@ class User < ActiveRecord::Base
                  :length => { :minimum => 10, :maximum => 10 }
 
   has_one :volunteer_request # One user can make only one volunteer request
+  has_and_belongs_to_many :teams
+  has_many :registrations
+
+  def has_registered_for(event_id)
+		if self.teams.where(:event_id=>event_id, :isvalid=>true).count>0
+			return true
+		else
+			return false
+		end
+	end
+
+  def cancel_participation(event_id)
+		# In case of a team event, user can cancel his/her participation if they have been added by mistake
+		# First delete his teams_users entry
+		msg = ''
+		team = self.teams.find_by_event_id(event_id)
+		if team.nil?
+			msg = "User has not participated in this event"
+			return msg
+		else
+			Team.transaction do
+				team.isvalid = false # Marking the team as invalid
+				team.save!
+				self.teams.delete(team.id) # delete from teams_users table
+			end
+		end
+	end
+
+  def create_team(event_id, team_name)
+		# Allows user to create a new team for any given event
+		msg = ''
+		event = Event.find(event_id)
+		if event.nil?
+			msg = 'Event not found'
+			puts msg
+			errors.add(:base, msg)
+			return false
+		elsif event.event_type!=TEAM
+			msg = 'The given event is not a team event'
+			puts msg
+			errors.add(:base, 'The given event is not a team event')
+			return false
+		end
+
+		if !self.has_registered_for(event_id)
+			# the person hasn't already registered
+			Team.transaction do
+				t = Team.new(:name=>team_name, :event_id=>event_id, :parent_id=>self.id, :isvalid=>false)
+				t.save!
+				t.users << self
+				if t.users.count >= t.event.minimum_team_size # Handles the case where minimum team size is 1
+					t.isvalid=true
+					t.save!
+				end
+			end
+		else
+			msg = 'You have already registered for this event'
+			puts msg
+			errors.add(:base, msg)
+			return false
+		end
+	end
 end
