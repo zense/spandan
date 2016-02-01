@@ -2807,6 +2807,13 @@ DEVISE
   margin: 0 auto;
 }
 
+#media-onhover:hover {
+  color: #93bb24;
+}
+#smallbox {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 630px) {
   .mobileLogo {
     height: 70px!important;

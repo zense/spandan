@@ -7,11 +7,11 @@ class GameController < ApplicationController
 	end
 
 	def show
-			@event=Event.find_by_name(params[:name])
+		@event=Event.find_by_name(params[:name])
 	end
 
 	def register
-			@event=Event.find_by_name(params[:name])
-		end
+		@event=Event.find_by_name(params[:name])
+	end
 
 end
