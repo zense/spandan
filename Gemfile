@@ -59,5 +59,7 @@ gem 'sidekiq'
 
 gem "devise-async"
 
+gem 'sidekiq_mailer'
+
 # Fiiiigaro
 gem "figaro"
