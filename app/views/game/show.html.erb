@@ -1,13 +1,92 @@
 <section id="services" class="service-item">
-       <div class="container">
+       	<div class="container-fluid">
             <div class="center wow fadeInDown">
-                <br />
-                <h2>Coming Soon</h2>
-
-            </div>
-
-    </div>
-    <a href="<%= request.url%>/register">Register
-    </a>
+                <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal"><h2><%= @event.name %></h2></button>
+  			</div>
+	    </div>
+                <div class="modal fade" id="myModal" role="dialog">
+    				<div class="modal-dialog">
+      					<div class="modal-content">
+        					<div class="modal-header">
+          						<button type="button" class="close" data-dismiss="modal">&times;</button>
+          						<h4 class="modal-title"><%= raw @event.name %></h4>
+        					</div>
+        					<div class="modal-body">
+          						<p><%= raw @event.description %></p>
+        					</div>
+					        <div class="modal-footer">
+					          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        </div>
+      					</div>
+            		</div>
+    			</div>
 
 </section>
+
+<ul class="nav nav-tabs nav-justified">
+  <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+  <li><a data-toggle="tab" href="#event_details">Event Details</a></li>
+  <li><a data-toggle="tab" href="#rules">Rules</a></li>
+  <li><a data-toggle="tab" href="#contact">Contact Us</a></li>
+</ul>
+
+<div class="tab-content">
+	  <div id="home" class="tab-pane fade in active">
+	    <div class="center wow fadeInDown">
+	    	<h2><center>Description</center></h2>
+		    <p><h3>
+		    	<div class="well">
+		    		<center><%=raw @event.description %></center>
+		    	</div>
+		    </h3></p>
+	  	</div>
+	  	</div>
+  	<div id="event_details" class="tab-pane fade">
+    	<div class="center wow fadeInDown">
+		    <h2>Event Details</h2>
+		    <div class="well">
+			    <p><h3>
+					<% if @event.event_type == 0 %>
+						This is an <strong> individual </strong> event. <br><br>
+					<% elsif @event.event_type.to_i == 1 %>
+						<h3>This is a <strong> team </strong> event.<br></h3>
+						You should have atleast, <strong><%= @event.minimum_team_size %></strong> and can have utmost, <strong><%= @event.maximum_team_size %></strong> people on your team, to participate in this event.<br><br>
+					<% elsif @event.event_type.to_i == 2 %> 
+						You should have atleast, <%= @event.minimum_team_size %><br>
+						and utmost, <%= @event.maximum_team_size %><br><br>
+					<% end %>
+
+					<div class="alert alert-danger">
+						<strong>Hurry Up! Last date to register is <%= raw @event.last_date %> </strong><br>
+					</div>
+			    </h3></p>
+			</div>
+  		</div>
+  	</div>
+  	<div id="rules" class="tab-pane fade">
+  		<div class="center wow fadeInDown">
+	    	<h2>Rules</h2>
+	  		<div class="well">
+			    	<strong>The rules of the event is as follows:</strong>
+			    <p><h3>
+			    	<br><%= raw @event.rules %><br>
+			   	</h3></p>
+			</div>
+  		</div>
+  	</div>
+  	<div id="contact" class="tab-pane fade">
+  		<div class="center wow fadeInDown">
+	    	<h2>Contact Details</h2>
+	    	<div class="well">
+		    	<strong>For any other queries regarding this event, you can contact: </strong><br>
+		    	<p><h3>
+					<%= raw @event.contact_details %><br>
+		    	</h3></p>
+	    	</div>
+  		</div>
+  	</div>
+</div>
+
+<div class="alert alert-success fade in">
+  <h2><center><strong>To register for this event, </strong><a href="<%= request.url %>/register">Click Here</a></center></h2>
+</div>
