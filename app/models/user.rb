@@ -88,7 +88,8 @@ class User < ActiveRecord::Base
 			puts msg
 			errors.add(:base, msg)
 			return false
-		end
+    end
+    return true
 	end
 
   def register(event_id)
@@ -158,7 +159,7 @@ class User < ActiveRecord::Base
       errors.add(:base,msg)
       return false
     elsif team.isvalid==false
-      msg = "Bro. No Loyalty in your team. Someone cancelled it."
+      msg = "Team is invalid"
       puts msg
       errors.add(:base,msg)
       return false
