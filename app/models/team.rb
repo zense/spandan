@@ -4,8 +4,18 @@ class Team < ActiveRecord::Base
 
   # Lets a particular user add users to current team
   # Modify this to make sure that no more users can be added if team.size==team.event.maximum_team_size
+  # Also modify to make sure the same user can't be added twice
   def add_user uid
     # Need to test
+    msg=""
+    puts self.size.to_s
+    event = Event.find(self.event_id)
+    if self.size >= event.maximum_team_size
+      msg="Maximum Team Size Reached"
+      puts msg
+      errors.add(:base, msg)
+      return false
+    end
     if uid.is_a? Integer
       user = User.find(uid)
     else
@@ -22,9 +32,15 @@ class Team < ActiveRecord::Base
       if user.has_registered_for(self.event_id)
         errors.add(:base, 'User with ' + uid.to_s + ' has already registered for this event!')
         return false;
+      #TODO Take care of duplicate users
       else
         self.users << user # Add the user to the team
       end
+    end
+
+    if self.size >= event.minimum_team_size and self.size <= event.maximum_team_size
+      self.isvalid=true
+      self.save!
     end
   end
 
