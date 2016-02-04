@@ -31,7 +31,7 @@
 
           <% @TeamMates=[] %>
           <% $i=0 %>
-          <center><h2>Your name is automaticaly added into the team, Enter the name of your Team Members</h2><br><br></center>
+          <center><h2>Your name is automatically added into the team, Enter the name of your team members</h2><br><br></center>
           <% @TeamMates.push(current_user[:name]) %>
           <% $i+=1 %>
 
@@ -42,6 +42,7 @@
               </div><br>
               <% $i+=1 %>
           <% end until  $i == @event.maximum_team_size %>
+          <center><h3>I agree to abide by the rules given above and would like to register my team for this event</h3></center>
           <center> <%= submit_tag "Register" %> </center>
 
     <% end %>
@@ -59,6 +60,8 @@
       </div>
       <br><br>
       <%= hidden_field_tag :name, current_user[:name] %>
+      <center><h3>I agree to abide by the rules given above and would like to register myself for this event</h3></center>
       <center> <%= submit_tag "Register" %> </center>
     <% end %>
+    
 <% end %>
