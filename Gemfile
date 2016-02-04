@@ -55,9 +55,11 @@ end
 # using devise for registration and login
 gem 'devise'
 
-gem 'sidekiq'
+# gem 'sidekiq'
 
 gem "devise-async"
+
+gem 'sidekiq_mailer'
 
 # Fiiiigaro
 gem "figaro"
