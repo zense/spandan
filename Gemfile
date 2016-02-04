@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'passenger'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
+gem "wice_grid", '3.6.0.pre4'
+gem 'font-awesome-sass',  '~> 4.3'
 # Use mysql as the database for Active Record
 gem 'mysql2', '~> 0.3.18'
 # Use SCSS for stylesheets
@@ -56,6 +58,8 @@ gem 'devise'
 # gem 'sidekiq'
 
 gem "devise-async"
+
+gem 'sidekiq_mailer'
 
 # Fiiiigaro
 gem "figaro"

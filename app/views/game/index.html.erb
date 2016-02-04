@@ -8,25 +8,25 @@
             <div class="row">
 
                 <% Event.all.each do |event| %>
-                <% if event.event_type == INDIVIDUAL or event.event_type == TEAM%>             
-                <div class="col-sm-6 col-md-4">
+                <% if event.event_type == INDIVIDUAL or event.event_type == TEAM%>
+                <div class="col-sm-6 col-md-4" onclick="location.href='<%= request.url %>/<%= event.name %>';" id="smallbox">
                     <div class="media services-wrap wow fadeInDown">
                         <div class="pull-left">
                             <%= image_tag event.icon , :class => "responsive"%>
                         </div>
                         <div class="media-body">
                                 <% if event.description.to_s.length > 0 %>
-                                <h3 class="media-heading"><%= event.name %></h3>
+                                <h3 id="media-onhover" class="media-heading"><%= event.name %></h3>
+
                                 <% else %>
-                                <h3 class="media-heading-alone"><%= event.name %></h3>
+                                <h3 id="media-onhover" class="media-heading-alone"><%= event.name %></h3>
+        
                                 <% end %>
-                            <p><%= event.description %></p>
                         </div>
                     </div>
                 </div>
                  <% end end %>
 
-                                               
             </div><!--/.row-->
         </div><!--/.container-->
     </section><!--/#services-->
