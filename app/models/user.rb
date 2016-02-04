@@ -16,11 +16,11 @@ class User < ActiveRecord::Base
                  :numericality => true,
                  :length => { :minimum => 10, :maximum => 10 }
 
-  has_one :volunteer_request # One user can make only one volunteer request
-  has_and_belongs_to_many :teams
-  has_many :registrations
+  	has_one :volunteer_request # One user can make only one volunteer request
+  	has_and_belongs_to_many :teams
+  	has_many :registrations
 
-  def has_registered_for(event_id)
+  	def has_registered_for(event_id)
 		if self.teams.where(:event_id=>event_id, :isvalid=>true).count>0
 			return true
 		else
@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
 		end
 	end
 
-  def cancel_participation(event_id)
+  	def cancel_participation(event_id)
 		# In case of a team event, user can cancel his/her participation if they have been added by mistake
 		# First delete his teams_users entry
 		msg = ''
@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
 		end
 	end
 
-  def create_team(event_id, team_name)
+  	def create_team(event_id, team_name)
 		# Allows user to create a new team for any given event
 		msg = ''
 		event = Event.find(event_id)

@@ -11,7 +11,9 @@ class GameController < ApplicationController
 	end
 
 	def register
+		@TeamMates=[]
 		@event=Event.find_by_name(params[:name])
+        @TeamMates=params[:team_mates]
 	end
 
 end

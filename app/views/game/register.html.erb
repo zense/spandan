@@ -6,20 +6,59 @@
     </div>
 </section>
 
-<%= form_tag WEBLINK + "", :class => 'form-style-8' do %>
-    <h2><%= @event.name %></h2>
-      <div class="field">
-        <%= label_tag (:team_name) %><br>
-        <%= text_field_tag(:team_name) %>
+<% if @event.event_type.to_i == 1 %>
+    <%= form_tag WEBLINK + "", :class => 'form-style-8' do %>
+      <div class="center wow fadeInDown">
+        <div class="well"> 
+          <h2>Rules</h2>
+            You should have atleast, <strong><%= @event.minimum_team_size %></strong> and can have utmost, <strong><%= @event.maximum_team_size %></strong> people on your team, to participate in this event.<br><br>
+            <strong>The rules of the event is as follows:</strong><br>
+            <br><%= raw @event.rules %><br>
+        </div>
       </div>
+      <br><br>
+      <h3><%= @event.name %></h3>
+          <div class="field">
+            <%= label_tag :team_name %><br>
+            <%= text_field_tag(:team_name) %>
+          </div>
 
-      <div class="field">
-        <%= label_tag (:number_of_players) %><br>
-        <%= select_tag":number_of_players", options_for_select((@event.minimum_team_size.to_i..@event.maximum_team_size.to_i).to_a.map{|i| ["#{i}", i]}) %>
-      </div>
+          <div class="field">
+            <%= label_tag :number_of_players %><br>
+            <%= select_tag ":number_of_players", options_for_select((@event.minimum_team_size.to_i..@event.maximum_team_size.to_i).to_a.map{|i| ["#{i}", i]}) %>
+          </div>
+          <br><br>
 
-      <div class="field">
-        <%= label_tag (:player_name) %><br>
-        <%= text_field_tag(:player_1) %>
+          <% @TeamMates=[] %>
+          <% $i=0 %>
+          <center><h2>Your name is automaticaly added into the team, Enter the name of your Team Members</h2><br><br></center>
+          <% @TeamMates.push(current_user[:name]) %>
+          <% $i+=1 %>
+
+          <% begin %>
+              <div class="field">
+                <%= label_tag ("Member " + ($i+1).to_s) %><br>
+                <%= text_field_tag "team_mates[]" %>
+              </div><br>
+              <% $i+=1 %>
+          <% end until  $i == @event.maximum_team_size %>
+          <center> <%= submit_tag "Register" %> </center>
+
+    <% end %>
+
+<% elsif @event.event_type.to_i == 0 %>
+    
+    <%= form_tag WEBLINK + "", :class => 'form-style-8' do %>
+      <div class="center wow fadeInDown">
+        <div class="well">
+          <h2>Rules</h2>
+            This is an <strong> individual </strong> event. <br><br>
+            <strong>The rules of the event is as follows:</strong><br>
+            <br><%= raw @event.rules %><br>
+        </div>
       </div>
+      <br><br>
+      <%= hidden_field_tag :name, current_user[:name] %>
+      <center> <%= submit_tag "Register" %> </center>
+    <% end %>
 <% end %>
