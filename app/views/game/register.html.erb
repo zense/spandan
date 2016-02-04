@@ -8,6 +8,18 @@
 
 <% if @event.event_type.to_i == 1 %>
     <%= form_tag WEBLINK + "", :class => 'form-style-8' do %>
+
+      <% if @event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@event.errors.count, "error") %> prohibited this registration from being saved:</h2>
+          <ul>
+            <% @event.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <div class="center wow fadeInDown">
         <div class="well"> 
           <h2>Rules</h2>
@@ -50,6 +62,18 @@
 <% elsif @event.event_type.to_i == 0 %>
     
     <%= form_tag WEBLINK + "", :class => 'form-style-8' do %>
+    
+      <% if @event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@event.errors.count, "error") %> prohibited this registration from being saved:</h2>
+          <ul>
+            <% @event.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <div class="center wow fadeInDown">
         <div class="well">
           <h2>Rules</h2>
