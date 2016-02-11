@@ -34,7 +34,9 @@ class Team < ActiveRecord::Base
         return false;
       #TODO Take care of duplicate users
       else
-        self.users << user # Add the user to the team
+        #self.users << user # Add the user to the team
+        sql = "INSERT INTO teams_users (user_id, team_id, event_id) VALUES (#{user.id}, #{self.id}, #{self.event_id})"
+        ActiveRecord::Base.connection.execute(sql)
       end
     end
 
