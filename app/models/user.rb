@@ -62,10 +62,12 @@ class User < ActiveRecord::Base
       Team.transaction do
         team.isvalid = false # Marking the team as invalid
 
-        if !registration.nil? #Checking if the team has registered
-          registration.isvalid = false # Marking the registration as invalid
-          registration.save!
-        end
+        # if !registration.nil? #Checking if the team has registered
+        #   registration.isvalid = false # Marking the registration as invalid
+        #   registration.save!
+        # end
+        # Just delete the registraton. Using flag might create problems
+        registration.delete
         team.users.each do |t|
           Notification.create(message: 'Your team for event: ' + team.event.name + ' Has been cancelled because ' + self.email + ' cancelled his participation. Please try to register again.')
         end
@@ -126,6 +128,7 @@ class User < ActiveRecord::Base
           t.add_user(id)
         end
 
+        Registration.create(team_id: t.id, event_id: t.event_id, isvalid: true)
         if t.users.count >= t.event.minimum_team_size and t.users.count <= t.event.maximum_team_size# Handles the case where minimum team size is 1
           t.isvalid=true
           t.save!
