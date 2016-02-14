@@ -24,10 +24,16 @@
 
 	<div class="col-lg-5" style="background: black">
 		<font face="arial" size = 6px color="black">
-		<center><span class="label label-success">Game Volunteered for </span></center><br>
+		<center><span class="label label-success">Games Volunteered for </span></center><br>
 		  <% if current_user.volunteer_event_id!=0 %>
 		  	<p class="list-group-item list-group-item-danger"><%= Event.find(current_user.volunteer_event_id).name %></p>
 		  <% end %>
+		<br>
+		<center><span class="label label-success">Solo Events participated for </span></center><br>
+		  	<p class="list-group-item list-group-item-danger"><%=  @user.registrations.each do |t| puts t.event.name end%></p>
+		<br>
+		<center><span class="label label-success">Team Events participated for </span></center><br>
+		  	<p class="list-group-item list-group-item-danger"><%=  @user.teams.where(isValid: 1).each do |t| puts t.event.name end%></p>
 		<br>
 		</font>
 	</div>
