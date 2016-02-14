@@ -1,3 +1,29 @@
+<% if @errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+        <% @errors.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+
+<% if !@team.nil? and @team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+        <% @team.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<% if !@errors.any? and !@team.errors.any? %>
 <div class="main_done">
   <div>
     <svg class="check_done" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><path d="M98.992,49.997c0,27.061-21.935,48.995-48.996,48.995C22.936,98.992,1,77.058,1,49.997S22.936,1,49.996,1  C77.058,1,98.992,22.937,98.992,49.997z M83.544,36.151L71.967,25.894L44.398,57.011L30.652,42.813L19.542,53.571l25.358,26.19  L83.544,36.151z"></path></svg>
@@ -6,10 +32,10 @@
   <div class="intro">
     <h2>Successfully registered for <%= @event.name %> !</h2>
     <p>
-      Thank you!<br />
-      You / every member of your team will recieve an email to confirm your / their participation in this event !<br />
+      Thank you!<br /><br />
     <p>
   </div>
 
 </div>
 </div>
+<% end %>

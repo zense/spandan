@@ -24,7 +24,13 @@ class GameController < ApplicationController
 	end
 
 	def success
+		@errors = []
 		@event=Event.find_by_name(params[:name])
+
+		if @event.nil?
+			@errors << "Event not found"
+		end
+
 		if(@event.event_type==INDIVIDUAL)
 			if !current_user.has_registered_for(@event.id)
 				if current_user.register(@event.id)
@@ -32,13 +38,8 @@ class GameController < ApplicationController
 				end
 			end
 		else
-			@TeamMates=params[:team_mates]
-			team = current_user.create_team(@event.id,params[:team_name])
-			@team_var = team
-			@TeamMates.shift
-			for i in @TeamMates
-				@team_var.add_user(i)
-			end
+			@team = current_user
+			current_user.create_team(@event.id, params[:team_name], params[:team_mates])
 		end
 	end
 

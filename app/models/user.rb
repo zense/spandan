@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   has_one :volunteer_request # One user can make only one volunteer request
   has_and_belongs_to_many :teams
   has_many :registrations
+  has_many :notifications
 
   def has_registered_for(event_id)
     #Modified to check for Single Event Registrations as well
@@ -44,8 +45,14 @@ class User < ActiveRecord::Base
   def cancel_participation(event_id)
     # In case of a team event, user can cancel his/her participation if they have been added by mistake
     # First delete his teams_users entry
-
     msg = ''
+
+    if !self.has_registered_for(event_id)
+      msg = 'User has not registered for this event. Cant cancel participation!'
+      errors.add(:base, msg)
+      return msg
+    end
+
     team = self.teams.find_by_event_id(event_id)
     registration = Registration.find_by_team_id(team.id)
     if team.nil?
@@ -59,15 +66,16 @@ class User < ActiveRecord::Base
           registration.isvalid = false # Marking the registration as invalid
           registration.save!
         end
-        team.save!
-
-        self.teams.delete(team.id) # delete from teams_users table
+        team.users.each do |t|
+          Notification.create(message: 'Your team for event: ' + team.event.name + ' Has been cancelled because ' + self.email + ' cancelled his participation. Please try to register again.')
+        end
+        team.destroy
         #teams.delete(team.id)
       end
     end
   end
 
-  def create_team(event_id, team_name)
+  def create_team(event_id, team_name, members)
     # Allows user to create a new team for any given event
 
     # Modify this to return id of created team
@@ -85,6 +93,26 @@ class User < ActiveRecord::Base
       return false
     end
 
+    # Check if the users who want to register are present in the db or not
+    users = []
+    members.each do |m|
+      u = User.find_by_email(m)
+      if u.nil? and m!=""
+        errors[:base] << "User " + m + " has not registered yet."
+      end
+      if !u.nil?
+        if u.has_registered_for(event_id)
+          errors[:base] << "User " + m + " has already registered for this event."
+        else
+          users << u.id
+        end
+      end
+    end
+
+    if errors.any?
+      return false
+    end
+
     if !self.has_registered_for(event_id)
       # the person hasn't already registered
       Team.transaction do
@@ -93,7 +121,12 @@ class User < ActiveRecord::Base
         #t.users << self
         sql = "INSERT INTO teams_users (user_id, team_id, event_id) VALUES (#{self.id}, #{t.id}, #{event_id})"
         ActiveRecord::Base.connection.execute(sql)
-        if t.users.count >= t.event.minimum_team_size # Handles the case where minimum team size is 1
+
+        users.each do |id|
+          t.add_user(id)
+        end
+
+        if t.users.count >= t.event.minimum_team_size and t.users.count <= t.event.maximum_team_size# Handles the case where minimum team size is 1
           t.isvalid=true
           t.save!
           return t
