@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   get 'game/:name', to: 'game#show'
   get 'game/:name/register', to: 'game#register'
 
+  #games registration
+  post 'game/:name/register/success' => "game#success"
+
+
+
   # profile viewing based on id
   get 'profiles/', to: 'profiles#index'
   get 'profiles/:id', to: 'profiles#show'
