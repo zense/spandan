@@ -24,13 +24,10 @@
 
 	<div class="col-lg-5" style="background: black">
 		<font face="arial" size = 6px color="black">
-		<center><bpan class="label label-success">Games volunteered for </span></center><br>
-		<ul class="list-group">
-			<li class="list-group-item list-group-item-success"><%= @event1.name %><br></li>
-			<li class="list-group-item list-group-item-info"><%= @event2.name %><br></li>
-			<li class="list-group-item list-group-item-warning"><%= @event3.name %><br></li>
-			<li class="list-group-item list-group-item-danger"><%= @event4.name %><br></li>
-		</ul>
+		<center><span class="label label-success">Game Volunteered for </span></center><br>
+		  <% if current_user.volunteer_event_id!=0 %>
+		  	<p class="list-group-item list-group-item-danger"><%= Event.find(current_user.volunteer_event_id).name %></p>
+		  <% end %>
 		<br>
 		</font>
 	</div>
