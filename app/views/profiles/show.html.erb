@@ -3,39 +3,46 @@
 <% end %>
 
 <section id="services" class="service-item">
-       <div class="container">
-            <div class="center wow fadeInDown">
-                <br />
-                <h2>Your Profile</h2>
-            </div>                                       
-    	</div>
+  <div class="container">
+	<div class="center wow fadeInDown">
+	  <br />
+	  <h2>Your Profile</h2>
 	</div>
+  </div>
+  </div>
 </section>
 <div class="container-fluid">
-	<div class="col-lg-7" style="background: black">
-		<font face="arial" size = 6px color="black">
-		<center><span class="label label-success">Personal Details</span></center><br>
-		<b><span class="label label-default">Registered username: </span></b><div class="well"><%= @user.name %></div><br>
-		<b><span class="label label-default">Registered Roll number: </span></b><div class="well"><%= @user.roll_no %></div><br>
-		<b><span class="label label-default">Registered Email-ID: </span></b><div class="well"><%= @user.email %></div><br>
-		<b><span class="label label-default">Registered Phone Number: </span></b><div class="well"><%= @user.phone_number %></div><br>
-		</font>
-	</div>
+  <div class="col-lg-7" style="background: black">
+	<font face="arial" size = 6px color="black">
+	  <center><span class="label label-success">Personal Details</span></center><br>
+	  <b><span class="label label-default">Registered username: </span></b><div class="well"><%= @user.name %></div><br>
+	  <b><span class="label label-default">Registered Roll number: </span></b><div class="well"><%= @user.roll_no %></div><br>
+	  <b><span class="label label-default">Registered Email-ID: </span></b><div class="well"><%= @user.email %></div><br>
+	  <b><span class="label label-default">Registered Phone Number: </span></b><div class="well"><%= @user.phone_number %></div><br>
+	</font>
+  </div>
 
-	<div class="col-lg-5" style="background: black">
-		<font face="arial" size = 6px color="black">
-		<center><span class="label label-success">Games Volunteered for </span></center><br>
-		  <% if current_user.volunteer_event_id!=0 %>
-		  	<p class="list-group-item list-group-item-danger"><%= Event.find(current_user.volunteer_event_id).name %></p>
+  <div class="col-lg-5" style="background: black">
+	<font face="arial" size = 6px color="black">
+	  <center><span class="label label-success">Games Volunteered for </span></center><br>
+	  <% if current_user.volunteer_event_id!=0 %>
+		  <p class="list-group-item list-group-item-danger"><%=link_to Event.find(@user.volunteer_event_id).name, WEBLINK+'/game/'+Event.find(@user.volunteer_event_id).name  %></p>
+	  <% end %>
+	  <br>
+	  <center><span class="label label-success">Solo Events participated for </span></center><br>
+	  <%  @user.registrations.each do |t| %>
+		  <p class="list-group-item list-group-item-danger"><%= link_to t.event.name, WEBLINK+'/game/'+t.event.name %></p>
+	  <% end %>
+
+	  <br>
+	  <% if @user.teams.count >0%>
+		  <center><span class="label label-success">Team Events participated for </span></center><br>
+		  <% @user.teams.where(isValid: 1).each do |t|%>
+			  <p class="list-group-item list-group-item-danger"><%= link_to t.event.name, WEBLINK+'/game/'+t.event.name %></p>
 		  <% end %>
-		<br>
-		<center><span class="label label-success">Solo Events participated for </span></center><br>
-		  	<p class="list-group-item list-group-item-danger"><%=  @user.registrations.each do |t| puts t.event.name end%></p>
-		<br>
-		<center><span class="label label-success">Team Events participated for </span></center><br>
-		  	<p class="list-group-item list-group-item-danger"><%=  @user.teams.where(isValid: 1).each do |t| puts t.event.name end%></p>
-		<br>
-		</font>
-	</div>
+	  <% end %>
+	  <br>
+	</font>
+  </div>
 
 </div>
