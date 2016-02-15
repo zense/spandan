@@ -116,6 +116,14 @@ class User < ActiveRecord::Base
       return false
     end
 
+    if(users.count+1 < event.minimum_team_size)
+      errors[:base] << "Invalid Team size. You should have atleast " + event.minimum_team_size.to_s + " members on your team."
+      return false
+    elsif (users.count+1 > event.maximum_team_size)
+      errors[:base] << "Invalid Team size. You can't have more than " + event.maximum_team_size.to_s + " members on your team."
+      return false
+    end
+
     if !self.has_registered_for(event_id)
       # the person hasn't already registered
       Team.transaction do
