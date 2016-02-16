@@ -36,8 +36,15 @@
     <%			@tshirt_sizes = [['S',TSHIRTSIZES[:S]],['M',TSHIRTSIZES[:M]],['L',TSHIRTSIZES[:L]],['XL',TSHIRTSIZES[:XL]],['XXL',TSHIRTSIZES[:XXL]]]
 %>
     <%= f.label(:tshirt_size) %><i>(If you have registered for buying the T-shirt, enter the size here)</i><br />
-    <%= f.select(:tshirt_size, options_for_select(@tshirt_sizes)) %><br />
+    <%= f.select(:tshirt_size, options_for_select(@tshirt_sizes),selected: current_user.tshirt_size) %><br />
   </div>
+
+  <script>
+  jQuery( document ).ready(function( $ ) {
+    $("#user_tshirt_size").val(<%= current_user.tshirt_size%>)
+  });
+  </script>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
