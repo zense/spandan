@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
         # Just delete the registraton. Using flag might create problems
         registration.delete
         team.users.each do |t|
-          Notification.create(message: 'Your team for event: ' + team.event.name + ' Has been cancelled because ' + self.email + ' cancelled his participation. Please try to register again.')
+          Notification.create(user: t, message: 'Your team for event: ' + team.event.name + ' Has been cancelled because ' + self.email + ' cancelled his participation. Please try to register again.')
         end
         team.destroy
         #teams.delete(team.id)

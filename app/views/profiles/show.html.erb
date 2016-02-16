@@ -11,10 +11,25 @@
   </div>
   </div>
 </section>
+
+<% if current_user==@user %>
+	<% if @user.notifications.count>0%>
+		<div class="panel panel-primary">
+		  <div class="panel-heading">Messages</div>
+		  <div class="panel-body">
+			<% @user.notifications.each do |n|%>
+				<div class="alert alert-info" role="alert">
+				  <%= n.message %>
+				</div>
+			<%end%>
+		  </div>
+		</div>
+	<%end%>
+<%end%>
+
 <div class="container-fluid">
-  <div class="col-lg-7" style="background: black">
+  <div class="col-lg-7">
 	<font face="arial" size = 6px color="black">
-	  <center><span class="label label-success">Personal Details</span></center><br>
 	  <b><span class="label label-default">Registered username: </span></b><div class="well"><%= @user.name %></div><br>
 	  <b><span class="label label-default">Registered Roll number: </span></b><div class="well"><%= @user.roll_no %></div><br>
 	  <b><span class="label label-default">Registered Email-ID: </span></b><div class="well"><%= @user.email %></div><br>
@@ -26,7 +41,7 @@
 	<font face="arial" size = 6px color="black">
 	  <center><span class="label label-success">Games Volunteered for </span></center><br>
 	  <% if current_user.volunteer_event_id!=0 %>
-		  <p class="list-group-item list-group-item-danger"><%=link_to Event.find(@user.volunteer_event_id).name, WEBLINK+'/game/'+Event.find(@user.volunteer_event_id).name  %></p>
+		  <% if @user.volunteer_event_id!=0 then %><p class="list-group-item list-group-item-danger"><%=link_to Event.find(@user.volunteer_event_id).name, WEBLINK+'/game/'+Event.find(@user.volunteer_event_id).name  %></p><%end%>
 	  <% end %>
 	  <br>
 	  <center><span class="label label-success">Solo Events participated for </span></center><br>
