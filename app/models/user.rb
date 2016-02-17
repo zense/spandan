@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
   validates :phone_number,:presence => true,
             :numericality => true,
             :length => { :minimum => 10, :maximum => 10 }
-  validates :tshirt_size, inclusion: { in: [1,2,3,4,5] }
 
   has_one :volunteer_request # One user can make only one volunteer request
   has_and_belongs_to_many :teams

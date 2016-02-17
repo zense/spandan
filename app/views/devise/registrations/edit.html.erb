@@ -32,12 +32,7 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-  <div class="field">
-    <%			@tshirt_sizes = [['S',TSHIRTSIZES[:S]],['M',TSHIRTSIZES[:M]],['L',TSHIRTSIZES[:L]],['XL',TSHIRTSIZES[:XL]],['XXL',TSHIRTSIZES[:XXL]]]
-%>
-    <%= f.label(:tshirt_size) %><i>(If you have registered for buying the T-shirt, enter the size here)</i><br />
-    <%= f.select(:tshirt_size, options_for_select(@tshirt_sizes)) %><br />
-  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

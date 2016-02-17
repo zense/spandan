@@ -74,12 +74,6 @@
                end
              end
           %>
-          <li class="dropdown">
-            <%= link_to 'Volunteer', {:controller=>'/registration', :action=>'volunteer_registration'}, :class=>"dropdown-toggle" %>
-          </li>
-
-
-
           <li><%= link_to 'Contact', {:controller=>'/welcome', :action=>'contact'} %></li>
           <li><% if !user_signed_in? %>
                 <li> <%= link_to('Log In', new_user_session_path)  %> </li>
