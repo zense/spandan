@@ -13,6 +13,9 @@
         					</div>
         					<div class="modal-body">
           						<p><%= raw @event.description %></p>
+          						<div class="alert alert-danger">
+									<center><strong>Hurry Up! Last date to register is <%= raw @event.last_date %> </strong></center><br>
+								</div>
         					</div>
 					        <div class="modal-footer">
 					          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -25,7 +28,6 @@
 
 <ul class="nav nav-tabs nav-justified">
   <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-  <li><a data-toggle="tab" href="#event_details">Event Details</a></li>
   <li><a data-toggle="tab" href="#rules">Rules</a></li>
   <li><a data-toggle="tab" href="#contact">Contact Us</a></li>
 </ul>
@@ -38,31 +40,12 @@
 		    	<div class="well">
 		    		<center><%=raw @event.description %></center>
 		    	</div>
+		    	<div class="alert alert-danger">
+						<strong>Hurry Up! Last date to register is <%= raw @event.last_date %> </strong><br>
+				</div>
 		    </h3></p>
 	  	</div>
 	  	</div>
-  	<div id="event_details" class="tab-pane fade">
-    	<div class="center wow fadeInDown">
-		    <h2>Event Details</h2>
-		    <div class="well">
-			    <p><h3>
-					<% if @event.event_type == 0 %>
-						This is an <strong> individual </strong> event. <br><br>
-					<% elsif @event.event_type.to_i == 1 %>
-						<h3>This is a <strong> team </strong> event.<br></h3>
-						You should have atleast, <strong><%= @event.minimum_team_size %></strong> and can have utmost, <strong><%= @event.maximum_team_size %></strong> people on your team, to participate in this event.<br><br>
-					<% elsif @event.event_type.to_i == 2 %> 
-						You should have atleast, <%= @event.minimum_team_size %><br>
-						and utmost, <%= @event.maximum_team_size %><br><br>
-					<% end %>
-
-					<div class="alert alert-danger">
-						<strong>Hurry Up! Last date to register is <%= raw @event.last_date %> </strong><br>
-					</div>
-			    </h3></p>
-			</div>
-  		</div>
-  	</div>
   	<div id="rules" class="tab-pane fade">
   		<div class="center wow fadeInDown">
 	    	<h2>Rules</h2>
