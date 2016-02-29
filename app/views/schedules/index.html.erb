@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Schedules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Party1</th>
+      <th>Party2</th>
+      <th>Event</th>
+      <th>Schedule</th>
+      <th>Description</th>
+      <th>Result</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.party1 %></td>
+        <td><%= schedule.party2 %></td>
+        <td><%= schedule.event_id %></td>
+        <td><%= schedule.schedule %></td>
+        <td><%= schedule.description %></td>
+        <td><%= schedule.result %></td>
+        <td><%= link_to 'Show', schedule %></td>
+        <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
+        <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Schedule', new_schedule_path %>
