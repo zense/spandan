@@ -138,6 +138,20 @@ class AdminController < ApplicationController
 
 		redirect_to controller: 'admin', action: 'volunteers'
 	end
+
+	# View Registrations - Individual
+	def registrations_individual
+		checkIfAdmin()
+		@tasks_grid = initialize_grid(Registration.where(team_id: nil),name:'regind',per_page: 20, enable_export_to_csv: true,  csv_file_name:'registrations-individual', include: :user)
+		export_grid_if_requested
+	end
+
+	# View Registrations - Team
+	def registrations_team
+		checkIfAdmin()
+		@tasks_grid = initialize_grid(Registration.where(user_id: nil),name:'regteam',per_page: 20, enable_export_to_csv: true,  csv_file_name:'registrations-team', include: :user)
+		export_grid_if_requested
+	end
 end
 
 private
