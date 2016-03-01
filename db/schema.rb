@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222140054) do
+ActiveRecord::Schema.define(version: 20160229133626) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",              limit: 255
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 20160222140054) do
     t.boolean  "isvalid",              default: true
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer  "party1",      limit: 4
+    t.integer  "party2",      limit: 4
+    t.integer  "event_id",    limit: 4
+    t.string   "schedule",    limit: 255
+    t.string   "description", limit: 255
+    t.string   "result",      limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "teams", force: :cascade do |t|
