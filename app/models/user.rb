@@ -69,7 +69,7 @@ class User < ActiveRecord::Base
         # Just delete the registraton. Using flag might create problems
         registration.delete
         team.users.each do |t|
-          Notification.create(message: 'Your team for event: ' + team.event.name + ' Has been cancelled because ' + self.email + ' cancelled his participation. Please try to register again.')
+          Notification.create(user: t, message: 'Your team for event: ' + team.event.name + ' Has been cancelled because ' + self.email + ' cancelled his participation. Please try to register again.')
         end
         team.destroy
         #teams.delete(team.id)
@@ -112,6 +112,14 @@ class User < ActiveRecord::Base
     end
 
     if errors.any?
+      return false
+    end
+
+    if(users.count+1 < event.minimum_team_size)
+      errors[:base] << "Invalid Team size. You should have atleast " + event.minimum_team_size.to_s + " members on your team."
+      return false
+    elsif (users.count+1 > event.maximum_team_size)
+      errors[:base] << "Invalid Team size. You can't have more than " + event.maximum_team_size.to_s + " members on your team."
       return false
     end
 

@@ -33,9 +33,7 @@ class GameController < ApplicationController
 
 		if(@event.event_type==INDIVIDUAL)
 			if !current_user.has_registered_for(@event.id)
-				if current_user.register(@event.id)
-					#redirect_to controller: 'game', action: 'success'
-				end
+				current_user.register(@event.id)
 			end
 		else
 			@team = current_user

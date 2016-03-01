@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  party1: 1
+  party2: 1
+  event_id: 1
+  schedule: MyString
+  description: MyString
+  result: MyString
+
+two:
+  party1: 1
+  party2: 1
+  event_id: 1
+  schedule: MyString
+  description: MyString
+  result: MyString

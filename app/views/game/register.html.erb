@@ -1,101 +1,99 @@
 <section id="services" class="service-item">
-    <div class="container">
-        <div class="center wow fadeInDown">
-            <br><h2>Register for <%=@event.name%></h2>
-        </div>
+  <div class="container">
+    <div class="center wow fadeInDown">
+      <br><h2>Register for <%=@event.name%></h2>
     </div>
+  </div>
 </section>
 
 <% if @event.event_type.to_i == 1 %>
     <%= form_tag WEBLINK + "game/"+@event.name + "/register/success", method: :post, :class => 'form-style-8' do %>
 
-      <% if @event.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@event.errors.count, "error") %> prohibited this registration from being saved:</h2>
-          <ul>
-            <% @event.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+        <% if @event.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@event.errors.count, "error") %> prohibited this registration from being saved:</h2>
+              <ul>
+                <% @event.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
 
-      <div class="center wow fadeInDown">
-        <div class="well"> 
-          <h2>Rules</h2>
-            You should have atleast, <strong><%= @event.minimum_team_size %></strong> and can have utmost, <strong><%= @event.maximum_team_size %></strong> people on your team, to participate in this event.<br><br>
-            <strong>The rules of the event is as follows:</strong><br>
-            <br><%= raw @event.rules %><br>
+        <div class="center wow fadeInDown">
+            <div class="well">
+                <h2>Rules</h2>
+                <strong>The rules of the event is as follows:</strong><br>
+                <br><%= raw @event.rules %><br>
+            </div>
         </div>
-      </div>
-      <br><br>
-      <h3><%= @event.name %></h3>
-          <div class="field">
+        <br><br>
+        <h3><%= @event.name %></h3>
+        <div class="field">
             <%= label_tag :team_name %><br>
             <%= text_field_tag(:team_name) %>
-          </div>
+        </div>
+        <br>
+        <% @TeamMates=[] %>
+        <% $i=0 %>
+        <center><h2>You are the captain of your team. Enter the email address of your vice captain</h2><br><br></center>
 
-          <div class="field">
-            <%= label_tag :number_of_players %><br>
-            <%= select_tag ":number_of_players", options_for_select((@event.minimum_team_size.to_i..@event.maximum_team_size.to_i).to_a.map{|i| ["#{i}", i]}) %>
-          </div>
-          <br><br>
+        <% @TeamMates.push(current_user[:name]) %>
+        <% $i+=1 %>
 
-          <% @TeamMates=[] %>
-          <% $i=0 %>
-          <center><h2>Your name is automatically added into the team, Enter the name of your team members</h2><br><br></center>
-          <% @TeamMates.push(current_user[:name]) %>
-          <% $i+=1 %>
+        <% begin %>
+            <div class="field">
+              <%= label_tag ("Vice Cpatain") %><br>
+              <%= text_field_tag "team_mates[]" %>
+            </div><br>
+            <% $i+=1 %>
+        <% end until  $i == @event.maximum_team_size %>
+        <br>
+        <center><h3>I agree to abide by the rules given above and would like to register my team for this event</h3></center>
 
-          <% begin %>
-              <div class="field">
-                <%= label_tag ("Member " + ($i+1).to_s) %><br>
-                <%= text_field_tag "team_mates[]" %>
-              </div><br>
-              <% $i+=1 %>
-          <% end until  $i == @event.maximum_team_size %>
-          <center><h3>I agree to abide by the rules given above and would like to register my team for this event</h3></center>
         <% if current_user.has_registered_for(@event.id)%>
-            <center><p>You have already registered for this event</p></center>
+            <div class="alert alert-danger">
+                <center><h2>You have already registered for this event</h2></center><br>
+            </div>
         <% else%>
-
             <center> <%= submit_tag "Register" %></center>
         <%end%>
 
     <% end %>
 
 <% elsif @event.event_type.to_i == 0 %>
-    
     <%= form_tag WEBLINK + "game/"+@event.name + "/register/success", method: :post, :class => 'form-style-8' do %>
-    
-      <% if @event.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@event.errors.count, "error") %> prohibited this registration from being saved:</h2>
-          <ul>
-            <% @event.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
 
-      <div class="center wow fadeInDown">
-        <div class="well">
-          <h2>Rules</h2>
-            This is an <strong> individual </strong> event. <br><br>
+        <% if @event.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@event.errors.count, "error") %> prohibited this registration from being saved:</h2>
+              <ul>
+                <% @event.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+        <div class="center wow fadeInDown">
+          <div class="well">
+            <h2>Rules</h2>
             <strong>The rules of the event is as follows:</strong><br>
             <br><%= raw @event.rules %><br>
+          </div>
         </div>
-      </div>
-      <br><br>
-      <%= hidden_field_tag :name, current_user[:name] %>
-      <center><h3>I agree to abide by the rules given above and would like to register myself for this event</h3></center>
-      <% if current_user.has_registered_for(@event.id)%>
-            <center><p>You have already registered for this event</p></center>
-            <% else%>
-
-        <center> <%= submit_tag "Register" %></center>
-            <%end%>
+        <br><br>
+        <%= hidden_field_tag :name, current_user[:name] %>
+        <center><h3>I agree to abide by the rules given above and would like to register myself for this event</h3></center>
+        <% if current_user.has_registered_for(@event.id)%>
+            <div class="alert alert-danger">
+                <center><h2>You have already registered for this event</h2></center><br>
+            </div>
+        <% elsif (Date.today>@event.last_date)%>
+            <center><p>Registrations are closed now</p></center>
+        <%else%>
+            <center> <%= submit_tag "Register" %></center>
+        <%end%>
     <% end %>
-    
+
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214073221) do
+ActiveRecord::Schema.define(version: 20160222140054) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",              limit: 255
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160214073221) do
     t.string   "icon_content_type", limit: 255
     t.integer  "icon_file_size",    limit: 4
     t.datetime "icon_updated_at"
+    t.boolean  "visible"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(version: 20160214073221) do
     t.integer  "spoc_event_id",          limit: 4,   default: 0
     t.integer  "volunteer_event_id",     limit: 4,   default: 0
     t.string   "phone_number",           limit: 255, default: ""
+    t.integer  "tshirt_size",            limit: 2
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

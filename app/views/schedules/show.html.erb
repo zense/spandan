@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Party1:</strong>
+  <%= @schedule.party1 %>
+</p>
+
+<p>
+  <strong>Party2:</strong>
+  <%= @schedule.party2 %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @schedule.event_id %>
+</p>
+
+<p>
+  <strong>Schedule:</strong>
+  <%= @schedule.schedule %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @schedule.description %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @schedule.result %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+<%= link_to 'Back', schedules_path %>
