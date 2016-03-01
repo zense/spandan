@@ -9,7 +9,6 @@ class ProfilesController < ApplicationController
 		@arr=[]
 		@arreve=[]
 		@arrind=[]
-		@event=Event.all
 		Event.find_each do |eve|
 				if eve.event_type.to_i ==1
 						@arreve.append(eve.id)
