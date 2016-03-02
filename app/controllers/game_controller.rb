@@ -13,48 +13,36 @@ class GameController < ApplicationController
 		if(params[:name]=="game_path")
 			email=params[:search]
 			@searched=params[:search]
-		#	render plain: params
+			#	render plain: params
 			@user=User.find_by_email(email)
 			@event=Event.find_by_name(params[:names])
 			#@x=@user.id
-		#	@team=Teams_user.find_by_user_id(@user.id)
+			#	@team=Teams_user.find_by_user_id(@user.id)
 
 			@arr=[]
 			if @user.nil?
 				@tasks_grid = initialize_grid(Schedule.where("event_id=0"),per_page: 20, enable_export_to_csv: true,  csv_file_name:'schedule')
 			else
 				if(@event.event_type.to_i ==1)
-						Teams_user.where("user_id=?",@user.id).find_each do |user|
-								@arr.append(user.team_id)
-								end
-				else
-						@arr.append(@user.id)
+					Teams_user.where("user_id=?",@user.id).find_each do |user|
+						@arr.append(user.team_id)
 					end
-			#@team=Schedule.where("party1=? OR party2=?",@arr,@arr)
-			#render plain: @team
-
-			@tasks_grid = initialize_grid(Schedule.where("event_id=?",@event.id),per_page: 20, enable_export_to_csv: true,  csv_file_name:'schedule',conditions: ['party1 IN (?) OR party2 IN (?)', @arr,@arr]
-)
-		end
-		else
-				@event=Event.find_by_name(params[:name])
-				if @event.nil?
-					render_404
+				else
+					@arr.append(@user.id)
 				end
+				#@team=Schedule.where("party1=? OR party2=?",@arr,@arr)
+				#render plain: @team
+
+				@tasks_grid = initialize_grid(Schedule.where("event_id=?",@event.id),per_page: 20, enable_export_to_csv: true,  csv_file_name:'schedule',conditions: ['party1 IN (?) OR party2 IN (?)', @arr,@arr]
+				)
+			end
+		else
+			@event=Event.find_by_name(params[:name])
+			if @event.nil?
+				render_404
+			end
 			@tasks_grid = initialize_grid(Schedule.where("event_id=?",@event.id),per_page: 20, enable_export_to_csv: true,  csv_file_name:'schedule')
-end
-
-
-	#	if @event.event_type.to_i == 1
-	#		@t
-	#	else
-	#		@team=User.all
-	#			end#
-	#	@schedule=Schedule.where(event_id: @event.id)
-
-
-		#@tasks_grid = initialize_grid(Schedule.where(event_id: @event.id),per_page: 20, enable_export_to_csv: true,  csv_file_name:'schedule')
-
+		end
 	end
 
 	def register
