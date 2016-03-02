@@ -16,6 +16,8 @@ Registration stats
 	<li>Volunteers data and approval: <%= link_to 'View', :controller => :admin, :action => :volunteers  %></li>
 	<li>Mass volunteers approval: <%= link_to 'View', :controller => :admin, :action => :massvolunteers  %> </li>
 	<li>Event management: <%= link_to 'Manage events', :controller => :events, :action => :index  %> </li>
+	<li>View registrations - Individual: <%= link_to 'Individual event registrations', :controller => :admin, :action => :registrations_individual  %> </li>
+	<li>View registrations - Team: <%= link_to 'Team event registrations', :controller => :admin, :action => :registrations_team  %> </li>
 </ul>
 
 <!-- various links that can be included for login/logout/register/editprofile etc -->

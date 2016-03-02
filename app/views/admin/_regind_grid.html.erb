@@ -1,0 +1,17 @@
+<%= grid(@tasks_grid,show_filters: :when_filtered) do |g|
+  g.column name: 'player' ,attribute: 'id' do |task|
+    task.user.email
+  end
+
+  g.column name: 'player_phone' ,attribute: 'id' do |task|
+    task.user.phone_number
+  end
+
+  g.column name: 'event_id' ,attribute: 'event_id' do |task|
+    task.event.id
+  end
+
+  g.column name: 'event_name' ,attribute: 'event_id' do |task|
+    task.event.name
+  end
+end -%>
