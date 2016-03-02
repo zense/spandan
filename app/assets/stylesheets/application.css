@@ -26,8 +26,8 @@
  *= require plugins/line_breaker.min.css
  *= require plugins/table.min.css
  *= require plugins/video.min.css
+*/
  @import "wice_grid";
  @import "font-awesome-sprockets";
  @import "font-awesome";
 
- */
