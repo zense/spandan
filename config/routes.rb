@@ -39,6 +39,9 @@ Rails.application.routes.draw do
   get 'admin/massvolunteers', to: 'admin#massvolunteers'
   post 'admin/massvolunteersprocess', to: 'admin#massvolunteersprocess'
 
+  get 'admin/registrations_individual', to: 'admin#registrations_individual'
+  get 'admin/registrations_team', to: 'admin#registrations_team'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
