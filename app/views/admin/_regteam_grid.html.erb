@@ -8,12 +8,42 @@
     task.team.name
   end
 
-  g.column name: 'team_email' ,attribute: 'id' do |task|
-    User.where(id: task.team.parent_id)[0].email
+  g.column name: 'captainName' ,attribute: 'id' do |task|
+    User.where(id: task.team.parent_id)[0].name
   end
 
-  g.column name: 'team_phone' ,attribute: 'id' do |task|
+  g.column name: 'captainPhone' ,attribute: 'id' do |task|
     User.where(id: task.team.parent_id)[0].phone_number
+  end
+
+
+  g.column name: 'captainEmail' ,attribute: 'id' do |task|
+    User.where(id: task.team.parent_id)[0].name
+  end
+
+  g.column name: 'vcName' ,attribute: 'id' do |task|
+    begin
+	task.team.users[1].name
+    rescue
+	"NA"
+    end 
+  end
+
+  g.column name: 'vcEmail' ,attribute: 'id' do |task|
+    begin
+	task.team.users[1].email
+    rescue 
+	"NA"
+    end
+  end
+
+
+  g.column name: 'vcPhone' ,attribute: 'id' do |task|
+    begin
+	task.team.users[1].phone_number
+    rescue
+	"NA"
+    end
   end
 
   g.column name: 'event_id' ,attribute: 'event_id' do |task|

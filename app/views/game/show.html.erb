@@ -27,13 +27,14 @@
 </section>
 
 <ul class="nav nav-tabs nav-justified">
-  <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+  <li ><a data-toggle="tab" href="#home">Home</a></li>
   <li><a data-toggle="tab" href="#rules">Rules</a></li>
   <li><a data-toggle="tab" href="#contact">Contact Us</a></li>
+  <li class="active"><a data-toggle="tab" href="#schedule">Schedule</a></li>
 </ul>
 
 <div class="tab-content">
-	  <div id="home" class="tab-pane fade in active">
+	  <div id="home" class="tab-pane fade">
 	    <div class="center wow fadeInDown">
 	    	<h2><center>Description</center></h2>
 		    <p><h3>
@@ -68,8 +69,30 @@
 	    	</div>
   		</div>
   	</div>
+    <div id="schedule" class="tab-pane fade in active">
+      <div class="center wow fadeInDown">
+        <h2>schedule</h2>
+        <%= form_tag("game_path",method: "get") do%>
+        <div class="field" style="float:left">
+          <%= label_tag :label, "search by email" %>
+          <%= text_field_tag :search,@searched %>
+          <%= hidden_field_tag(:names, @event.name) %>
+
+        <div class="actions">
+          <%= submit_tag("Search") %>
+          <%end %>
+        </div></div>
+        <%= render 'grid_grid' %>
+        <div class="well">
+
+          <p><h3>
+          </h3></p>
+        </div>
+      </div>
+    </div>
 </div>
 
+</div>
 <div class="alert alert-success fade in">
   <h2><center><strong>To register for this event, </strong><a href="<%= request.url %>/register">Click Here</a></center></h2>
 </div>

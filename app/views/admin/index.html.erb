@@ -18,6 +18,7 @@ Registration stats
 	<li>Event management: <%= link_to 'Manage events', :controller => :events, :action => :index  %> </li>
 	<li>View registrations - Individual: <%= link_to 'Individual event registrations', :controller => :admin, :action => :registrations_individual  %> </li>
 	<li>View registrations - Team: <%= link_to 'Team event registrations', :controller => :admin, :action => :registrations_team  %> </li>
+	<li>Manage Schedule: <%=link_to('Schedule', schedules_path) %></li>
 </ul>
 
 <!-- various links that can be included for login/logout/register/editprofile etc -->
