@@ -4,4 +4,10 @@ class WelcomeController < ApplicationController
 
   def contact
   end
+
+  def liveScore
+  end
+
+  def upcoming
+  end
 end
