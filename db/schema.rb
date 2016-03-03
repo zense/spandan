@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160229133626) do
+ActiveRecord::Schema.define(version: 20160303143308) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",              limit: 255
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20160229133626) do
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.integer  "party1",      limit: 4
-    t.integer  "party2",      limit: 4
+    t.string   "party1",      limit: 255
+    t.string   "party2",      limit: 255
     t.integer  "event_id",    limit: 4
     t.string   "schedule",    limit: 255
     t.string   "description", limit: 255
@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(version: 20160229133626) do
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["id"], name: "id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "volunteer_requests", force: :cascade do |t|

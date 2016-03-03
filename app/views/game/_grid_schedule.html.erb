@@ -1,4 +1,4 @@
-<%= grid(@tasks_grid,show_filters: :when_filtered) do |g|
+<%= grid(@complete) do |g|
   g.column name: 'Player/Team 1' ,attribute: 'party1' do |task|
     #@team.find(task.party1).nam
     begin
@@ -20,13 +20,15 @@
       task.party2
     end
   end
+
+  g.column name: 'Event', attribute: 'event_id' do |task|
+    task.event.name
+  end
+
   g.column name: 'Schedule', attribute: 'schedule' do |task|
     task.schedule
   end
   g.column name: 'description', attribute: 'description' do |task|
     task.description
-  end
-  g.column name: 'Result', attribute: 'result' do |task|
-    task.result
   end
 end %>
