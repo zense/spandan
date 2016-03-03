@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   devise_for :users
   get 'welcome/index'
   get 'welcome/contact'
+  get 'welcome/liveScores', to: 'welcome#liveScore'
+  get 'welcome/upcoming', to: 'welcome#upcoming'
 
   get 'users/', to: 'welcome#index'
 
