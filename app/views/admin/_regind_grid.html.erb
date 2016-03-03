@@ -1,14 +1,18 @@
 <%= grid(@tasks_grid,show_filters: :when_filtered) do |g|
-  g.column name: 'player Name' ,attribute: 'id' do |task|
+  g.column name: 'player_name' ,attribute: 'id' do |task|
     task.user.name
   end
 
-  g.column name: 'player' ,attribute: 'id' do |task|
+  g.column name: 'player_email' ,attribute: 'id' do |task|
     task.user.email
   end
 
   g.column name: 'player_phone' ,attribute: 'id' do |task|
     task.user.phone_number
+  end
+
+  g.column name: 'player_rollnum' ,attribute: 'id' do |task|
+    task.user.roll_no
   end
 
   g.column name: 'event_id' ,attribute: 'event_id' do |task|

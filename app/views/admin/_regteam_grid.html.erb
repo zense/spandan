@@ -16,11 +16,15 @@
     User.where(id: task.team.parent_id)[0].phone_number
   end
 
-
-  g.column name: 'captainEmail' ,attribute: 'id' do |task|
-    User.where(id: task.team.parent_id)[0].name
+  g.column name: 'captainRollNum' ,attribute: 'id' do |task|
+    User.where(id: task.team.parent_id)[0].roll_no
   end
 
+
+  g.column name: 'captainEmail' ,attribute: 'id' do |task|
+    User.where(id: task.team.parent_id)[0].email
+  end
+=begin
   g.column name: 'vcName' ,attribute: 'id' do |task|
     begin
 	task.team.users[1].name
@@ -45,6 +49,15 @@
 	"NA"
     end
   end
+
+    g.column name: 'vcRollNum' ,attribute: 'id' do |task|
+    begin
+  task.team.users[1].roll_no
+    rescue
+  "NA"
+    end
+  end
+=end
 
   g.column name: 'event_id' ,attribute: 'event_id' do |task|
     task.event.id
