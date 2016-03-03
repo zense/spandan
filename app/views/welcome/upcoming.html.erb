@@ -1,0 +1,20 @@
+<div class="tab-content">
+	  <div id="home" class="tab-pane fade in active">
+	    <div class="center wow fadeInDown">
+	    	<h2><center>Upcoming Events</center></h2>
+		    <p>
+		    	<div class="well" style="width:90%; margin-left:5%; background-color:#fff !important;">
+		    		<center><iframe id="upcming" style="border: none;" height="300px" width="90%" src="https://docs.google.com/spreadsheets/d/1-gwKqdNlXM8H_nks0aY5bRL5lBPQhguI4UZ3IEwuYCI/pubhtml?gid=232257707&range=a:c&widget=false&chrome=false"></iframe></center>
+		    	</div>
+		    </h3></p>
+	  	</div>
+	  	</div>
+</div>
+
+	  	<script type="text/javascript">
+			window.onload = function() {
+				var frameRefreshInterval1 = setInterval(function() {
+			        document.getElementById("upcming").src = document.getElementById("upcming").src
+			    }, 60000);
+			}
+</script>

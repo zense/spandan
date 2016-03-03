@@ -66,6 +66,8 @@
 
       <div class="collapse navbar-collapse navbar-right">
         <ul class="nav navbar-nav">
+          <!--<li><%= link_to 'Live Scores', {:controller=>'/welcome', :action=>'liveScore'} %></li>-->
+          <!--<li><%= link_to 'Upcoming Events', {:controller=>'/welcome', :action=>'upcoming'} %></li>-->
           <li><%= link_to 'Home', {:controller=>'/welcome', :action=>'index'} %></li>
           <% eventsList = []
              Event.all.each do |event|

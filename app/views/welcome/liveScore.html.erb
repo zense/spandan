@@ -1,0 +1,40 @@
+<div class="tab-content">
+	  <div id="home" class="tab-pane fade in active">
+	    <div class="center wow fadeInDown">
+	    	<h2><center>Live Scores</center></h2>
+		    <p>
+		    	<div class="well" style="width:49%;float: left;margin-right:1%;  background-color:#fff !important;">
+		    		<h2><center>Individual Events</center></h2>
+		    		<center><iframe id="indeve" style="border: none;" height="300px" width="90%" src="//docs.google.com/spreadsheets/d/1-gwKqdNlXM8H_nks0aY5bRL5lBPQhguI4UZ3IEwuYCI/pubhtml/sheet?headers=false&gid=0&range=a:c&widget=false&chrome=false"></iframe></center>
+		    	</div>
+		    	<div class="well" style="width:49%;float: left;margin-left:1%;  background-color:#fff !important;">
+		    		<h2><center>Team Events</center></h2>
+		    		<center><iframe id="teameve" style="border: none;" height="300px" width="90%" src="https://docs.google.com/spreadsheets/d/1-gwKqdNlXM8H_nks0aY5bRL5lBPQhguI4UZ3IEwuYCI/pubhtml?gid=129814855&range=a:c&widget=false&chrome=false"></iframe></center>
+		    	</div>
+		    </h3></p>
+	  	</div>
+	  	</div>
+
+	  	<style type="text/css">
+		@media screen and (max-width: 800px) {
+
+
+        .well{
+            width:100% !important;
+        }
+
+
+    }
+	  	</style>
+
+	  	<script type="text/javascript">
+			window.onload = function() {
+				var frameRefreshInterval1 = setInterval(function() {
+			        document.getElementById("indeve").src = document.getElementById("indeve").src
+			    }, 60000);
+			    var frameRefreshInterval2 = setInterval(function() {
+			        document.getElementById("teameve").src = document.getElementById("teameve").src
+			    }, 60000);
+			}
+</script>
+</div>
