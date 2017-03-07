@@ -711,6 +711,11 @@ input.search-form:hover {
   margin-right: 20px;
 }
 
+#game-box{
+  background:white;
+  color:white;
+}
+
 #middle {
   background: #f2f2f2;
 }
@@ -1973,6 +1978,7 @@ gma.gmap{
   box-shadow: none;
 }
 
+
 textarea#message{
   resize: none;
   padding: 10px;
@@ -2812,6 +2818,7 @@ DEVISE
 }
 #smallbox {
   cursor: pointer;
+
 }
 
 @media screen and (max-width: 630px) {
