@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  has_and_belongs_to_many :volunteers
   has_many :volunteer_requests
   has_attached_file :icon, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: WEBLINK + "/assets/def.png"
   validates_attachment_content_type :icon, content_type: /\Aimage\/.*\Z/
@@ -12,12 +13,10 @@ class Event < ActiveRecord::Base
   def spocs
     users = User.where(:spoc_event_id=>self.event_id)
   end
-
   # Returns a list of users who are volunteers for this event
-  def volunteers
-    volunteers = User.where(:volunteer_event_id=>self.event_id)
-  end
-
+  #def volunteers
+  #  volunteers = User.where(:volunteer_event_id=>self.event_id)
+  #end
   # Returns all the results related to this event.
   def results
   end
