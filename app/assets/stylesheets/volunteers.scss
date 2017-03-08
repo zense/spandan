@@ -1,14 +1,20 @@
 // Place all the styles related to the Volunteers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#vol_body{
+	background:black;
+}
+
 #sub-vol-head{
-	margin-top:25px;
-	margin-bottom:25px;
+	margin-top:35px;
+	margin-bottom:35px;
 	font-size:2.5em;
 	text-align:center;
 	text-transform: uppercase;
 	font-family: 'Josefin Slab', serif;
 	font-weight:bold;
+	color:white;
 }
 
 .form-label{
@@ -17,36 +23,34 @@
 	padding-right:0px;
 	margin-top:15px;
 	padding-top:4px;
-	/*color:#008B8B;*/
-	color:#00519C;
+	color:#93BB24;
 }
 
 .form-fields{
 	margin-top:15px;
 	border-radius:15px;
 	font-size:1.2em;
+	color:black;
 }
 
 .ccform-addon{
-	/*color:#008B8B; */
-	color:#00519C;
+	color:#93BB24;
 	float:left;
 	text-align:right;
 	padding-right:0px;
 	margin-top:5px;
-	padding-top:4px;
+	padding-top:12px;
 	width:5%;
-	background:#F0F3F4;	
+	background:black;	
 }
 
 .dropdown_feed select{
+	height:5%;
+	margin-bottom:15px;
 	width:100%;
 	border-radius:4px;
-	background:#008B8B;
-	background:#00519C;
-	color:white;
-	font-weight:bold;
-	text-align:center;
+	background:white;
+	color:#93BB24;
 	font-family: 'Josefin Slab', serif;
 }
 
@@ -57,4 +61,71 @@
 
 .dropdown_feed select option:hover{
 	background:#ccc;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px solid black;
+  background:white;
+  color:#93BB24;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: black;
+}
+
+.submit_sub_btn{
+	margin-top:15px;
+	margin-bottom:140px;
+	border:0;
+	margin-left:-4vw;
+	color:white;
+	background:#93BB24;
+	padding:15px;
+	font-size:1.2em;
+	/*box-shadow:4px 4px 20px #93BB24;*/
+}
+
+.submit_sub_btn:active{
+	box-shadow:4px 4px 10px #93BB24;
+}
+
+.form-control{
+	color:#93BB24;
+	font-size:1em;
+}
+
+.form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #93BB24;
+}
+.form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #93BB24;
+   opacity:  1;
+}
+.form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #93BB24;
+   opacity:  1;
+}
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #93BB24;
 }

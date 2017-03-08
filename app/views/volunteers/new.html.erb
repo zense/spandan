@@ -13,6 +13,7 @@ function showCheckboxes() {
 }
 </script>
 
+<body id="vol_body">
 <%= form_for(@volunteer) do |f| %>
 
 <h2 id="sub-vol-head">Volunteer Registration</h2>
@@ -41,9 +42,9 @@ function showCheckboxes() {
 				</div>
 				<div class="row dropdown_feed" id="dropdown1">
 					<span class="ccform-addon">
-						<i class="fa fa-graduation-cap fa-2x"></i>
+						<i class="fa fa-shirtsinbulk fa-2x"></i>
 					</span>
-					<span class="form-fields col-xs-4">
+					<span class="form-fields col-xs-7">
 						<%= f.select :tshirt_size, ['XL', 'L', 'M','S'] , {:prompt => 'Select Size'}, { :class => 'sub-menu-parent',:required => true} %>	
 					</span>
 					<!--<div class="col-xs-1"></div>-->
@@ -59,9 +60,9 @@ function showCheckboxes() {
 				</div>
 				<div class="row dropdown_feed" id="dropdown1">
 				    <span class="ccform-addon">
-							<i class="fa fa-building-o fa-2x"></i>
+							<i class="fa fa-list-alt fa-2x"></i>
 					</span>
-					<div class="form-fields col-xs-4">
+					<div class="form-fields col-xs-7">
 						 <span class="selectBox" onclick="showCheckboxes()">
 					    	
 							 <!-- <span class="form-fields col-xs-4">  -->
@@ -94,3 +95,4 @@ function showCheckboxes() {
 	</div>
 </form>
 <%end%>
+</body>
