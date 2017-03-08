@@ -26,7 +26,7 @@ class VolunteersController < ApplicationController
     end
     private
     def post_params
-    	params.require(:volunteer).permit(:name, :email, :roll, :tshirt_size, :event_ids =>[])
+    	params.require(:volunteer).permit(:name,:phone , :email, :roll, :tshirt_size, :event_ids =>[])
     end
     def set_volunteer
     @volunteer= Volunteer.find(params[:id]) 

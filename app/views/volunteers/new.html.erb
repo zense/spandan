@@ -40,6 +40,18 @@ function showCheckboxes() {
 					</span>
 					<div class="col-sm-1"></div>	
 				</div>
+				<div class="row form-group">
+					<!--<span class="form-label col-xs-4">
+						<%= f.label :'Phone no.' , :class => 'control-label' %>
+					</span>-->
+					<span class="ccform-addon">
+						<i class="fa fa-mobile fa-3x"></i>
+					</span>
+					<span class="form-fields col-xs-7">
+						<%= f.telephone_field :phone , :class => 'form-control',placeholder: "Mobile Number" ,:maxlength => 11%>
+					</span>
+					<!--<div class="col-sm-1"></div>-->
+				</div>
 				<div class="row dropdown_feed" id="dropdown1">
 					<span class="ccform-addon">
 						<i class="fa fa-shirtsinbulk fa-2x"></i>
