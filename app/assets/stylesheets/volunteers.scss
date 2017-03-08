@@ -80,6 +80,8 @@
 }
 
 #checkboxes {
+  max-height:80px;
+  overflow:auto;
   display: none;
   border: 1px solid black;
   background:white;
@@ -128,4 +130,12 @@
 }
 .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
    color:    #93BB24;
+}
+
+#only3{
+	color:#93BB24;
+}
+
+#error_message{
+	color:#93BB24;	
 }

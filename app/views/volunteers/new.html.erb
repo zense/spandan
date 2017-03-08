@@ -1,20 +1,8 @@
-<script>
-var expanded = false;
 
-function showCheckboxes() {
-  var checkboxes = document.getElementById("checkboxes");
-  if (!expanded) {
-    checkboxes.style.display = "block";
-    expanded = true;
-  } else {
-    checkboxes.style.display = "none";
-    expanded = false;
-  }
-}
-</script>
 
 <body id="vol_body">
 <%= form_for(@volunteer) do |f| %>
+
 
 <h2 id="sub-vol-head">Volunteer Registration</h2>
 
@@ -76,8 +64,6 @@ function showCheckboxes() {
 					</span>
 					<div class="form-fields col-xs-7">
 						 <span class="selectBox" onclick="showCheckboxes()">
-					    	
-							 <!-- <span class="form-fields col-xs-4">  -->
 					    		<select>
 					        		<option>Select Events</option>
 					      		</select>
@@ -92,9 +78,20 @@ function showCheckboxes() {
 					      			</label>
 					      		<%end%>
 					      	<%end%>
+
 					    </span> 
-					</div>   
+					</div>
+					<div class="alert" id="only3">*Choose max 3 events</div>   
 				</div>
+				<% if @volunteer.errors.any? %>
+				    <div id="error_explanation" class="row col-xs-7">
+				      <ul>
+				      <% @volunteer.errors.full_messages.each do |message| %>
+				        <li id="error_message"><%= message %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
 			</div>
 		</div>
 	<div class="col-xs-2 col-md-2"></div>	
@@ -108,3 +105,40 @@ function showCheckboxes() {
 </form>
 <%end%>
 </body>
+<script src="jquery.js"></script>
+<script src="jquery.multiselect.js"></script>
+<script>
+var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+// function maxAllowedMultiselect(obj, maxAllowedCount) {
+//             var selectedOptions = jQuery('#'+obj.id+" option[value!=\'\']:selected");
+//             if (selectedOptions.length >= maxAllowedCount) {
+//                 if (selectedOptions.length > maxAllowedCount) {
+//                     selectedOptions.each(function(i) {
+//                         if (i >= maxAllowedCount) {
+//                             jQuery(this).prop("selected",false);
+//                         }
+//                     });
+//                 }
+//                 jQuery('#'+obj.id+' option[value!=\'\']').not(':selected').prop("disabled",true);
+//             } else {
+//                 jQuery('#'+obj.id+' option[value!=\'\']').prop("disabled",false);
+//             }
+//         }
+// $("#checkboxes").on('change', function(e) {
+//     if (Object.keys($(this).val()).length > 3) {
+//         console.log($('input[value="' +$(this).val().toString().split(',')[3] + '"]'));
+//         $('input[value="' +$(this).val().toString().split(',')[3] + '"]').prop('selected', false);
+//     }
+// });
+</script>
