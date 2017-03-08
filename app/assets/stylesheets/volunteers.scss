@@ -99,13 +99,12 @@
 .submit_sub_btn{
 	margin-top:15px;
 	margin-bottom:140px;
-	border:0;
-	margin-left:-4vw;
+	border:0;/*
+	margin-left:-4vw;*/
 	color:white;
 	background:#93BB24;
 	padding:15px;
 	font-size:1.2em;
-	/*box-shadow:4px 4px 20px #93BB24;*/
 }
 
 .submit_sub_btn:active{
@@ -138,4 +137,10 @@
 
 #error_message{
 	color:#93BB24;	
+}
+
+@media(max-width:767px){
+	.submit_sub_btn{
+		margin-left:1vw;	
+	}
 }
