@@ -9,7 +9,7 @@ class VolunteersController < ApplicationController
 		@volunteer = Volunteer.new(post_params)
 		@events = Event.all
 		respond_to do |format|
-			if @events.save
+			if @Volunteers.save 
 				flash[:notice] = "Widget was successfully created."
         		format.html { redirect_to student_reviews_index_url}
         	else

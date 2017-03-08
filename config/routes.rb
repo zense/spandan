@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :schedules
   resources :events
-
+  resources :volunteers
   get 'registration/index'
 
   devise_for :users
