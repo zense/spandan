@@ -1,3 +1,60 @@
 // Place all the styles related to the Volunteers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#sub-vol-head{
+	margin-top:25px;
+	margin-bottom:25px;
+	font-size:2.5em;
+	text-align:center;
+	text-transform: uppercase;
+	font-family: 'Josefin Slab', serif;
+	font-weight:bold;
+}
+
+.form-label{
+	font-size: 1.3em;
+	text-align:right;
+	padding-right:0px;
+	margin-top:15px;
+	padding-top:4px;
+	/*color:#008B8B;*/
+	color:#00519C;
+}
+
+.form-fields{
+	margin-top:15px;
+	border-radius:15px;
+	font-size:1.2em;
+}
+
+.ccform-addon{
+	/*color:#008B8B; */
+	color:#00519C;
+	float:left;
+	text-align:right;
+	padding-right:0px;
+	margin-top:5px;
+	padding-top:4px;
+	width:5%;
+	background:#F0F3F4;	
+}
+
+.dropdown_feed select{
+	width:100%;
+	border-radius:4px;
+	background:#008B8B;
+	background:#00519C;
+	color:white;
+	font-weight:bold;
+	text-align:center;
+	font-family: 'Josefin Slab', serif;
+}
+
+.dropdown_feed select option{
+	background:white;
+	color:black;
+}
+
+.dropdown_feed select option:hover{
+	background:#ccc;
+}

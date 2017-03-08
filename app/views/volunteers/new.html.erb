@@ -1,0 +1,96 @@
+<script>
+var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+</script>
+
+<%= form_for(@volunteer) do |f| %>
+
+<h2 id="sub-vol-head">Volunteer Registration</h2>
+
+<form class="form-horizontal feedback-form" id="feed-form">
+	<div class="col-xs-1 col-md-4"></div>
+		<div class="row">
+			<div class="col-xs-8 col-md-6" id="box">
+				<div class="row form-group">
+					<span class="ccform-addon">
+						<i class="fa fa-user fa-2x"></i>
+					</span>
+					<span class="form-fields col-xs-7">
+						<%= f.text_field :name , :class => 'form-control',placeholder: "Name" ,:required => true %>
+					</span>
+					<div class="col-sm-1"></div>
+				</div>
+				<div class="row form-group">
+					<span class="ccform-addon">
+						<i class="fa fa-registered fa-2x"></i>
+					</span>
+					<span class="form-fields col-xs-7">
+						<%= f.text_field :roll , :class => 'form-control' , placeholder: "Roll Number" ,:required => true ,:maxlength => 11%>
+					</span>
+					<div class="col-sm-1"></div>	
+				</div>
+				<div class="row dropdown_feed" id="dropdown1">
+					<span class="ccform-addon">
+						<i class="fa fa-graduation-cap fa-2x"></i>
+					</span>
+					<span class="form-fields col-xs-4">
+						<%= f.select :tshirt_size, ['XL', 'L', 'M','S'] , {:prompt => 'Select Size'}, { :class => 'sub-menu-parent',:required => true} %>	
+					</span>
+					<!--<div class="col-xs-1"></div>-->
+				</div>
+				<div class="row form-group">
+					<span class="ccform-addon">
+						<i class="fa fa-envelope fa-2x"></i>
+					</span>
+					<span class="form-fields col-xs-7">
+						<%= f.email_field :email , :class => 'form-control' ,placeholder: "Email" ,:required => true%>
+					</span>
+					<div class="col-xs-1"></div>
+				</div>
+				<div class="row dropdown_feed" id="dropdown1">
+				    <span class="ccform-addon">
+							<i class="fa fa-building-o fa-2x"></i>
+					</span>
+					<div class="form-fields col-xs-4">
+						 <span class="selectBox" onclick="showCheckboxes()">
+					    	
+							 <!-- <span class="form-fields col-xs-4">  -->
+					    		<select>
+					        		<option>Select Events</option>
+					      		</select>
+					      		<span class="overSelect"></span>
+					    </span>
+					    <span id="checkboxes" class ="sub-menu-parent">
+					    	<% @events.each do |event| %>
+					    		<% if event.vol_req > 0 %>
+					      			<label for="volunteer_event_ids_<%=event.id%>">
+					      	  			<input type="checkbox" name="volunteer[event_ids][]" id="volunteer_event_ids_<%=event.id%>"
+					      	  				value="<%= event.id%>" > <%= event.name%> 
+					      			</label>
+					      		<%end%>
+					      	<%end%>
+					    </span> 
+					</div>   
+				</div>
+			</div>
+		</div>
+	<div class="col-xs-2 col-md-2"></div>	
+	<div class="row" id="submit">
+		<div class="col-xs-4"></div>
+		<span class="col-xs-4">
+			<%= f.submit 'Submit', :class => 'submit_sub_btn'%>
+		</span>
+		<div class="col-xs-4"></div>
+	</div>
+</form>
+<%end%>

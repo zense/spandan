@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308141247) do
+ActiveRecord::Schema.define(version: 20170308154849) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",              limit: 255
@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(version: 20170308141247) do
     t.string   "name",        limit: 255
     t.string   "email",       limit: 255
     t.string   "roll",        limit: 255
-    t.integer  "tshirt_size", limit: 4
+    t.string   "tshirt_size", limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

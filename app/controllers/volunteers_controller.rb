@@ -1,17 +1,20 @@
 class VolunteersController < ApplicationController
-	befor_action :set_studentfeed, only: [:show]
+	before_action :set_volunteer, only: [:show]
 	def new
 		@volunteer = Volunteer.new
-		@events1 = Event.all
-		@events = @events1.select("name")
+		@events = Event.all
 	end
 	def create
 		@volunteer = Volunteer.new(post_params)
 		@events = Event.all
 		respond_to do |format|
-			if @Volunteers.save 
-				flash[:notice] = "Widget was successfully created."
-        		format.html { redirect_to student_reviews_index_url}
+			if @volunteer.save
+                @volunteer.events.each do |event|
+                    event.vol_req-=1
+                    event.save
+                end 
+				flash[:notice] = "You are successfully registered for volunteer"
+        		format.html { redirect_to  welcome_index_url}
         	else
         		format.html { render :new }
         		format.json { render json: @events.errors, 
@@ -23,10 +26,10 @@ class VolunteersController < ApplicationController
     end
     private
     def post_params
-    	params.require(:volunteer).permit(:name, :email, :roll, :tshirt_size)
+    	params.require(:volunteer).permit(:name, :email, :roll, :tshirt_size, :event_ids =>[])
     end
     def set_volunteer
-    @studentfeed= StudentFeed.find(params[:id]) 
+    @volunteer= Volunteer.find(params[:id]) 
 
   end
 end
