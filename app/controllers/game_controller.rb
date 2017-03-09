@@ -1,21 +1,19 @@
 class GameController < ApplicationController
-	# before_action :authenticate_user!
-	# before_action :game, only: [:show, :edit]
+	 before_action :authenticate_user!
+	 #before_action :game, only: [:show, :edit]
 
 	def index
 		@game=Event.all
 	end
 
 	def show
-
-#	@event=Event.find_by_name("cricket")
-
 			@event=Event.find_by_name(params[:name])
 			if @event.nil?
 				render_404
+			else
+				@tasks_grid = initialize_grid(Schedule.where("event_id=?",@event.id),per_page: 20, enable_export_to_csv: true,  csv_file_name:'schedule')
+				@complete = initialize_grid(Schedule, per_page: 20)
 			end
-			@tasks_grid = initialize_grid(Schedule.where("event_id=?",@event.id),per_page: 20, enable_export_to_csv: true,  csv_file_name:'schedule')
-			@complete = initialize_grid(Schedule, per_page: 20)
 	end
 
 	def register

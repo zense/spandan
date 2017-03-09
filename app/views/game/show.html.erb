@@ -1,9 +1,15 @@
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<body style="background-color: black">
 <section id="services" class="service-item">
        	<div class="container-fluid">
-            <div class="center wow fadeInDown">
-                <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal"><h2><%= @event.name %></h2></button>
-  			</div>
-	    </div>
+            <div class="center wow fadeInDown hidden-xs">
+                <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal" id="event-name" style="background:black;border-color: black; "><h1 style="font-size: 4em;text-transform: uppercase; font-weight: bold"><%= @event.name %></h1></button>
+  			   </div>
+           <div class="center wow fadeInDown visible-xs">
+                <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal" id="event-name" style="background:black;border-color: black; "><h1 style="font-size: 2.5em;text-transform: uppercase;"><%= @event.name %></h1></button>
+           </div>
+	     </div>
                 <div class="modal fade" id="myModal" role="dialog">
     				<div class="modal-dialog">
       					<div class="modal-content">
@@ -24,23 +30,37 @@
             		</div>
     			</div>
 
-</section>
+</section> 
+<hr style="background-color:  #93bb24;border-top:2px solid  #93bb24; margin-top: 0px">
 
-<ul class="nav nav-tabs nav-justified">
-  <li ><a data-toggle="tab" href="#home">Home</a></li>
-  <li><a data-toggle="tab" href="#rules">Rules</a></li>
-  <li><a data-toggle="tab" href="#contact">Contact Us</a></li>
-  <li><a data-toggle="tab" href="#schedule">Schedule for this Game</a></li>
-  <li><a data-toggle="tab" href="#schedule-overall">Overall Schedule</a></li>
-
-</ul>
-
-<div class="tab-content">
+ <!-- <div class="container"> -->
+    <div class="col-md-1"></div>
+  <!-- <div class="row" style="width:120%; margin-left:-6vw"> -->
+    <div class="col-md-10">
+    <div class="col-md-1">  </div>
+    <div class="col-md-10">
+      <ul class="nav nav-tabs nav-justified" id="hov">
+        <li class="active" style="font-size: 1.5em"><a data-toggle="tab" href="#home" id="hov">Home</a></li>
+        <li style="font-size: 1.5em"><a data-toggle="tab" href="#rules" id="hov">Rules</a></li>
+        <li style="font-size: 1.5em"><a data-toggle="tab" href="#contact" id="hov">Contact Us</a></li>
+        <li style="font-size: 1.5em"><a data-toggle="tab" href="#schedule" id="hov">Schedule</a></li>
+        <li style="font-size: 1.5em"><a data-toggle="tab" href="#schedule-overall" id="hov">Overall Schedule</a></li> 
+      </ul>
+    </div>
+    <div class="col-md-1">   </div>
+  </div>
+  <div class="col-md-1"></div>
+<!-- </div> -->
+<div class="container">
+<div class="row">
+<div class="col-md-1"></div>
+<div class="tab-content col-md-10">
+	 
 	  <div id="home" class="tab-pane fade">
 	    <div class="center wow fadeInDown">
-	    	<h2><center>Description</center></h2>
+	    	<h2 style ="color: white; font-size: 2.6em; font-weight: bold"><center>Description</center></h2>
 		    <p><h3>
-		    	<div class="well">
+		    	<div class="well" style="background-color: black;color: white; border: 1px solid black">
 		    		<center><%=raw @event.description %></center>
 		    	</div>
 		    	<div class="alert alert-danger">
@@ -51,21 +71,21 @@
 	  	</div>
   	<div id="rules" class="tab-pane fade">
   		<div class="center wow fadeInDown">
-	    	<h2>Rules</h2>
-	  		<div class="well">
-			    	<strong>The rules of the event is as follows:</strong>
-			    <p><h3>
-			    	<br><%= raw @event.rules %><br>
+	    	<h2 style ="color: white; font-size: 2.6em; font-weight: bold"><center>Rules</center></h2>
+	  		<div class="well" style="background-color: black;color: white; border: 1px solid black">
+			    	<strong style="font-size: 1.2em;">The rules of the event is as follows:</strong>
+			    <p><h3 style="font-size: 1.7em;margin-top: 0px;color: white;">
+			    	<%= raw @event.rules %><br>
 			   	</h3></p>
 			</div>
   		</div>
   	</div>
   	<div id="contact" class="tab-pane fade">
   		<div class="center wow fadeInDown">
-	    	<h2>Contact Details</h2>
-	    	<div class="well">
-		    	<strong>For any other queries regarding this event, you can contact: </strong><br>
-		    	<p><h3>
+	    	<h2 style ="color: white; font-size: 2.6em; font-weight: bold">Contact Details</h2>
+	    	<div class="well" style="background-color: black;color: white; border: 1px solid black">
+		    	<strong style="font-size: 1.2em">For any other queries regarding this event, you can contact: </strong><br>
+		    	<p><h3 style="font-size: 1.7em;margin-top: 0px;color: white;">
 					<%= raw @event.contact_details %><br>
 		    	</h3></p>
 	    	</div>
@@ -73,7 +93,7 @@
   	</div>
     <div id="schedule" class="tab-pane fade">
       <div class="center wow fadeInDown">
-        <h2>schedule</h2>
+        <h2 style ="color: white; font-size: 2.6em; font-weight: bold">Schedule</h2>
         <%= form_tag("game_path",method: "get") do%>
         <div class="field" style="float:left">
 
@@ -82,43 +102,51 @@
 
           <%end %>
         </div></div>
-		<p>NOTE: You can find all schedule related to you in your profile page. Schedule for LAN Gaming events, TT Doubles, TT MIxed Doubles, Badminton Doubles
+		<p style="color: white;font-size: 1.1em">NOTE: You can find all schedule related to you in your profile page. Schedule for LAN Gaming events, TT Doubles, TT MIxed Doubles, Badminton Doubles
 		, Badminton Mixed Doubles might not appear on these pages. They will appear in profile of your captain. You can also try searching in Overall Schedule</p>
-        <p>Also note that after you search, your search parameter will be applied for both "Schedule for this Game" table and "Overall Schedule" table so after
+        <p style="color: white;font-size: 1.1em">Also note that after you search, your search parameter will be applied for both "Schedule for this Game" table and "Overall Schedule" table so after
 		searching you can just switch tabs and check for your schedule</p>
-		<%= render 'grid_grid' %>
-        <div class="well">
+		<%= render 'grid_grid'%>
+        <!-- <div class="well">
           <p><h3>
           </h3></p>
-        </div>
+        </div> -->
       </div>
     </div>
 
   <div id="schedule-overall" class="tab-pane fade">
 	<div class="center wow fadeInDown">
-	  <h2>schedule</h2>
+	  <h2 style ="color: white; font-size: 2.6em; font-weight: bold">Schedule</h2>
 		  <div class="field" style="float:left">
 
 
 			<div class="actions">
 
 	  </div></div>
-	  <p>NOTE: To search Enter your email ID in Player1 or Player2 column (For individual registration schedule)
+	  <p style="color: white;font-size: 1.1em">NOTE: To search Enter your email ID in Player1 or Player2 column (For individual registration schedule)
 	  and your captain email id in Player1 or Player2 column (For team registration schedule). Remember to search for
 		desired email ID in both Player1 and Player2 Columns.
 	  </p>
-	  <p>Also note that after you search, your search parameter will be applied for both "Schedule for this Game" table and "Overall Schedule" table so after
+	  <p style="color: white;font-size: 1.1em">Also note that after you search, your search parameter will be applied for both "Schedule for this Game" table and "Overall Schedule" table so after
 		searching you can just switch tabs and check for your schedule</p>
 	  <%= render 'grid_schedule' %>
-	  <div class="well">
+	 <!--  <div class="well">
 		<p><h3>
 	  </h3></p>
-	  </div>
+	  </div> -->
 	</div>
   </div>
 </div>
-
 </div>
-<div class="alert alert-success fade in">
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-1"></div>
+<div class="alert alert-success fade in col-md-10">
   <h2><center><strong>To register for this event, </strong><a href="<%= request.url %>/register">Click Here</a></center></h2>
 </div>
+</div>
+</div>
+<div class="col-sm-1"></div>
+</div>
+</body>

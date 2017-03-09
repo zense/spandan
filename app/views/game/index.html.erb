@@ -1,7 +1,8 @@
-<section id="services" class="service-item">
+
+<section id="services" class="service-item" style="background-color: #93bb24;">
        <div class="container">
-            <div class="center wow fadeInDown">
-                <h2>Sports</h2>
+            <div class="center wow fadeInDown" >
+                <h2 style="color: black; font-weight: bold; font-size: 3em">SPORTS</h2>
                 <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p> -->
             </div>
 
@@ -9,24 +10,28 @@
 
                 <% Event.all.each do |event| %>
                 <% if event.event_type == INDIVIDUAL or event.event_type == TEAM%>
-                <div class="col-sm-6 col-md-4" onclick="location.href='<%= request.url %>/<%= event.name %>';" id="smallbox">
-                    <div class="media services-wrap wow fadeInDown">
-                        <div class="pull-left">
-                            <%= image_tag event.icon , :class => "responsive"%>
+                <div class="wow fadeInUp">
+                <div  class="col-sm-6 col-md-4  animations" onclick="location.href='<%= request.url %>/<%= event.name %>';" >
+                    <div class="media "> 
+                        <!-- <div class="pull-left"> -->
+                            <center><%= image_tag event.icon , :class => "responsive"%></center>
                         </div>
-                        <div class="media-body">
+                        <br>
+                        
+                        <div class="media-body ">
                                 <% if event.description.to_s.length > 0 %>
-                                <h3 id="media-onhover" class="media-heading"><%= event.name %></h3>
+                                <h3  class="media-heading" style="font-size: 2em;" ><%= event.name %></h3>
 
                                 <% else %>
                                 <h3 id="media-onhover" class="media-heading-alone"><%= event.name %></h3>
         
                                 <% end %>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
-                 <% end end %>
 
+                 <% end end %>
+                 </div>
             </div><!--/.row-->
         </div><!--/.container-->
     </section><!--/#services-->
