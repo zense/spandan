@@ -9,10 +9,10 @@ class VolunteersController < ApplicationController
 		@events = Event.all
 		respond_to do |format|
 			if @volunteer.save
-                @volunteer.events.each do |event|
-                    event.vol_req-=1
-                    event.save
-                end 
+               # @volunteer.events.each do |event|
+                #    event.vol_req-=1
+                 #   event.save
+               # end 
 				flash[:notice] = "You are successfully registered for volunteer"
         		format.html { redirect_to  welcome_index_url}
         	else
