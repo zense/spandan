@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303143308) do
+ActiveRecord::Schema.define(version: 20170308185810) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",              limit: 255
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 20160303143308) do
     t.integer  "icon_file_size",    limit: 4
     t.datetime "icon_updated_at"
     t.boolean  "visible"
+    t.integer  "vol_req",           limit: 4
+  end
+
+  create_table "events_volunteers", id: false, force: :cascade do |t|
+    t.integer "event_id",     limit: 4
+    t.integer "volunteer_id", limit: 4
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -122,6 +128,16 @@ ActiveRecord::Schema.define(version: 20160303143308) do
     t.integer  "approved_by", limit: 4
     t.integer  "priority4",   limit: 4
     t.integer  "tshirt_size", limit: 2
+  end
+
+  create_table "volunteers", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "email",       limit: 255
+    t.string   "roll",        limit: 255
+    t.string   "tshirt_size", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "phone",       limit: 255
   end
 
 end

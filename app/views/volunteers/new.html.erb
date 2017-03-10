@@ -1,0 +1,145 @@
+
+
+<body id="vol_body">
+<%= form_for(@volunteer) do |f| %>
+
+
+<h2 id="sub-vol-head">Volunteer Registration</h2>
+
+<form class="form-horizontal feedback-form" id="feed-form">
+	<div class="col-xs-1 col-md-4"></div>
+		<div class="row">
+			<div class="col-xs-8 col-md-6" id="box">
+				<div class="row form-group">
+					<span class="ccform-addon">
+						<i class="fa fa-user fa-2x"></i>
+					</span>
+					<span class="form-fields col-xs-7">
+						<%= f.text_field :name , :class => 'form-control',placeholder: "Name" ,:required => true %>
+					</span>
+					<div class="col-sm-1"></div>
+				</div>
+				<div class="row form-group">
+					<span class="ccform-addon">
+						<i class="fa fa-registered fa-2x"></i>
+					</span>
+					<span class="form-fields col-xs-7">
+						<%= f.text_field :roll , :class => 'form-control' , placeholder: "Roll Number" ,:required => true ,:maxlength => 11%>
+					</span>
+					<div class="col-sm-1"></div>	
+				</div>
+				<div class="row form-group">
+					<!--<span class="form-label col-xs-4">
+						<%= f.label :'Phone no.' , :class => 'control-label' %>
+					</span>-->
+					<span class="ccform-addon">
+						<i class="fa fa-mobile fa-3x"></i>
+					</span>
+					<span class="form-fields col-xs-7">
+						<%= f.telephone_field :phone , :class => 'form-control',placeholder: "Mobile Number" ,:maxlength => 11%>
+					</span>
+					<!--<div class="col-sm-1"></div>-->
+				</div>
+				<div class="row dropdown_feed" id="dropdown1">
+					<span class="ccform-addon">
+						<i class="fa fa-shirtsinbulk fa-2x"></i>
+					</span>
+					<span class="form-fields col-xs-7">
+						<%= f.select :tshirt_size, ['XL', 'L', 'M','S'] , {:prompt => 'Select Size'}, { :class => 'sub-menu-parent',:required => true} %>	
+					</span>
+					<!--<div class="col-xs-1"></div>-->
+				</div>
+				<div class="row form-group">
+					<span class="ccform-addon">
+						<i class="fa fa-envelope fa-2x"></i>
+					</span>
+					<span class="form-fields col-xs-7">
+						<%= f.email_field :email , :class => 'form-control' ,placeholder: "Email" ,:required => true%>
+					</span>
+					<div class="col-xs-1"></div>
+				</div>
+				<div class="row dropdown_feed" id="dropdown1">
+				    <span class="ccform-addon">
+							<i class="fa fa-list-alt fa-2x"></i>
+					</span>
+					<div class="form-fields col-xs-7">
+						 <span class="selectBox" onclick="showCheckboxes()">
+					    		<select>
+					        		<option>Select Events</option>
+					      		</select>
+					      		<span class="overSelect"></span>
+					    </span>
+					    <span id="checkboxes" class ="sub-menu-parent">
+					    	<% @events.each do |event| %>
+					    		<% if event.vol_req > 0 %>
+					      			<label for="volunteer_event_ids_<%=event.id%>">
+					      	  			<input type="checkbox" name="volunteer[event_ids][]" id="volunteer_event_ids_<%=event.id%>"
+					      	  				value="<%= event.id%>" > <%= event.name%> 
+					      			</label>
+					      		<%end%>
+					      	<%end%>
+
+					    </span> 
+					</div>
+					<div class="alert" id="only3">*Choose max 3 events</div>   
+				</div>
+				<% if @volunteer.errors.any? %>
+				    <div id="error_explanation" class="row col-xs-7">
+				      <ul>
+				      <% @volunteer.errors.full_messages.each do |message| %>
+				        <li id="error_message"><%= message %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+			</div>
+		</div>	
+	<div class="row" id="submit">
+		<div class="col-xs-1 col-md-4"></div>
+		<span class="col-xs-4">
+			<center>
+				<%= f.submit 'Submit', :class => 'submit_sub_btn'%>
+			</center>
+		</span>
+		<div class="col-xs-4"></div>
+	</div>
+</form>
+<%end%>
+</body>
+<script src="jquery.js"></script>
+<script src="jquery.multiselect.js"></script>
+<script>
+var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+// function maxAllowedMultiselect(obj, maxAllowedCount) {
+//             var selectedOptions = jQuery('#'+obj.id+" option[value!=\'\']:selected");
+//             if (selectedOptions.length >= maxAllowedCount) {
+//                 if (selectedOptions.length > maxAllowedCount) {
+//                     selectedOptions.each(function(i) {
+//                         if (i >= maxAllowedCount) {
+//                             jQuery(this).prop("selected",false);
+//                         }
+//                     });
+//                 }
+//                 jQuery('#'+obj.id+' option[value!=\'\']').not(':selected').prop("disabled",true);
+//             } else {
+//                 jQuery('#'+obj.id+' option[value!=\'\']').prop("disabled",false);
+//             }
+//         }
+// $("#checkboxes").on('change', function(e) {
+//     if (Object.keys($(this).val()).length > 3) {
+//         console.log($('input[value="' +$(this).val().toString().split(',')[3] + '"]'));
+//         $('input[value="' +$(this).val().toString().split(',')[3] + '"]').prop('selected', false);
+//     }
+// });
+</script>
