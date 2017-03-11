@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Spandan 2016 | Feel the beat</title>
+  <title>Spandan 2017 | Feel the beat</title>
 
   <!-- core CSS -->
   <link href="<%= WEBLINK %>css/bootstrap.min.css" rel="stylesheet">
@@ -78,7 +78,7 @@
           %>
           <li><%= link_to 'Volunteer', {:controller=>'/volunteers', :action=>'new'} %></li>
           <li><%= link_to 'Contact', {:controller=>'/welcome', :action=>'contact'} %></li>
-          <li><% if !user_signed_in? %>
+          <!-- <li><% if !user_signed_in? %>
                 <li> <%= link_to('Log In', new_user_session_path)  %> </li>
 
                 <li><%= link_to('Sign Up', new_user_registration_path)  %>
@@ -89,7 +89,7 @@
               <li>
                 <%= link_to('Sign Out', destroy_user_session_path, :method=> :delete) %>
               </li>
-            <% end %>
+            <% end %> -->
             </ul>
       </div>
     </div><!--/.container-->
@@ -113,7 +113,7 @@
     <div class="row">
       <div class="col-sm-5">
         <ul class="pull-left">
-          © 2016 Spandan. All Rights Reserved. 1999 - 2016 | <a href="http://www.iiitb.ac.in/" target="_blank">IIIT B</a><br>Developed by
+          © 2017 Spandan. All Rights Reserved. 1999 - 2017 | <a href="http://www.iiitb.ac.in/" target="_blank">IIIT B</a><br>Developed by
           <a href="http://www.zense.co.in/" target="_blank">Zense, IIITB</a>
         </ul>
       </div>

@@ -71,12 +71,12 @@
 					    </span>
 					    <span id="checkboxes" class ="sub-menu-parent">
 					    	<% @events.each do |event| %>
-					    		<!--<% if event.vol_req > 0 %> -->
+					    		<!-- <%# if event.vol_req > 0 %> -->
 					      			<label for="volunteer_event_ids_<%=event.id%>">
 					      	  			<input type="checkbox" name="volunteer[event_ids][]" id="volunteer_event_ids_<%=event.id%>"
 					      	  				value="<%= event.id%>" > <%= event.name%> 
 					      			</label>
-					      		<!--<%end%> -->
+					      		<!--<%#end%> -->
 					      	<%end%>
 
 					    </span> 
@@ -106,8 +106,6 @@
 </form>
 <%end%>
 </body>
-<script src="jquery.js"></script>
-<script src="jquery.multiselect.js"></script>
 <script>
 var expanded = false;
 

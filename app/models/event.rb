@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   has_many :volunteer_requests
   has_attached_file :icon, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: WEBLINK + "/assets/def.png"
   validates_attachment_content_type :icon, content_type: /\Aimage\/.*\Z/
-  validates :vol_req, presence: true
+  #validates :vol_req, presence: true
 
   # If Individual event the returns all users who have reigstered
   # If Team event then returns all teams who have registered

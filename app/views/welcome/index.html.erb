@@ -19,10 +19,10 @@
           <div class="row slide-margin">
             <div class="col-sm-8">
               <div class="sp_car">
-                <!--<h1 class="car_spandan">SPANDAN 2016</h1><h2 class="tag_spandan">Feel the beat</h2>-->
+                <!--<h1 class="car_spandan">SPANDAN 2017</h1><h2 class="tag_spandan">Feel the beat</h2>-->
 
                 <div class="sp-text">
-                  <div class="text">SPANDAN 2016</div>
+                  <div class="text">SPANDAN 2017</div>
                 </div>
 
 
@@ -51,7 +51,7 @@
                 </svg>
 
                 <div class="sp-text-dates">
-                  <div class="text">4th, 5th &amp; 6th March '16</div>
+                  <div class="text">14th, 15th &amp; 16th April '17</div>
                 </div>
               </div>
             </div>
@@ -182,33 +182,42 @@
   </a>
 </section><!--/#main-slider-->
 
-<section id="services" class="service-item">
-  <div class="container">
-    <div class="center wow fadeInDown">
-      <h2>Sports</h2>
-      <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p> -->
-    </div>
+<section id="services" class="service-item" style="background-color: #93bb24;">
+       <div class="container">
+            <div class="center wow fadeInDown" >
+                <h2 style="color: black; font-weight: bold; font-size: 3em">SPORTS</h2>
+                <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p> -->
+            </div>
 
+            <div class="row">
 
-    <div class="row">
-      <% Event.where(visible: true).each do |event| %>
-          <% if event.event_type == INDIVIDUAL or event.event_type == TEAM%>
-              <div class="col-sm-6 col-md-4" onclick="location.href='<%= WEBLINK %>game/<%= event.name %>';" id="smallbox">
-                <div class="media services-wrap wow fadeInDown">
-                  <div class="pull-left">
-                    <%= image_tag event.icon , :class => "responsive"%>
-                  </div>
-                  <div class="media-body">
-                        <h3 id="media-onhover" class="media-heading-alone"><%= event.name %></h3>
-                  </div>
+                <% Event.all.each do |event| %>
+                <% if event.event_type == INDIVIDUAL or event.event_type == TEAM%>
+                <div class="wow fadeInUp">
+                <div  class="col-sm-6 col-md-4  animations" onclick="location.href='<%= WEBLINK %>game/<%= event.name %>';" >
+                    <div class="media "> 
+                        <!-- <div class="pull-left"> -->
+                            <center><%= image_tag event.icon , :class => "responsive"%></center>
+                        </div>
+                        <br>
+                        
+                        <div class="media-body ">
+                                <% if event.description.to_s.length > 0 %>
+                                <h3  class="media-heading" style="font-size: 2em;" ><%= event.name %></h3>
+
+                                <% else %>
+                                <h3 id="media-onhover" class="media-heading-alone"><%= event.name %></h3>
+        
+                                <% end %>
+                        </div>
+                    <!-- </div> -->
                 </div>
-              </div>
-          <% end end %>
 
-
-    </div><!--/.row-->
-  </div><!--/.container-->
-</section><!--/#services-->
+                 <% end end %>
+                 </div>
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#services-->
 
 
 <section id="recent-works">
@@ -319,12 +328,12 @@
       <div class="col-xs-12 col-sm-4 col-md-3">
         <div class="recent-work-wrap">
           <img class="img-responsive" src="<%= WEBLINK %>images/officials/7.jpg" alt="">
-          <h3 class = "name"><b>Avinash Chandrakar</b><br />SAC</h3>
+          <h3 class = "name"><b>Arnav Chakraborty</b><br />SAC</h3>
           <div class="overlay">
             <div class="recent-work-inner">
 
-              Contact: <b>98278 06574</b><br />
-              <b>AvinashKumar.Chandrakar@iiitb.org</b>
+              Contact: <b>9756370845</b><br />
+              <b>Arnav.Chakraborty@iiitb.org</b>
             </div>
           </div>
         </div>
@@ -353,7 +362,7 @@
 <section id="clock">
   <div class="container">
     <div class="center wow fadeInUp">
-      <h2 style="color:white;">Countdown to SPANDAN 2016</h2>
+      <h2 style="color:white;">Countdown to SPANDAN 2017</h2>
     </div>
     <div class="center wow fadeInUp">
       <div class="clock"></div>
@@ -370,7 +379,7 @@
         var currentDate = new Date();
 
         // Set some date in the future. In this case, it's always Jan 1
-        var futureDate  = new Date("March 4, 2016 00:00:00");
+        var futureDate  = new Date("April 14, 2017 00:00:00");
 
         // Calculate the difference in seconds between the future and current date
         var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
