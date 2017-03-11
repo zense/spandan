@@ -11,7 +11,7 @@
                 <% Event.all.each do |event| %>
                 <% if event.event_type == INDIVIDUAL or event.event_type == TEAM%>
                 <div class="wow fadeInUp">
-                <div  class="col-sm-6 col-md-4  animations" onclick="location.href='<%= request.url %>/<%= event.name %>';" >
+                <div  class="col-sm-6 col-md-4  animations" onclick="location.href='<%= WEBLINK %>game/<%= event.name %>';" >
                     <div class="media "> 
                         <!-- <div class="pull-left"> -->
                             <center><%= image_tag event.icon , :class => "responsive"%></center>
